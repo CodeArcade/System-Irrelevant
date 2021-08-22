@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Input;
 using Unity;
 using Bliss.Manager;
 using Bliss.States;
+using Bliss.States.Game;
 
 namespace Bliss
 {
@@ -11,6 +12,12 @@ namespace Bliss
     {
         private GraphicsDeviceManager Graphics;
         private SpriteBatch SpriteBatch;
+
+        public int BaseWidth => 1280;
+        public int BaseHeight => 720;
+
+        public float WidthScaleFactor => Graphics.PreferredBackBufferWidth / BaseWidth;
+        public float HeightScaleFactor => Graphics.PreferredBackBufferHeight / BaseHeight;
 
         [Dependency]
         public StateManager StateManager { get; set; }
@@ -24,12 +31,11 @@ namespace Bliss
 
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
-            Graphics.IsFullScreen = false;
-            Graphics.PreferredBackBufferWidth = 1280;
-            Graphics.PreferredBackBufferHeight = 720;
+            Graphics.IsFullScreen = true;
+            Graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
+            Graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
             Graphics.ApplyChanges();
-            
+
             base.Initialize();
         }
 
@@ -37,7 +43,7 @@ namespace Bliss
         {
             SpriteBatch = new SpriteBatch(GraphicsDevice);
 
-            StateManager.ChangeTo<DefaultState>(DefaultState.Name);
+            StateManager.ChangeTo<GameState>(GameState.Name);
             // TODO: use this.Content to load your game content here
         }
 

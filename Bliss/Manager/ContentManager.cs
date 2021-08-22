@@ -1,6 +1,4 @@
-﻿using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Graphics;
-using System.Collections.Generic;
+﻿using Microsoft.Xna.Framework.Graphics;
 using Unity;
 
 namespace Bliss.Manager
@@ -9,5 +7,6 @@ namespace Bliss.Manager
     {
         [Dependency]
         public JamGame JamGame { get; set; }
+        public Texture2D TableTexture => JamGame.Content.Load<Texture2D>("Sprites/Table");
     }
 }
