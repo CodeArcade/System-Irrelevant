@@ -13,6 +13,10 @@ namespace Bliss.Manager
         public Texture2D InvoiceTexture => JamGame.Content.Load<Texture2D>("Sprites/Invoice");
         public Texture2D ClockTexture => JamGame.Content.Load<Texture2D>("Sprites/Clock");
 
+        public Texture2D DocumentOrganizerOneTexture => JamGame.Content.Load<Texture2D>("Sprites/DocumentOrganizerOne");
+        public Texture2D DocumentOrganizerTwoTexture => JamGame.Content.Load<Texture2D>("Sprites/DocumentOrganizerTwo");
+        public Texture2D DocumentOrganizerThreeTexture => JamGame.Content.Load<Texture2D>("Sprites/DocumentOrganizerThree");
+
         public Texture2D ClockZeroTexture => JamGame.Content.Load<Texture2D>("Sprites/0");
         public Texture2D ClockOneTexture => JamGame.Content.Load<Texture2D>("Sprites/1");
         public Texture2D ClockTwoTexture => JamGame.Content.Load<Texture2D>("Sprites/2");

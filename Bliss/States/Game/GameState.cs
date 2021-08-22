@@ -1,3 +1,4 @@
+using Bliss.Component.Sprites.Office;
 using Bliss.Component.Sprites.Office.Documents;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -16,6 +17,7 @@ namespace Bliss.States.Game
         private MouseState PreviousMouse { get; set; }
 
         private List<Component.Component> CurrentDetailViewComponents { get; set; } = new List<Component.Component>();
+        private BaseDocument CurrentDocument { get; set; }
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
@@ -29,6 +31,11 @@ namespace Bliss.States.Game
 
             if (Keyboard.GetState().IsKeyDown(Keys.Space)) SpawnDocument();
             if (Keyboard.GetState().IsKeyDown(Keys.T)) Phone.Ring();
+            if (Keyboard.GetState().IsKeyDown(Keys.C))
+            {
+                Clock.Enabled = !Clock.Enabled;
+                Clock.Reset();
+            }
 
             if (CurrentMouse.RightButton == ButtonState.Released && PreviousMouse.RightButton == ButtonState.Pressed && CurrentDetailViewComponents.Any())
             {
@@ -42,9 +49,19 @@ namespace Bliss.States.Game
         {
             AudioManager.PlayEffect(ContentManager.DocumentSpawnedSoundEffect);
             Random random = new Random();
-            Invoice invoice = new Invoice(DocumentSpawnPoints[random.Next(0, DocumentSpawnPoints.Count)].Position, Table.Rectangle);
+            Invoice invoice = new Invoice(DocumentSpawnPoints[random.Next(0, DocumentSpawnPoints.Count)].Position, Table.Rectangle)
+            {
+                Size = SizeManager.GetSize(150, 200)
+            };
             invoice.OnClick += DocumentClicked;
             AddComponent(invoice, States.Layers.PlayingArea);
+        }
+
+        private void DocumentOrganizerClicked(object sender, EventArgs e)
+        {
+            RemoveDetailView();
+            CurrentDocument.IsRemoved = true;
+            // TODO: Prüfen ob richtig eingeordnet
         }
 
         private void DocumentClicked(object sender, EventArgs e)
@@ -59,6 +76,8 @@ namespace Bliss.States.Game
 
             foreach (Component.Component component in CurrentDetailViewComponents)
                 AddComponent(component, States.Layers.DocumentDetailView);
+
+            CurrentDocument = document;
 
             AudioManager.PlayEffect(ContentManager.DocumentPickedUpSoundEffect);
         }
@@ -77,8 +96,11 @@ namespace Bliss.States.Game
         {
             foreach (Component.Component component in Layers[(int)States.Layers.PlayingArea])
             {
-                if (!(component is BaseDocument)) continue;
-                ((BaseDocument)component).CanBeClicked = clickable;
+                if (component is BaseDocument document)
+                    document.CanBeClicked = clickable;
+
+                if (component is DocumentOrganizer organizer)
+                    organizer.CanBeClicked = !clickable;
             }
         }
 

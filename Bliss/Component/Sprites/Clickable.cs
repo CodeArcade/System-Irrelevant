@@ -12,7 +12,7 @@ namespace Bliss.Component.Sprites
         protected bool IsMouseOver { get; set; }
         public bool CanBeClicked { get; set; } = true;
         public event EventHandler OnClick;
-        public Color HoverColor { get; set; }
+        public Color HoverColor { get; set; } = Color.Yellow;
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {

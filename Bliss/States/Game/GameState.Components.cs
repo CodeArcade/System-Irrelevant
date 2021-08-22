@@ -1,6 +1,7 @@
 ﻿using Bliss.Component.Sprites;
 using Bliss.Component.Sprites.Office;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -14,6 +15,7 @@ namespace Bliss.States.Game
         protected Clock Clock { get; set; }
         protected Phone Phone { get; set; }
         protected List<Sprite> DocumentSpawnPoints { get; set; }
+        protected List<DocumentOrganizer> DocumentOrganizers { get; set; }
 
         protected override void LoadComponents()
         {
@@ -21,8 +23,34 @@ namespace Bliss.States.Game
             AddClock();
             AddPhone();
 
-            Clock.Enabled = true;
-            Clock.Reset();
+            DocumentOrganizers = new List<DocumentOrganizer>();
+
+            AddDocumentOrganizer(
+                    ContentManager.DocumentOrganizerOneTexture,
+                    Table.Rectangle.Width,
+                    (int)(Table.Rectangle.Y * 1.2),
+                    210,
+                    160,
+                    0
+                );
+
+            AddDocumentOrganizer(
+                    ContentManager.DocumentOrganizerTwoTexture,
+                    Table.Rectangle.Width,
+                    (int)(Table.Rectangle.Y * 1.4 + SizeManager.ScaleForHeight(160)),
+                    210,
+                    160,
+                    1
+                );
+
+            AddDocumentOrganizer(
+                    ContentManager.DocumentOrganizerThreeTexture,
+                  Table.Rectangle.Width,
+                    (int)(Table.Rectangle.Y * 1.6 + SizeManager.ScaleForHeight(160) * 2),
+                    210,
+                    160,
+                    2
+                );
 
             DocumentSpawnPoints = new List<Sprite>();
             // left side of desk
@@ -45,7 +73,7 @@ namespace Bliss.States.Game
             {
                 Size = size,
                 Position = SizeManager.GetPosition(
-                        (int)(SizeManager.ScaleForWidth(JamGame.BaseWidth) - size.Width) / 4, 
+                        (int)(SizeManager.ScaleForWidth(JamGame.BaseWidth) - size.Width) / 4,
                         (int)(SizeManager.ScaleForHeight(JamGame.BaseHeight) - size.Height) / 4
                     )
             };
@@ -59,7 +87,7 @@ namespace Bliss.States.Game
             {
                 Size = clockSize,
                 Position = new Vector2(
-                        Table.Position.X + clockSize.Width / 4,
+                        Table.Position.X + clockSize.Width / 2,
                         Table.Position.Y + clockSize.Width / 4
                     )
             };
@@ -73,7 +101,7 @@ namespace Bliss.States.Game
             {
                 Size = size,
                 Position = new Vector2(
-                        Table.Position.X + Clock.Size.Width / 4,
+                        Table.Position.X + Clock.Size.Width / 8,
                         Table.Position.Y + size.Height
                     )
             };
@@ -90,6 +118,22 @@ namespace Bliss.States.Game
             };
             DocumentSpawnPoints.Add(spawn);
             AddComponent(spawn, States.Layers.Background);
+        }
+
+        private void AddDocumentOrganizer(Texture2D texture, int x, int y, int width, int height, int id)
+        {
+            DocumentOrganizer organizer = new DocumentOrganizer()
+            {
+                Size = SizeManager.GetSize(width, height),
+                Position = new Vector2(x, y),
+                Texture = texture,
+                Id = id,
+                CanBeClicked = false
+            };
+            organizer.OnClick += DocumentOrganizerClicked;
+
+            DocumentOrganizers.Add(organizer);
+            AddComponent(organizer, States.Layers.PlayingArea);
         }
 
     }
