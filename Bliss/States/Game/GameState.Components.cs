@@ -11,11 +11,15 @@ namespace Bliss.States.Game
     public partial class GameState
     {
         protected Table Table { get; set; }
+        protected Clock Clock { get; set; }
         protected List<Sprite> DocumentSpawnPoints { get; set; }
 
         protected override void LoadComponents()
         {
             AddTable();
+            AddClock();
+
+            Clock.Enabled = true;
 
             DocumentSpawnPoints = new List<Sprite>();
             // left side of desk
@@ -43,6 +47,20 @@ namespace Bliss.States.Game
                     )
             };
             AddComponent(Table, States.Layers.Table);
+        }
+
+        private void AddClock()
+        {
+            Size clockSize = SizeManager.GetSize(125, 75);
+            Clock = new Clock()
+            {
+                Size = clockSize,
+                Position = new Vector2(
+                        Table.Position.X + clockSize.Width / 4,
+                        Table.Position.Y + clockSize.Width / 4
+                    )
+            };
+            AddComponent(Clock, States.Layers.PlayingArea);
         }
 
         private void AddDocumentSpawn(int x, int y)

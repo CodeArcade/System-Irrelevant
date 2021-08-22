@@ -1,28 +1,35 @@
-﻿using Bliss.Component.Sprites;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Drawing;
-using System.Text;
+using System.Linq;
+using Color = Microsoft.Xna.Framework.Color;
 using Rectangle = Microsoft.Xna.Framework.Rectangle;
 
 namespace Bliss.Component.Sprites.Office.Documents
 {
     public abstract class BaseDocument : Sprite
     {
+        private MouseState CurrentMouse { get; set; }
+        private MouseState PreviousMouse { get; set; }
+        private bool IsMouseOver { get; set; }
+        public bool CanBeClicked { get; set; } = true;
+        public event EventHandler OnClick;
+
         private Vector2 SpawnPoint { get; set; }
         private float DistanceToTravel { get; set; }
         public bool DidLand { get; set; }
 
-        public BaseDocument(Vector2 spawnPoint, Rectangle tableArea) { }
+        public uint Id { get; set; }
+        private static uint LatestId { get; set; }
+        private static List<BaseDocument> DocumentsUnderMouse { get; set; } = new List<BaseDocument>();
 
-        /// <summary>
-        /// Is not in constructor, because it has to be called after size has been set.
-        /// </summary>
-        /// <param name="spawnPoint"></param>
-        /// <param name="tableArea"></param>
+        public BaseDocument(Vector2 spawnPoint, Rectangle tableArea)
+        {
+        }
+
         protected void Load(Vector2 spawnPoint, Rectangle tableArea)
         {
             Random random = new Random();
@@ -41,14 +48,26 @@ namespace Bliss.Component.Sprites.Office.Documents
             Direction = DirectionTo(targetDestination);
         }
 
+        public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
+        {
+            Color = Color.White;
+            if (IsMouseOver && IsTopMostDocumentUnderMouse() && CanBeClicked) Color = Color.Yellow;
+
+            base.Draw(gameTime, spriteBatch);
+        }
+
         public override void Update(GameTime gameTime)
         {
-            // TODO: Play  paper sound when reached destination
+            UpdateMouseOver();
 
             // We are moving only a distance instead to the point, cause of the speed the exact point may be missed
             if (DistanceToTravel < DistanceTo(SpawnPoint))
             {
-                if (!DidLand) AudioManager.PlayEffect(ContentManager.DocumentLandedSoundEffect);
+                if (!DidLand)
+                {
+                    AudioManager.PlayEffect(ContentManager.DocumentLandedSoundEffect);
+                    Id = ++LatestId; // I hate me for that
+                }
 
                 DidLand = true;
                 return;
@@ -58,6 +77,29 @@ namespace Bliss.Component.Sprites.Office.Documents
 
             base.Update(gameTime);
         }
+
+        private void UpdateMouseOver()
+        {
+            PreviousMouse = CurrentMouse;
+            CurrentMouse = Mouse.GetState();
+
+            Rectangle mouseRectangle = new Rectangle(CurrentMouse.X, CurrentMouse.Y, 1, 1);
+            Rectangle previousMouseRectangle = new Rectangle(CurrentMouse.X, CurrentMouse.Y, 1, 1);
+
+            IsMouseOver = false;
+            if (DocumentsUnderMouse.Contains(this)) DocumentsUnderMouse.Remove(this);
+
+            if (mouseRectangle.Intersects(Rectangle))
+            {
+                DocumentsUnderMouse.Add(this);
+                IsMouseOver = true;
+
+                if (IsTopMostDocumentUnderMouse() && CanBeClicked && CurrentMouse.LeftButton == ButtonState.Released && PreviousMouse.LeftButton == ButtonState.Pressed)
+                    OnClick?.Invoke(this, new EventArgs());
+            }
+        }
+
+        private bool IsTopMostDocumentUnderMouse() => Id == DocumentsUnderMouse.Max(x => x.Id);
 
         /// <summary>
         /// This functions returns the components for the detail view of the document

@@ -14,7 +14,7 @@ namespace Bliss.States
         Background,
         Table,
         PlayingArea,
-        Dim,
+        DocumentDetailView,
         UI,
         SceneTransition
     }
