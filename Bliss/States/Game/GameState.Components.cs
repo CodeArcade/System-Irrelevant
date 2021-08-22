@@ -14,6 +14,7 @@ namespace Bliss.States.Game
         protected Table Table { get; set; }
         protected Clock Clock { get; set; }
         protected Phone Phone { get; set; }
+        protected DocumentOrganizer Bin {get; set;}
         protected List<Sprite> DocumentSpawnPoints { get; set; }
         protected List<DocumentOrganizer> DocumentOrganizers { get; set; }
 
@@ -45,12 +46,14 @@ namespace Bliss.States.Game
 
             AddDocumentOrganizer(
                     ContentManager.DocumentOrganizerThreeTexture,
-                  Table.Rectangle.Width,
+                    Table.Rectangle.Width,
                     (int)(Table.Rectangle.Y * 1.6 + SizeManager.ScaleForHeight(160) * 2),
                     210,
                     160,
                     2
                 );
+
+            AddBin(0, Table.Rectangle.Y + Table.Rectangle.Height - (int)SizeManager.ScaleForHeight(250 / 2), 250, 250);
 
             DocumentSpawnPoints = new List<Sprite>();
             // left side of desk
@@ -134,6 +137,21 @@ namespace Bliss.States.Game
 
             DocumentOrganizers.Add(organizer);
             AddComponent(organizer, States.Layers.PlayingArea);
+        }
+
+        private void AddBin(int x, int y, int width, int height)
+        {
+            Bin = new DocumentOrganizer()
+            {
+                Size = SizeManager.GetSize(width, height),
+                Position = new Vector2(x, y),
+                Texture = ContentManager.BinTexture,
+                CanBeClicked = false
+            };
+            Bin.OnClick += BinClicked;
+
+            DocumentOrganizers.Add(Bin);
+            AddComponent(Bin, States.Layers.Bin);
         }
 
     }

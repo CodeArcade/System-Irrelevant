@@ -218,6 +218,18 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/9.png
 
+#begin Sprites/Bin.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/Bin.png
+
 #begin Sprites/Clock.png
 /importer:TextureImporter
 /processor:TextureProcessor

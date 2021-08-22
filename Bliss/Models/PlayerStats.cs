@@ -1,4 +1,6 @@
-﻿namespace Bliss.Models
+﻿using System.Net.NetworkInformation;
+
+namespace Bliss.Models
 {
     public class PlayerStats
     {
@@ -6,8 +8,11 @@
         public int WronglyEndedCalls { get; set; }
         public int PickedUpCalls { get; set; }
 
+        public int ThrahsedDocuments { get; set; }
+        public int WronglyThrashedDocuments { get; set; }
         public int SortedDocuments { get; set; }
         public int WronglySortedDocuments { get; set; }
+        
         public int TimesToManyDocuments { get; set; }
 
         public int Warnings { get; set; }

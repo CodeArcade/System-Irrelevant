@@ -12,6 +12,7 @@ namespace Bliss.States
     public enum Layers
     {
         Background,
+        Bin,
         Table,
         PlayingArea,
         DocumentDetailView,

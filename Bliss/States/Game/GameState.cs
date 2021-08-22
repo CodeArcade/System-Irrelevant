@@ -1,5 +1,6 @@
 using Bliss.Component.Sprites.Office;
 using Bliss.Component.Sprites.Office.Documents;
+using Bliss.Models;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -18,6 +19,16 @@ namespace Bliss.States.Game
 
         private List<Component.Component> CurrentDetailViewComponents { get; set; } = new List<Component.Component>();
         private BaseDocument CurrentDocument { get; set; }
+
+        private PlayerStats PlayerStats { get; set; }
+
+        protected override void OnLoad(params object[] parameter)
+        {
+            if( PlayerStats is null)
+            {
+                PlayerStats = new PlayerStats();
+            }
+        }
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
@@ -61,6 +72,15 @@ namespace Bliss.States.Game
         {
             RemoveDetailView();
             CurrentDocument.IsRemoved = true;
+            PlayerStats.SortedDocuments++;
+            // TODO: Prüfen ob richtig eingeordnet
+        }
+
+        private void BinClicked(object sender, EventArgs e)
+        {
+            RemoveDetailView();
+            CurrentDocument.IsRemoved = true;
+            PlayerStats.ThrahsedDocuments++;
             // TODO: Prüfen ob richtig eingeordnet
         }
 
@@ -94,6 +114,8 @@ namespace Bliss.States.Game
 
         private void ToggleClickableOfDocuments(bool clickable)
         {
+            Bin.CanBeClicked = !clickable;
+
             foreach (Component.Component component in Layers[(int)States.Layers.PlayingArea])
             {
                 if (component is BaseDocument document)
