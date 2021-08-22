@@ -12,9 +12,16 @@ namespace Bliss.Manager
 
         public static float GlobalVolume { get; set; } = 1;
 
-        public void PlayEffect(SoundEffect effect, float volume = 0, float pitch = 0) 
+        public SoundEffectInstance PlayEffect(SoundEffect effect, float volume = 0, float pitch = 0, bool isLooped = false)
         {
-            effect.Play(GlobalVolume + volume, pitch, 0);
+            SoundEffectInstance soundEffectInstance = effect.CreateInstance();
+            soundEffectInstance.Volume = GlobalVolume + volume;
+            soundEffectInstance.Pitch = pitch;
+            soundEffectInstance.IsLooped = isLooped;
+
+            soundEffectInstance.Play();
+
+            return soundEffectInstance;
         }
 
         public void Update()

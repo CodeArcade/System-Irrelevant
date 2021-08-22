@@ -28,6 +28,7 @@ namespace Bliss.States.Game
             CurrentMouse = Mouse.GetState();
 
             if (Keyboard.GetState().IsKeyDown(Keys.Space)) SpawnDocument();
+            if (Keyboard.GetState().IsKeyDown(Keys.T)) Phone.Ring();
 
             if (CurrentMouse.RightButton == ButtonState.Released && PreviousMouse.RightButton == ButtonState.Pressed && CurrentDetailViewComponents.Any())
             {

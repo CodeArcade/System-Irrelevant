@@ -12,12 +12,14 @@ namespace Bliss.States.Game
     {
         protected Table Table { get; set; }
         protected Clock Clock { get; set; }
+        protected Phone Phone { get; set; }
         protected List<Sprite> DocumentSpawnPoints { get; set; }
 
         protected override void LoadComponents()
         {
             AddTable();
             AddClock();
+            AddPhone();
 
             Clock.Enabled = true;
             Clock.Reset();
@@ -37,14 +39,14 @@ namespace Bliss.States.Game
 
         private void AddTable()
         {
-            Size tableSize = SizeManager.GetSize(1000, 600);
+            Size size = SizeManager.GetSize(1000, 600);
 
             Table = new Table()
             {
-                Size = tableSize,
+                Size = size,
                 Position = SizeManager.GetPosition(
-                        (int)(SizeManager.ScaleForWidth(JamGame.BaseWidth) - tableSize.Width) / 4, 
-                        (int)(SizeManager.ScaleForHeight(JamGame.BaseHeight) - tableSize.Height) / 4
+                        (int)(SizeManager.ScaleForWidth(JamGame.BaseWidth) - size.Width) / 4, 
+                        (int)(SizeManager.ScaleForHeight(JamGame.BaseHeight) - size.Height) / 4
                     )
             };
             AddComponent(Table, States.Layers.Table);
@@ -62,6 +64,20 @@ namespace Bliss.States.Game
                     )
             };
             AddComponent(Clock, States.Layers.PlayingArea);
+        }
+
+        private void AddPhone()
+        {
+            Size size = SizeManager.GetSize(200, 125);
+            Phone = new Phone()
+            {
+                Size = size,
+                Position = new Vector2(
+                        Table.Position.X + Clock.Size.Width / 4,
+                        Table.Position.Y + size.Height
+                    )
+            };
+            AddComponent(Phone, States.Layers.PlayingArea);
         }
 
         private void AddDocumentSpawn(int x, int y)

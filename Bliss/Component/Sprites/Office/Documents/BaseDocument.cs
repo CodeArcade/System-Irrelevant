@@ -10,14 +10,8 @@ using Rectangle = Microsoft.Xna.Framework.Rectangle;
 
 namespace Bliss.Component.Sprites.Office.Documents
 {
-    public abstract class BaseDocument : Sprite
+    public abstract class BaseDocument : Clickable
     {
-        private MouseState CurrentMouse { get; set; }
-        private MouseState PreviousMouse { get; set; }
-        private bool IsMouseOver { get; set; }
-        public bool CanBeClicked { get; set; } = true;
-        public event EventHandler OnClick;
-
         private Vector2 SpawnPoint { get; set; }
         private float DistanceToTravel { get; set; }
         public bool DidLand { get; set; }
@@ -36,10 +30,11 @@ namespace Bliss.Component.Sprites.Office.Documents
 
             SpawnPoint = spawnPoint;
             Position = spawnPoint;
+            HoverColor = Color.Yellow;
 
             // pick random position on table - reduce current size so document fits fully 
             Vector2 targetDestination = new Vector2(
-                random.Next(tableArea.X + Size.Width, tableArea.Width - Size.Width),
+                random.Next(tableArea.X + (int)(Size.Width * 1.5), tableArea.Width - Size.Width),
                 random.Next(tableArea.Y, tableArea.Height - Size.Height)
                 );
 
@@ -51,15 +46,13 @@ namespace Bliss.Component.Sprites.Office.Documents
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             Color = Color.White;
-            if (IsMouseOver && IsTopMostDocumentUnderMouse() && CanBeClicked) Color = Color.Yellow;
+            if (IsMouseOver && IsTopMostDocumentUnderMouse() && CanBeClicked) Color = HoverColor;
 
             base.Draw(gameTime, spriteBatch);
         }
 
         public override void Update(GameTime gameTime)
         {
-            UpdateMouseOver();
-
             // We are moving only a distance instead to the point, cause of the speed the exact point may be missed
             if (DistanceToTravel < DistanceTo(SpawnPoint))
             {
@@ -70,6 +63,7 @@ namespace Bliss.Component.Sprites.Office.Documents
                 }
 
                 DidLand = true;
+                UpdateMouseOverClick();
                 return;
             }
 
@@ -78,13 +72,12 @@ namespace Bliss.Component.Sprites.Office.Documents
             base.Update(gameTime);
         }
 
-        private void UpdateMouseOver()
+        protected override void UpdateMouseOverClick()
         {
             PreviousMouse = CurrentMouse;
             CurrentMouse = Mouse.GetState();
 
             Rectangle mouseRectangle = new Rectangle(CurrentMouse.X, CurrentMouse.Y, 1, 1);
-            Rectangle previousMouseRectangle = new Rectangle(CurrentMouse.X, CurrentMouse.Y, 1, 1);
 
             IsMouseOver = false;
             if (DocumentsUnderMouse.Contains(this)) DocumentsUnderMouse.Remove(this);
@@ -94,8 +87,11 @@ namespace Bliss.Component.Sprites.Office.Documents
                 DocumentsUnderMouse.Add(this);
                 IsMouseOver = true;
 
-                if (IsTopMostDocumentUnderMouse() && CanBeClicked && CurrentMouse.LeftButton == ButtonState.Released && PreviousMouse.LeftButton == ButtonState.Pressed)
-                    OnClick?.Invoke(this, new EventArgs());
+                if (IsTopMostDocumentUnderMouse() &&
+                    CanBeClicked &&
+                    CurrentMouse.LeftButton == ButtonState.Released &&
+                    PreviousMouse.LeftButton == ButtonState.Pressed)
+                    Click();
             }
         }
 
