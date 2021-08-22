@@ -47,13 +47,11 @@ namespace Bliss
             SpriteBatch = new SpriteBatch(GraphicsDevice);
 
             StateManager.ChangeTo<GameState>(GameState.Name);
-            // TODO: use this.Content to load your game content here
         }
 
         protected override void Update(GameTime gameTime)
         {
             StateManager.Update(gameTime);
-            // TODO: Add your update logic here
 
             base.Update(gameTime);
         }
@@ -65,8 +63,6 @@ namespace Bliss
             SpriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp);
             StateManager.Draw(gameTime, SpriteBatch);
             SpriteBatch.End();
-
-            // TODO: Add your drawing code here
 
             base.Draw(gameTime);
         }

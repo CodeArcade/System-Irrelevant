@@ -20,6 +20,7 @@ namespace Bliss.States.Game
             AddClock();
 
             Clock.Enabled = true;
+            Clock.Reset();
 
             DocumentSpawnPoints = new List<Sprite>();
             // left side of desk
