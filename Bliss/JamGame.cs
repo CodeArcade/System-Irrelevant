@@ -19,8 +19,8 @@ namespace Bliss
         public int ActualWidth => Graphics.PreferredBackBufferWidth;
         public int ActualHeight => Graphics.PreferredBackBufferHeight;
 
-        public float WidthScaleFactor => Graphics.PreferredBackBufferWidth / BaseWidth;
-        public float HeightScaleFactor => Graphics.PreferredBackBufferHeight / BaseHeight;
+        public float WidthScaleFactor => (float)Graphics.PreferredBackBufferWidth / (float)BaseWidth;
+        public float HeightScaleFactor => (float)Graphics.PreferredBackBufferHeight / (float)BaseHeight;
 
         [Dependency]
         public StateManager StateManager { get; set; }
@@ -34,9 +34,24 @@ namespace Bliss
 
         protected override void Initialize()
         {
+            // this should work - but no dynamic resize
+
             Graphics.IsFullScreen = true;
             Graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
             Graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
+
+            //Graphics.IsFullScreen = false;
+            //Graphics.PreferredBackBufferWidth = BaseWidth;
+            //Graphics.PreferredBackBufferHeight = BaseHeight;
+
+            //Graphics.IsFullScreen = false;
+            //Graphics.PreferredBackBufferWidth = 720;
+            //Graphics.PreferredBackBufferHeight = 480;
+
+            //Graphics.IsFullScreen = false;
+            //Graphics.PreferredBackBufferWidth = 1400;
+            //Graphics.PreferredBackBufferHeight = 654;
+
             Graphics.ApplyChanges();
 
             base.Initialize();
