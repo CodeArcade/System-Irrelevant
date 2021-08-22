@@ -32,7 +32,8 @@ namespace Bliss.States.Game
                     (int)(Table.Rectangle.Y * 1.2),
                     210,
                     160,
-                    0
+                    0,
+                    Microsoft.Xna.Framework.Color.LightGreen
                 );
 
             AddDocumentOrganizer(
@@ -41,7 +42,8 @@ namespace Bliss.States.Game
                     (int)(Table.Rectangle.Y * 1.4 + SizeManager.ScaleForHeight(160)),
                     210,
                     160,
-                    1
+                    1,
+                      Microsoft.Xna.Framework.Color.OrangeRed
                 );
 
             AddDocumentOrganizer(
@@ -50,7 +52,8 @@ namespace Bliss.States.Game
                     (int)(Table.Rectangle.Y * 1.6 + SizeManager.ScaleForHeight(160) * 2),
                     210,
                     160,
-                    2
+                    2,
+                      Microsoft.Xna.Framework.Color.LightBlue
                 );
 
             AddBin(0, Table.Rectangle.Y + Table.Rectangle.Height - (int)SizeManager.ScaleForHeight(250 / 2), 250, 250);
@@ -123,7 +126,7 @@ namespace Bliss.States.Game
             AddComponent(spawn, States.Layers.Background);
         }
 
-        private void AddDocumentOrganizer(Texture2D texture, int x, int y, int width, int height, int id)
+        private void AddDocumentOrganizer(Texture2D texture, int x, int y, int width, int height, int id, Microsoft.Xna.Framework.Color hoverColor)
         {
             DocumentOrganizer organizer = new DocumentOrganizer()
             {
@@ -131,7 +134,8 @@ namespace Bliss.States.Game
                 Position = new Vector2(x, y),
                 Texture = texture,
                 Id = id,
-                CanBeClicked = false
+                CanBeClicked = false,
+                HoverColor = hoverColor
             };
             organizer.OnClick += DocumentOrganizerClicked;
 

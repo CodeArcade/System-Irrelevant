@@ -41,7 +41,7 @@ namespace Bliss.Component.Sprites.Office
             if (Enabled)
             {
                 Rectangle firstDigitRectangle = new Rectangle(Rectangle.X, Rectangle.Y, Rectangle.Width / 5, Rectangle.Height);
-                spriteBatch.Draw(Numbers[Hour < 10 ? 0 : int.Parse(Minute.ToString().Substring(0, 1))], firstDigitRectangle, Color);
+                spriteBatch.Draw(Numbers[Hour < 10 ? 0 : int.Parse(Hour.ToString().Substring(0, 1))], firstDigitRectangle, Color);
 
                 Rectangle secondDigitRectangle = new Rectangle(Rectangle.X + (Rectangle.Width / 5), Rectangle.Y, Rectangle.Width / 5, Rectangle.Height);
                 spriteBatch.Draw(Numbers[Hour < 10 ? Hour : int.Parse(Hour.ToString().Substring(1, 1))], secondDigitRectangle, Color);
@@ -66,7 +66,7 @@ namespace Bliss.Component.Sprites.Office
             if (Timer >= SecondsBetweenMinutes)
             {
                 Minute++;
-                if (Minute > 59)
+                if (Minute == 60)
                 {
                     Minute = 0;
                     Hour++;
