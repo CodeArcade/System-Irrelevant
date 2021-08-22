@@ -8,5 +8,6 @@ namespace Bliss.Manager
         [Dependency]
         public JamGame JamGame { get; set; }
         public Texture2D TableTexture => JamGame.Content.Load<Texture2D>("Sprites/Table");
+        public Texture2D InvoiceTexture => JamGame.Content.Load<Texture2D>("Sprites/Invoice");
     }
 }

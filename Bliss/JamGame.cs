@@ -16,6 +16,9 @@ namespace Bliss
         public int BaseWidth => 1280;
         public int BaseHeight => 720;
 
+        public int ActualWidth => Graphics.PreferredBackBufferWidth;
+        public int ActualHeight => Graphics.PreferredBackBufferHeight;
+
         public float WidthScaleFactor => Graphics.PreferredBackBufferWidth / BaseWidth;
         public float HeightScaleFactor => Graphics.PreferredBackBufferHeight / BaseHeight;
 

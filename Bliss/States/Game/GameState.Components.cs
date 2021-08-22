@@ -11,26 +11,51 @@ namespace Bliss.States.Game
     public partial class GameState
     {
         protected Table Table { get; set; }
+        protected List<Sprite> DocumentSpawnPoints { get; set; }
 
         protected override void LoadComponents()
         {
             AddTable();
+
+            DocumentSpawnPoints = new List<Sprite>();
+            // left side of desk
+            AddDocumentSpawn(0, Table.Size.Height / 4);
+            // left corner of desk
+            AddDocumentSpawn(0, 0);
+            // top middle of desk
+            AddDocumentSpawn(Table.Size.Width / 4, 0);
+            // right corner of desk
+            AddDocumentSpawn(JamGame.BaseWidth, 0);
+            // right side of desk
+            AddDocumentSpawn(JamGame.BaseWidth, Table.Size.Height / 4);
         }
 
         private void AddTable()
         {
-            Size tableSize = GetSize(1000, 600);
+            Size tableSize = SizeManager.GetSize(1000, 600);
 
             Table = new Table()
             {
                 Size = tableSize,
-                Position = GetPosition((JamGame.BaseWidth - tableSize.Width) / 2, (JamGame.BaseHeight - tableSize.Height) / 2)
+                Position = SizeManager.GetPosition(
+                        (int)(SizeManager.ScaleForWidth(JamGame.BaseWidth) - tableSize.Width) / 4, 
+                        (int)(SizeManager.ScaleForHeight(JamGame.BaseHeight) - tableSize.Height) / 4
+                    )
             };
             AddComponent(Table, States.Layers.Table);
         }
 
-        private Size GetSize(int width, int height) => new Size(width * (int)JamGame.WidthScaleFactor, height * (int)JamGame.HeightScaleFactor);
-        private Vector2 GetPosition(int x, int y) => new Vector2(x * JamGame.WidthScaleFactor, y * JamGame.HeightScaleFactor);
+        private void AddDocumentSpawn(int x, int y)
+        {
+            Sprite spawn = new Sprite()
+            {
+                Size = new Size(1, 1),
+                Position = SizeManager.GetPosition(x, y),
+                Texture = ContentManager.TableTexture
+            };
+            DocumentSpawnPoints.Add(spawn);
+            AddComponent(spawn, States.Layers.Background);
+        }
 
     }
 }

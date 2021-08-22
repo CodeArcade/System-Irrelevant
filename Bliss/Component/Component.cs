@@ -15,7 +15,7 @@ namespace Bliss.Component
         public ContentManager ContentManager => Program.UnityContainer.Resolve<ContentManager>();
         public AudioManager AudioManager => Program.UnityContainer.Resolve<AudioManager>();
         public ParticleManager ParticleManager => Program.UnityContainer.Resolve<ParticleManager>();
-
+        public SizeManager SizeManager => Program.UnityContainer.Resolve<SizeManager>();
         #endregion
 
         #region Private Properties
@@ -43,6 +43,24 @@ namespace Bliss.Component
         public Component Parent { get; set; }
 
         #endregion
+
+        protected float DistanceTo(Component component) => DistanceTo(component.Position);
+
+        protected Vector2 DirectionTo(Component component) => DirectionTo(component.Position);
+
+        protected float AngleTo(Component component) => AngleTo(component.Position);
+
+        protected float DistanceTo(Vector2 position) => Vector2.Distance(Position, position);
+
+        protected Vector2 DirectionTo(Vector2 position)
+        {
+            Vector2 direction = position - Position;
+            direction.Normalize();
+
+            return direction;
+        }
+
+        protected float AngleTo(Vector2 position) => (float)Math.Atan2(position.Y - Position.Y, position.X - Position.X);
 
         public abstract void Draw(GameTime gameTime, SpriteBatch spriteBatch);
         public abstract void Update(GameTime gameTime);

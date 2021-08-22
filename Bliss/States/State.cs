@@ -35,7 +35,8 @@ namespace Bliss.States
 
         [Dependency]
         public AudioManager AudioManager { get; set; }
-
+        [Dependency]
+        public SizeManager SizeManager { get; set; }
         public bool HasLoaded { get; set; }
 
         #endregion
