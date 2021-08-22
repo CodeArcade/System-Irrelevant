@@ -1,5 +1,5 @@
-﻿using Bliss.Component.Office;
-using Bliss.Component.Sprites;
+﻿using Bliss.Component.Sprites;
+using Bliss.Component.Sprites.Office;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;

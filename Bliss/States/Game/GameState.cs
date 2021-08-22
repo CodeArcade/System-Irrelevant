@@ -1,4 +1,4 @@
-using Bliss.Component.Office.Documents;
+using Bliss.Component.Sprites.Office.Documents;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;

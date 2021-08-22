@@ -8,7 +8,7 @@ using System.Drawing;
 using System.Text;
 using Rectangle = Microsoft.Xna.Framework.Rectangle;
 
-namespace Bliss.Component.Office.Documents
+namespace Bliss.Component.Sprites.Office.Documents
 {
     public abstract class BaseDocument : Sprite
     {

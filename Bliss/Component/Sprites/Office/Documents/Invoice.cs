@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Bliss.Component.Office.Documents
+namespace Bliss.Component.Sprites.Office.Documents
 {
     public class Invoice : BaseDocument
     {

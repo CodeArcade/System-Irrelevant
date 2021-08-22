@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Bliss.Component.Office
+namespace Bliss.Component.Sprites.Office
 {
     public class Table: Sprite
     {
