@@ -14,6 +14,7 @@ namespace Bliss.Component.Office.Documents
     {
         private Vector2 SpawnPoint { get; set; }
         private float DistanceToTravel { get; set; }
+        public bool DidLand { get; set; }
 
         public BaseDocument(Vector2 spawnPoint, Rectangle tableArea) { }
 
@@ -45,7 +46,13 @@ namespace Bliss.Component.Office.Documents
             // TODO: Play  paper sound when reached destination
 
             // We are moving only a distance instead to the point, cause of the speed the exact point may be missed
-            if (DistanceToTravel < DistanceTo(SpawnPoint)) return;
+            if (DistanceToTravel < DistanceTo(SpawnPoint))
+            {
+                if (!DidLand) AudioManager.PlayEffect(ContentManager.DocumentLandedSoundEffect);
+
+                DidLand = true;
+                return;
+            }
 
             Position += Direction * Speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
 

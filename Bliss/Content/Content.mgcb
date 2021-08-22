@@ -13,6 +13,18 @@
 
 #---------------------------------- Content ---------------------------------#
 
+#begin Sounds/DocumentLanded.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/DocumentLanded.wav
+
+#begin Sounds/DocumentSpawned.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/DocumentSpawned.wav
+
 #begin Sprites/Invoice.png
 /importer:TextureImporter
 /processor:TextureProcessor

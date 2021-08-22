@@ -24,7 +24,7 @@ namespace Bliss.States.Game
 
         private void SpawnDocument()
         {
-            // TODO: play sound when spawned (woosh)
+            AudioManager.PlayEffect(ContentManager.DocumentSpawnedSoundEffect);
             Random random = new Random();
             AddComponent(new Invoice(DocumentSpawnPoints[random.Next(0, DocumentSpawnPoints.Count)].Position, Table.Rectangle), States.Layers.PlayingArea);
         }
