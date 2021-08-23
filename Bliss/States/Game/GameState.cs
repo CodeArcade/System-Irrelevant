@@ -141,14 +141,14 @@ namespace Bliss.States.Game
 
         private void HandlePhoneCall(GameTime gameTime)
         {
-            if (!Phone.IsInUse) PhoneCallTimer += gameTime.ElapsedGameTime.TotalSeconds;
+            PhoneCallTimer += gameTime.ElapsedGameTime.TotalSeconds;
 
-            if (PhoneCallTimer >= SecondsToNextPhoneCall && !Phone.IsInUse)
+            if (PhoneCallTimer >= SecondsToNextPhoneCall)
             {
                 int callToPlay = new Random().Next(0, Calls.Count);
                 Phone.Ring(Calls[callToPlay]);
                 Calls.RemoveAt(callToPlay);
-                
+
                 SecondsToNextPhoneCall = new Random().Next(30, 60);
                 PhoneCallTimer = 0;
             }
