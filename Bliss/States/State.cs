@@ -6,6 +6,7 @@ using Bliss.Component.Sprites;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Linq;
+using Bliss.Component.Sprites.Office.Documents;
 
 namespace Bliss.States
 {
@@ -51,8 +52,8 @@ namespace Bliss.States
             {
                 Layers[i] = new List<Component.Component>();
             }
-            LoadComponents();
             OnLoad(parameter);
+            LoadComponents();
             HasLoaded = true;
         }
 
@@ -76,14 +77,20 @@ namespace Bliss.States
 
             for (int layer = 0; layer < Layers.Length; layer++)
             {
-                List<Component.Component> drawOrder = Layers[layer].OrderByDescending(c => c.Position.Y).ToList();
+
+                List<Component.Component> drawOrder = Layers[layer].Where(x => !(x is BaseDocument)).OrderByDescending(c => c.Position.Y).ToList();
 
                 for (int i = drawOrder.Count; i > 0; i--)
                 {
                     if (drawOrder[i - 1].Visible)
                     {
-                        drawOrder[i- 1].Draw(gameTime, spriteBatch);
+                        drawOrder[i - 1].Draw(gameTime, spriteBatch);
                     }
+                }
+
+                foreach(BaseDocument document in Layers[layer].Where(x => x is BaseDocument).Select(x => (BaseDocument)x).OrderByDescending(c => c.Id).ToList())
+                {
+                    if (document.Visible) document.Draw(gameTime, spriteBatch);
                 }
             }
         }

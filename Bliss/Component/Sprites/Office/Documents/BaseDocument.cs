@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Bliss.Models;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
@@ -16,8 +17,9 @@ namespace Bliss.Component.Sprites.Office.Documents
         private float DistanceToTravel { get; set; }
         public bool DidLand { get; set; }
 
-        public uint Id { get; set; }
-        private static uint LatestId { get; set; }
+
+        public int Id { get; set; }
+        private static int LatestId { get; set; }
         private static List<BaseDocument> DocumentsUnderMouse { get; set; } = new List<BaseDocument>();
 
         public BaseDocument(Vector2 spawnPoint, Rectangle tableArea)
@@ -41,6 +43,7 @@ namespace Bliss.Component.Sprites.Office.Documents
             Speed = 3000;
             DistanceToTravel = DistanceTo(targetDestination);
             Direction = DirectionTo(targetDestination);
+            CanBeClicked = false;
         }
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
@@ -63,6 +66,7 @@ namespace Bliss.Component.Sprites.Office.Documents
                 }
 
                 DidLand = true;
+                CanBeClicked = true;
                 UpdateMouseOverClick();
                 return;
             }

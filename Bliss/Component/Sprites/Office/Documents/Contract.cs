@@ -5,9 +5,9 @@ using System.Drawing;
 
 namespace Bliss.Component.Sprites.Office.Documents
 {
-    public class Invoice : BaseDocument
+    public class Contract : BaseDocument
     {
-        public Invoice(Vector2 spawnPoint, Microsoft.Xna.Framework.Rectangle table) : base(spawnPoint, table)
+        public Contract(Vector2 spawnPoint, Microsoft.Xna.Framework.Rectangle table) : base(spawnPoint, table)
         {
             Texture = ContentManager.InvoiceTexture;
             Size = SizeManager.GetSize(150, 200);

@@ -42,7 +42,9 @@ namespace Bliss.Manager
         public SoundEffect DocumentSpawnedSoundEffect => JamGame.Content.Load<SoundEffect>("Sounds/DocumentSpawned");
         public SoundEffect DocumentPickedUpSoundEffect => JamGame.Content.Load<SoundEffect>("Sounds/DocumentPickedUp");
         public SoundEffect DocumentPutDownSoundEffect => JamGame.Content.Load<SoundEffect>("Sounds/DocumentPutDown");
-       
+
+        public SoundEffect SilenceSoundEffect => JamGame.Content.Load<SoundEffect>("Sounds/Silence");
+
         public SoundEffect PhoneRingingSoundEffect => JamGame.Content.Load<SoundEffect>("Sounds/PhoneRinging");
         public SoundEffect PhoneHangUpSoundEffect => JamGame.Content.Load<SoundEffect>("Sounds/PhoneHangUp");
         public SoundEffect PhonePickUpSoundEffect => JamGame.Content.Load<SoundEffect>("Sounds/PhonePickUp");

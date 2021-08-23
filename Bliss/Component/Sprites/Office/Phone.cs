@@ -11,8 +11,7 @@ namespace Bliss.Component.Sprites.Office
 {
     public class Phone : Clickable
     {
-        public event EventHandler OnWronglyEndedCall;
-        public event EventHandler OnMissedCall;
+        public event EventHandler OnImportantCallFinished;
 
         private Dictionary<string, Animation> Animations { get; set; }
 
@@ -24,14 +23,17 @@ namespace Bliss.Component.Sprites.Office
         private int CurrentVoiceLine { get; set; }
         public TextBox TextBox { get; set; }
 
+        private PlayerStats PlayerStats { get; set; }
+
         public float SecondsBeforeMissedCall { get; set; } = 1;
         public bool IsRinging { get; private set; }
         public bool IsTalking { get; private set; }
         public bool IsCallOver { get; private set; }
 
-        public Phone()
+        public Phone(PlayerStats playerStats)
         {
             HoverColor = Color.Yellow;
+            PlayerStats = playerStats;
 
             Texture = ContentManager.PhoneTexture;
             AnimationManager.Parent = this;
@@ -68,7 +70,7 @@ namespace Bliss.Component.Sprites.Office
 
                 if (Timer >= SecondsBeforeMissedCall)
                 {
-                    OnMissedCall?.Invoke(this, new EventArgs());
+                    PlayerStats.MissedCalls++;
                     IsRinging = false;
                     AnimationManager.Play(Animations["idle"]);
                     RingingSoundEffect.Stop();
@@ -118,11 +120,15 @@ namespace Bliss.Component.Sprites.Office
 
                 CallOverSoundEffect.Stop();
                 if (CurrentVoiceLine != PhoneCall.VoiceLines.Count) PhoneCall.VoiceLines[CurrentVoiceLine].Voice.Stop();
+                if (PhoneCall.IsImportant)
+                {
+                    OnImportantCallFinished?.Invoke(PhoneCall, new EventArgs());
+                }
                 PhoneCall = null;
 
                 if (!IsCallOver)
                 {
-                    OnWronglyEndedCall?.Invoke(this, new EventArgs());
+                    PlayerStats.WronglyEndedCalls++;
                 }
             }
 

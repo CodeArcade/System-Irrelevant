@@ -104,6 +104,12 @@
 /processorParam:Quality=Best
 /build:Sounds/PhoneRinging.wav
 
+#begin Sounds/Silence.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/Silence.wav
+
 #begin Sprites/0.png
 /importer:TextureImporter
 /processor:TextureProcessor

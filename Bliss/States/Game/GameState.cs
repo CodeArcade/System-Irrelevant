@@ -1,17 +1,24 @@
 using Bliss.Component.Sprites.Office;
 using Bliss.Component.Sprites.Office.Documents;
+using Bliss.Factories;
 using Bliss.Models;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Unity;
 
 namespace Bliss.States.Game
 {
     public partial class GameState : State
     {
         public static string Name = "Game";
+
+        [Dependency]
+        public PhoneCallFactory PhoneCallFactory { get; set; }
+        [Dependency]
+        public DocumentFactory DocumentFactory { get; set; }
 
         private MouseState CurrentMouse { get; set; }
         private MouseState PreviousMouse { get; set; }
@@ -20,6 +27,11 @@ namespace Bliss.States.Game
         private BaseDocument CurrentDocument { get; set; }
 
         private PlayerStats PlayerStats { get; set; }
+
+        private int DocumentCount => Layers.SelectMany(x => x).Count(x => x is BaseDocument);
+
+        private double DocumentSpawnTimer { get; set; }
+        private List<string> DocumentsToSpawn { get; set; } = new List<string>();
 
         protected override void OnLoad(params object[] parameter)
         {
@@ -34,21 +46,16 @@ namespace Bliss.States.Game
             PreviousMouse = CurrentMouse;
             CurrentMouse = Mouse.GetState();
 
+            if (PlayerStats.Day == 0) Intro();
+            if (PlayerStats.Day > 0)
+            {
+                HandleDocumentSpawn(gameTime);
+            }
+
             // TODO: End day at 5 pm
             // TODO: Start first day call at first day instantly -> once finished start clock
 
             if (Keyboard.GetState().IsKeyDown(Keys.Space)) SpawnDocument();
-             if (Keyboard.GetState().IsKeyDown(Keys.T)) Phone.Ring(new PhoneCall() {  IsImportant = true, 
-                 VoiceLines = new List<VoiceLine>() { 
-                     new VoiceLine() {  Text = "Ring Ring Ring Ring", Voice = ContentManager.PhoneRingingSoundEffect.CreateInstance() } ,
-                     new VoiceLine() {  Text = "Booooooooooooooooooooooooooooooooooooooooooooooooooooop", Voice = ContentManager.PhoneCallOverSoundEffect.CreateInstance() } ,
-                 }
-             } ); // TODO: Ring at random points of time during day (2-3 times), once of which tells you important stuff
-            if (Keyboard.GetState().IsKeyDown(Keys.C)) // TODO: start at new days
-            {
-                Clock.Enabled = !Clock.Enabled;
-                Clock.Reset();
-            }
 
             if (CurrentMouse.RightButton == ButtonState.Released && PreviousMouse.RightButton == ButtonState.Pressed && CurrentDetailViewComponents.Any())
             {
@@ -58,44 +65,70 @@ namespace Bliss.States.Game
             base.Update(gameTime);
         }
 
+        private void Intro()
+        {
+            if (!Phone.IsRinging && !Phone.IsTalking)
+            {
+                Phone.Ring(PhoneCallFactory.GetIntro());
+                Phone.SecondsBeforeMissedCall = int.MaxValue;
+            }
+
+            if (Phone.IsTalking) Phone.CanBeClicked = false;
+
+            if (!Phone.IsCallOver) return;
+            Phone.CanBeClicked = true;
+
+            if (!Phone.IsTalking) return;
+            PlayerStats.Day = 1;
+            Clock.Reset();
+            Clock.Enabled = true;
+        }
+
+        private void HandleDocumentSpawn(GameTime gameTime)
+        {
+            DocumentSpawnTimer += gameTime.ElapsedGameTime.TotalSeconds;
+
+            if (DocumentSpawnTimer >= 1)
+            {
+                if (DocumentsToSpawn.Any())
+                {
+                    DocumentsToSpawn.RemoveAt(0);
+                    SpawnDocument();
+                    DocumentSpawnTimer = 0;
+                }
+
+                if (DocumentCount <= 1) if (!DocumentsToSpawn.Contains("minimum documents")) DocumentsToSpawn.Add("minimum documents");
+                if (Clock.Minute % 10 == 0) if (!DocumentsToSpawn.Contains(Clock.Minute.ToString())) DocumentsToSpawn.Add(Clock.Minute.ToString());
+            }
+        }
+
         private void SpawnDocument()
         {
-            // TODO: Spawn based on time
-
             AudioManager.PlayEffect(ContentManager.DocumentSpawnedSoundEffect);
             Random random = new Random();
-            Invoice invoice = new Invoice(DocumentSpawnPoints[random.Next(0, DocumentSpawnPoints.Count)].Position, Table.Rectangle)
-            {
-                Size = SizeManager.GetSize(150, 200)
-            };
-            invoice.OnClick += DocumentClicked;
-            AddComponent(invoice, States.Layers.PlayingArea);
+            BaseDocument document = DocumentFactory.GetRandomDocument(DocumentSpawnPoints[random.Next(0, DocumentSpawnPoints.Count)].Position, Table.Rectangle);
+            document.OnClick += DocumentClicked;
+            AddComponent(document, States.Layers.PlayingArea);
         }
 
         private void DocumentOrganizerClicked(object sender, EventArgs e)
         {
             RemoveDetailView();
+
+            DocumentOrganizer organizer = (DocumentOrganizer)sender;
+            if (!organizer.Validate(CurrentDocument)) PlayerStats.WronglySortedDocuments++;
+
             CurrentDocument.IsRemoved = true;
-            PlayerStats.WronglySortedDocuments++;
-            // TODO: Prüfen ob richtig eingeordnet
         }
 
-        private void BinClicked(object sender, EventArgs e)
+        private void ImportantPhoneCallFinished(object sender, EventArgs e)
         {
-            RemoveDetailView();
-            CurrentDocument.IsRemoved = true;
-            PlayerStats.WronglyThrashedDocuments++;
-            // TODO: Prüfen ob richtig eingeordnet
-        }
-
-        private void WronglyEndedCall(object sender, EventArgs e)
-        {
-            PlayerStats.WronglyEndedCalls++;
-        }
-
-        private void MissedCall(object sender, EventArgs e)
-        {
-            PlayerStats.MissedCalls++;
+            var validators = ((PhoneCall)sender).NewValidators;
+            foreach (var validatorGroup in validators)
+            {
+                DocumentOrganizer organizer = DocumentOrganizers.First(x => x.Id == validatorGroup.Key);
+                organizer.Validators.AddRange(validatorGroup.Value);
+            }
         }
 
         private void DocumentClicked(object sender, EventArgs e)

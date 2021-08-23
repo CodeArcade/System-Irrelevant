@@ -35,7 +35,7 @@ namespace Bliss.States.Game
                     (int)(Table.Rectangle.Y * 1.2),
                     210,
                     160,
-                    0,
+                    (int)OrganizerIds.Top,
                     Microsoft.Xna.Framework.Color.LightGreen
                 );
 
@@ -45,7 +45,7 @@ namespace Bliss.States.Game
                     (int)(Table.Rectangle.Y * 1.4 + SizeManager.ScaleForHeight(160)),
                     210,
                     160,
-                    1,
+                    (int)OrganizerIds.Middle,
                       Microsoft.Xna.Framework.Color.OrangeRed
                 );
 
@@ -55,7 +55,7 @@ namespace Bliss.States.Game
                     (int)(Table.Rectangle.Y * 1.6 + SizeManager.ScaleForHeight(160) * 2),
                     210,
                     160,
-                    2,
+                    (int)OrganizerIds.Bottom,
                       Microsoft.Xna.Framework.Color.LightBlue
                 );
 
@@ -106,7 +106,7 @@ namespace Bliss.States.Game
         private void AddPhone()
         {
             Size size = SizeManager.GetSize(200, 125);
-            Phone = new Phone()
+            Phone = new Phone(PlayerStats)
             {
                 Size = size,
                 Position = new Vector2(
@@ -114,8 +114,7 @@ namespace Bliss.States.Game
                         Table.Position.Y + size.Height
                     )
             };
-            Phone.OnMissedCall += MissedCall;
-            Phone.OnWronglyEndedCall += WronglyEndedCall;
+            Phone.OnImportantCallFinished += ImportantPhoneCallFinished;
             AddComponent(Phone, States.Layers.PlayingArea);
         }
 
@@ -123,9 +122,10 @@ namespace Bliss.States.Game
         {
             PhoneDialogueTextBox = new TextBox()
             {
-                Position = SizeManager.GetPosition(425, 250),
+                Position = new Vector2(Phone.Position.X , Phone.Position.Y + Phone.Size.Height),
                 Visible = false
             };
+
             Phone.TextBox = PhoneDialogueTextBox;
             AddComponent(PhoneDialogueTextBox, States.Layers.UI);
         }
@@ -166,9 +166,10 @@ namespace Bliss.States.Game
                 Size = SizeManager.GetSize(width, height),
                 Position = new Vector2(x, y),
                 Texture = ContentManager.BinTexture,
-                CanBeClicked = false
+                CanBeClicked = false,
+                Id = (int)OrganizerIds.Bin
             };
-            Bin.OnClick += BinClicked;
+            Bin.OnClick += DocumentOrganizerClicked;
 
             DocumentOrganizers.Add(Bin);
             AddComponent(Bin, States.Layers.Bin);

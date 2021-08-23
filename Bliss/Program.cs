@@ -3,6 +3,7 @@ using Unity;
 using Bliss.Manager;
 using Bliss.States;
 using Bliss.States.Game;
+using Bliss.Factories;
 
 namespace Bliss
 {
@@ -34,6 +35,8 @@ namespace Bliss
             UnityContainer.RegisterType<ParticleManager>();
             UnityContainer.RegisterType<StateManager>();
             UnityContainer.RegisterType<AnimationManager>();
+            UnityContainer.RegisterType<PhoneCallFactory>();
+            UnityContainer.RegisterType<DocumentFactory>();
         }
 
         static void RegisterStates()
