@@ -35,6 +35,9 @@ namespace Bliss.Manager
         public Texture2D PhonePickedUpAnimation => JamGame.Content.Load<Texture2D>("Animations/PhonePickedUp");
         public Texture2D PhoneTexture => JamGame.Content.Load<Texture2D>("Sprites/Phone");
 
+        public Texture2D TextboxTexture => JamGame.Content.Load<Texture2D>("Sprites/Textbox");
+        public Texture2D TextboxAdvanceTexture => JamGame.Content.Load<Texture2D>("Sprites/TextAdvance");
+
         public SoundEffect DocumentLandedSoundEffect => JamGame.Content.Load<SoundEffect>("Sounds/DocumentLanded");
         public SoundEffect DocumentSpawnedSoundEffect => JamGame.Content.Load<SoundEffect>("Sounds/DocumentSpawned");
         public SoundEffect DocumentPickedUpSoundEffect => JamGame.Content.Load<SoundEffect>("Sounds/DocumentPickedUp");
@@ -43,6 +46,8 @@ namespace Bliss.Manager
         public SoundEffect PhoneRingingSoundEffect => JamGame.Content.Load<SoundEffect>("Sounds/PhoneRinging");
         public SoundEffect PhoneHangUpSoundEffect => JamGame.Content.Load<SoundEffect>("Sounds/PhoneHangUp");
         public SoundEffect PhonePickUpSoundEffect => JamGame.Content.Load<SoundEffect>("Sounds/PhonePickUp");
+        public SoundEffect PhoneCallOverSoundEffect => JamGame.Content.Load<SoundEffect>("Sounds/PhoneCallOver");
+
 
         public SpriteFont ArialSpriteFont => JamGame.Content.Load<SpriteFont>("Fonts/Arial");
     }

@@ -1,5 +1,6 @@
 ﻿using Bliss.Component.Sprites;
 using Bliss.Component.Sprites.Office;
+using Bliss.Component.Sprites.Ui;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -14,15 +15,17 @@ namespace Bliss.States.Game
         protected Table Table { get; set; }
         protected Clock Clock { get; set; }
         protected Phone Phone { get; set; }
-        protected DocumentOrganizer Bin {get; set;}
+        protected DocumentOrganizer Bin { get; set; }
         protected List<Sprite> DocumentSpawnPoints { get; set; }
         protected List<DocumentOrganizer> DocumentOrganizers { get; set; }
+        protected TextBox PhoneDialogueTextBox { get; set; }
 
         protected override void LoadComponents()
         {
             AddTable();
             AddClock();
             AddPhone();
+            AddPhoneTextBox();
 
             DocumentOrganizers = new List<DocumentOrganizer>();
 
@@ -111,7 +114,20 @@ namespace Bliss.States.Game
                         Table.Position.Y + size.Height
                     )
             };
+            Phone.OnMissedCall += MissedCall;
+            Phone.OnWronglyEndedCall += WronglyEndedCall;
             AddComponent(Phone, States.Layers.PlayingArea);
+        }
+
+        private void AddPhoneTextBox()
+        {
+            PhoneDialogueTextBox = new TextBox()
+            {
+                Position = SizeManager.GetPosition(425, 250),
+                Visible = false
+            };
+            Phone.TextBox = PhoneDialogueTextBox;
+            AddComponent(PhoneDialogueTextBox, States.Layers.UI);
         }
 
         private void AddDocumentSpawn(int x, int y)

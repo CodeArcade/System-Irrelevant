@@ -1,4 +1,5 @@
-﻿using Bliss.Models;
+﻿using Bliss.Component.Sprites.Ui;
+using Bliss.Models;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Input;
 using System;
@@ -10,18 +11,23 @@ namespace Bliss.Component.Sprites.Office
 {
     public class Phone : Clickable
     {
-        public event EventHandler OnAcceptCall;
-        public event EventHandler OnEndCall;
+        public event EventHandler OnWronglyEndedCall;
         public event EventHandler OnMissedCall;
 
         private Dictionary<string, Animation> Animations { get; set; }
 
         private SoundEffectInstance RingingSoundEffect { get; set; }
+        private SoundEffectInstance CallOverSoundEffect { get; set; }
         private double Timer { get; set; }
+
+        private PhoneCall PhoneCall { get; set; }
+        private int CurrentVoiceLine { get; set; }
+        public TextBox TextBox { get; set; }
 
         public float SecondsBeforeMissedCall { get; set; } = 1;
         public bool IsRinging { get; private set; }
         public bool IsTalking { get; private set; }
+        public bool IsCallOver { get; private set; }
 
         public Phone()
         {
@@ -45,6 +51,11 @@ namespace Bliss.Component.Sprites.Office
             };
 
             AnimationManager.Play(Animations["idle"]);
+
+            CallOverSoundEffect = AudioManager.PlayEffect(ContentManager.PhoneCallOverSoundEffect, isLooped: true);
+            CallOverSoundEffect.Stop();
+            RingingSoundEffect = AudioManager.PlayEffect(ContentManager.PhoneRingingSoundEffect, volume: -0.5f, isLooped: true);
+            RingingSoundEffect.Stop();
         }
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
@@ -61,20 +72,26 @@ namespace Bliss.Component.Sprites.Office
                     IsRinging = false;
                     AnimationManager.Play(Animations["idle"]);
                     RingingSoundEffect.Stop();
-                    RingingSoundEffect.Dispose();
                     Timer = 0;
                 }
+            }
+
+            if (IsTalking)
+            {
+                PlayPhoneCall();
             }
 
             base.Update(gameTime);
         }
 
-        public void Ring()
+        public void Ring(PhoneCall phoneCall)
         {
             AnimationManager.Play(Animations["ringing"]);
-            RingingSoundEffect = AudioManager.PlayEffect(ContentManager.PhoneRingingSoundEffect, volume: -0.5f, isLooped: true);
+            RingingSoundEffect.Play();
             SecondsBeforeMissedCall = new Random().Next(10, 21);
+            Timer = 0;
             IsRinging = true;
+            PhoneCall = phoneCall;
         }
 
         protected override void Click()
@@ -87,19 +104,48 @@ namespace Bliss.Component.Sprites.Office
                 IsTalking = true;
                 AnimationManager.Play(Animations["talking"]);
                 RingingSoundEffect.Stop();
-                RingingSoundEffect.Dispose();
                 AudioManager.PlayEffect(ContentManager.PhonePickUpSoundEffect);
-                OnAcceptCall?.Invoke(this, new EventArgs());
+                CurrentVoiceLine = -1;
+                IsCallOver = false;
+                TextBox.Visible = true;
             }
             else if (IsTalking)
             {
                 IsTalking = false;
+                TextBox.Visible = false;
                 AnimationManager.Play(Animations["idle"]);
                 AudioManager.PlayEffect(ContentManager.PhoneHangUpSoundEffect);
-                OnEndCall?.Invoke(this, new EventArgs());
+
+                CallOverSoundEffect.Stop();
+                if (CurrentVoiceLine != PhoneCall.VoiceLines.Count) PhoneCall.VoiceLines[CurrentVoiceLine].Voice.Stop();
+                PhoneCall = null;
+
+                if (!IsCallOver)
+                {
+                    OnWronglyEndedCall?.Invoke(this, new EventArgs());
+                }
             }
 
             base.Click();
+        }
+
+        private void PlayPhoneCall()
+        {
+            if (CurrentVoiceLine == PhoneCall.VoiceLines.Count)
+            {
+                if (CallOverSoundEffect.State != SoundState.Playing) CallOverSoundEffect.Play();
+                IsCallOver = true;
+                TextBox.Visible = false;
+                return;
+            }
+
+            if (CurrentVoiceLine > -1 && PhoneCall.VoiceLines[CurrentVoiceLine].Voice.State == SoundState.Playing) return;
+            CurrentVoiceLine++;
+
+            if (CurrentVoiceLine == PhoneCall.VoiceLines.Count) return;
+
+            PhoneCall.VoiceLines[CurrentVoiceLine].Voice.Play();
+            TextBox.Text = PhoneCall.VoiceLines[CurrentVoiceLine].Text;
         }
 
     }
