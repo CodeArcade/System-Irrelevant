@@ -37,6 +37,10 @@ Wanna come over and play? You can be the corpse if you want 😉"
 
 "Hello. Its vlad. From IT. You ever think about salamanders? The teenzy tiny crocodiles that don't hurt you? Back home we call it саламандра. I like the name. it really fits. Anyway, do you need any? I bought 20, but is too many. I will send you picture later."
 
+### Car Alarms
+
+"Hello. It is vlad talking. Have you noticed that nobody hears car alarm and thinks 'Oh. Car is being stolen'. They only think 'I hope car gets stolen faster, sound is annoying'. So anyway... You need car?"
+
 ### Vlad wants to help you
 
 "Hello. vlad from IT. Everything alright? Is Mike bothering you? Don't worry, I got you. Don't say word. I will make it stop. do svidaniya".
