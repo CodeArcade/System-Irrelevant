@@ -2,6 +2,7 @@ using Bliss.Component.Sprites.Office;
 using Bliss.Component.Sprites.Office.Documents;
 using Bliss.Factories;
 using Bliss.Models;
+using Bliss.States.Summary;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using System;
@@ -31,13 +32,22 @@ namespace Bliss.States.Game
         private int DocumentCount => Layers.SelectMany(x => x).Count(x => x is BaseDocument);
 
         private double DocumentSpawnTimer { get; set; }
-        private List<string> DocumentsToSpawn { get; set; } = new List<string>();
+        private int SecondsToNextDocument { get; set; }
 
         protected override void OnLoad(params object[] parameter)
         {
             if (PlayerStats is null)
             {
                 PlayerStats = new PlayerStats();
+            }
+
+            if (parameter.Any())
+            {
+                PlayerStats = (PlayerStats)parameter[0];
+                PlayerStats.DocumentsLeft = 0;
+                PlayerStats.MissedCalls = 0;
+                PlayerStats.WronglyEndedCalls = 0;
+                PlayerStats.WronglySortedDocuments = 0;
             }
         }
 
@@ -47,19 +57,23 @@ namespace Bliss.States.Game
             CurrentMouse = Mouse.GetState();
 
             if (PlayerStats.Day == 0) Intro();
-            if (PlayerStats.Day > 0)
+
+            if (Clock.Hour == 17)
             {
-                HandleDocumentSpawn(gameTime);
+                PlayerStats.DocumentsLeft = DocumentCount;
+                StateManager.ChangeTo<SummaryState>(SummaryState.Name, PlayerStats);
+                base.Update(gameTime);
+                return;
             }
 
-            // TODO: End day at 5 pm
-            // TODO: Start first day call at first day instantly -> once finished start clock
-
-            if (Keyboard.GetState().IsKeyDown(Keys.Space)) SpawnDocument();
+            if (PlayerStats.Day > 0) HandleDocumentSpawn(gameTime);
 
             if (CurrentMouse.RightButton == ButtonState.Released && PreviousMouse.RightButton == ButtonState.Pressed && CurrentDetailViewComponents.Any())
             {
-                RemoveDetailView();
+                if (!(CurrentDocument is null))
+                {
+                    RemoveDetailView();
+                }
             }
 
             base.Update(gameTime);
@@ -88,17 +102,11 @@ namespace Bliss.States.Game
         {
             DocumentSpawnTimer += gameTime.ElapsedGameTime.TotalSeconds;
 
-            if (DocumentSpawnTimer >= 1)
+            if (DocumentSpawnTimer >= SecondsToNextDocument)
             {
-                if (DocumentsToSpawn.Any())
-                {
-                    DocumentsToSpawn.RemoveAt(0);
-                    SpawnDocument();
-                    DocumentSpawnTimer = 0;
-                }
-
-                if (DocumentCount <= 1) if (!DocumentsToSpawn.Contains("minimum documents")) DocumentsToSpawn.Add("minimum documents");
-                if (Clock.Minute % 10 == 0) if (!DocumentsToSpawn.Contains(Clock.Minute.ToString())) DocumentsToSpawn.Add(Clock.Minute.ToString());
+                SpawnDocument();
+                SecondsToNextDocument = new Random().Next(5, 16);
+                DocumentSpawnTimer = 0;
             }
         }
 
@@ -113,12 +121,12 @@ namespace Bliss.States.Game
 
         private void DocumentOrganizerClicked(object sender, EventArgs e)
         {
-            RemoveDetailView();
-
             DocumentOrganizer organizer = (DocumentOrganizer)sender;
             if (!organizer.Validate(CurrentDocument)) PlayerStats.WronglySortedDocuments++;
 
             CurrentDocument.IsRemoved = true;
+
+            RemoveDetailView();
         }
 
         private void ImportantPhoneCallFinished(object sender, EventArgs e)
@@ -127,12 +135,14 @@ namespace Bliss.States.Game
             foreach (var validatorGroup in validators)
             {
                 DocumentOrganizer organizer = DocumentOrganizers.First(x => x.Id == validatorGroup.Key);
-                organizer.Validators.AddRange(validatorGroup.Value);
+                organizer.Validators = validatorGroup.Value;
             }
         }
 
         private void DocumentClicked(object sender, EventArgs e)
         {
+            if (!(CurrentDocument is null)) return;
+
             ToggleClickableOfDocuments(false);
 
             foreach (Component.Component component in CurrentDetailViewComponents)
@@ -156,6 +166,8 @@ namespace Bliss.States.Game
 
             ToggleClickableOfDocuments(true);
 
+            CurrentDocument = null;
+
             AudioManager.PlayEffect(ContentManager.DocumentPutDownSoundEffect);
         }
 
@@ -166,7 +178,10 @@ namespace Bliss.States.Game
             foreach (Component.Component component in Layers[(int)States.Layers.PlayingArea])
             {
                 if (component is BaseDocument document)
+                {
                     document.CanBeClicked = clickable;
+                    document.CanBeDragged = clickable;
+                }
 
                 if (component is DocumentOrganizer organizer)
                     organizer.CanBeClicked = !clickable;

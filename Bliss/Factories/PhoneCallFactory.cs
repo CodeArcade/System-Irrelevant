@@ -30,10 +30,10 @@ namespace Bliss.Factories
         {
             return new PhoneCall()
             {
-                NewValidators = new Dictionary<int, List<System.Func<Component.Sprites.Office.Documents.BaseDocument, bool>>>()
+                NewValidators = new Dictionary<OrganizerIds, List<System.Func<Component.Sprites.Office.Documents.BaseDocument, bool>>>()
                 {
                     { 
-                        (int)OrganizerIds.Bin, 
+                        OrganizerIds.Bin, 
                         new List<System.Func<Component.Sprites.Office.Documents.BaseDocument, bool>>() 
                             {
                                 (document) => { return false; }
@@ -45,7 +45,7 @@ namespace Bliss.Factories
                     new VoiceLine()
                     {
                         Text = "...",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.DocumentSpawnedSoundEffect.CreateInstance()
                     }
                 }
             };

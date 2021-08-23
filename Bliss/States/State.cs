@@ -30,7 +30,7 @@ namespace Bliss.States
         public ContentManager ContentManager { get; set; }
 
         [Dependency]
-        public StateManager stateManager { get; set; }
+        public StateManager StateManager { get; set; }
 
         [Dependency]
         public JamGame JamGame { get; set; }
@@ -88,7 +88,7 @@ namespace Bliss.States
                     }
                 }
 
-                foreach(BaseDocument document in Layers[layer].Where(x => x is BaseDocument).Select(x => (BaseDocument)x).OrderByDescending(c => c.Id).ToList())
+                foreach(BaseDocument document in Layers[layer].Where(x => x is BaseDocument).Select(x => (BaseDocument)x).OrderBy(c => c.Id).ToList())
                 {
                     if (document.Visible) document.Draw(gameTime, spriteBatch);
                 }

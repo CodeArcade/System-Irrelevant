@@ -33,7 +33,7 @@ namespace Bliss
             UnityContainer.RegisterType<ContentManager>();
             UnityContainer.RegisterType<AudioManager>();
             UnityContainer.RegisterType<ParticleManager>();
-            UnityContainer.RegisterType<StateManager>();
+            UnityContainer.RegisterSingleton<StateManager>();
             UnityContainer.RegisterType<AnimationManager>();
             UnityContainer.RegisterType<PhoneCallFactory>();
             UnityContainer.RegisterType<DocumentFactory>();

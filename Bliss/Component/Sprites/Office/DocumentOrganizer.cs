@@ -9,15 +9,15 @@ namespace Bliss.Component.Sprites.Office
 {
     public enum OrganizerIds
     {
-        Top,
-        Middle,
-        Bottom,
+        Green,
+        Red,
+        Blue,
         Bin
     }
 
     public class DocumentOrganizer : Clickable
     {
-        public int Id { get; set; }
+        public OrganizerIds Id { get; set; }
         public List<Func<BaseDocument, bool>> Validators { get; set; } = new List<Func<BaseDocument, bool>>();
 
         public bool Validate(BaseDocument document)

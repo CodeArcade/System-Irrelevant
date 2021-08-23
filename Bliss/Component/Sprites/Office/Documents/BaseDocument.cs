@@ -4,10 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
-using Color = Microsoft.Xna.Framework.Color;
-using Rectangle = Microsoft.Xna.Framework.Rectangle;
 
 namespace Bliss.Component.Sprites.Office.Documents
 {
@@ -17,6 +14,10 @@ namespace Bliss.Component.Sprites.Office.Documents
         private float DistanceToTravel { get; set; }
         public bool DidLand { get; set; }
 
+        public bool CanBeDragged { get; set; } = true;
+
+        private bool IsHeld { get; set; } = false;
+        private Vector2 HoldOffset { get; set; }
 
         public int Id { get; set; }
         private static int LatestId { get; set; }
@@ -46,47 +47,55 @@ namespace Bliss.Component.Sprites.Office.Documents
             CanBeClicked = false;
         }
 
-        public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
-        {
-            Color = Color.White;
-            if (IsMouseOver && IsTopMostDocumentUnderMouse() && CanBeClicked) Color = HoverColor;
-
-            base.Draw(gameTime, spriteBatch);
-        }
-
         public override void Update(GameTime gameTime)
         {
             // We are moving only a distance instead to the point, cause of the speed the exact point may be missed
-            if (DistanceToTravel < DistanceTo(SpawnPoint))
+            if (DistanceToTravel < DistanceTo(SpawnPoint) && !DidLand)
             {
                 if (!DidLand)
                 {
                     AudioManager.PlayEffect(ContentManager.DocumentLandedSoundEffect);
-                    Id = ++LatestId; // I hate me for that
+                    Id = ++LatestId; // I hate myself for that
                 }
 
                 DidLand = true;
                 CanBeClicked = true;
-                UpdateMouseOverClick();
                 return;
             }
 
-            Position += Direction * Speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
-
+            if (DidLand)
+            {
+                CanBeClicked = true;
+                SortDocumentsById();
+                UpdateMouse();
+                UpdateDrag();
+                UpdateMouseOverClick();
+            }
+            else
+            {
+                Position += Direction * Speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+            }
             base.Update(gameTime);
+        }
+
+        private void UpdateMouse()
+        {
+            PreviousMouse = CurrentMouse;
+            CurrentMouse = Mouse.GetState();
+        }
+
+        protected override void UpdateHoverColor()
+        {
+            Color = Color.White;
+            if (IsMouseOver && CanBeClicked && CanBeDragged && IsTopMostDocumentUnderMouse()) Color = HoverColor;
         }
 
         protected override void UpdateMouseOverClick()
         {
-            PreviousMouse = CurrentMouse;
-            CurrentMouse = Mouse.GetState();
-
-            Rectangle mouseRectangle = new Rectangle(CurrentMouse.X, CurrentMouse.Y, 1, 1);
-
             IsMouseOver = false;
             if (DocumentsUnderMouse.Contains(this)) DocumentsUnderMouse.Remove(this);
 
-            if (mouseRectangle.Intersects(Rectangle))
+            if (IsMouseOverDocument())
             {
                 DocumentsUnderMouse.Add(this);
                 IsMouseOver = true;
@@ -99,7 +108,58 @@ namespace Bliss.Component.Sprites.Office.Documents
             }
         }
 
-        private bool IsTopMostDocumentUnderMouse() => Id == DocumentsUnderMouse.Max(x => x.Id);
+        private void UpdateDrag()
+        {
+            if (!CanBeDragged) return;
+            if (!IsTopMostDocumentUnderMouse()) return;
+
+            if (IsHeld)
+            {
+                CanBeClicked = false;
+                Position = new Vector2(CurrentMouse.X - HoldOffset.X, CurrentMouse.Y - HoldOffset.Y);
+                Id = Int32.MaxValue;
+            }
+
+            if (CurrentMouse.LeftButton == ButtonState.Released)
+            {
+                IsHeld = false;
+            }
+
+            if (CurrentMouse.LeftButton == ButtonState.Pressed &&
+                PreviousMouse.LeftButton == ButtonState.Pressed &&
+                !IsHeld)
+            {
+                Rectangle rect = new Rectangle(PreviousMouse.X - 2, PreviousMouse.Y - 2, 4, 4);
+                if (!rect.Contains(CurrentMouse.X, CurrentMouse.Y))
+                {
+                    IsHeld = true;
+                    CanBeClicked = false;
+                    HoldOffset = new Vector2(CurrentMouse.X - Position.X, CurrentMouse.Y - Position.Y);
+                }
+            }
+        }
+
+        private bool IsMouseOverDocument()
+        {
+            Rectangle mouseRectangle = new Rectangle(CurrentMouse.X, CurrentMouse.Y, 1, 1);
+            return mouseRectangle.Intersects(Rectangle);
+        }
+
+        private bool IsTopMostDocumentUnderMouse()
+        {
+            if (!DocumentsUnderMouse.Any()) return false;
+
+            return Id == DocumentsUnderMouse.Max(x => x.Id);
+        }
+
+        private void SortDocumentsById()
+        {
+            DocumentsUnderMouse = DocumentsUnderMouse.OrderBy(x => x.Id).ToList();
+            if (Id == Int32.MaxValue)
+            {
+                Id = ++LatestId;
+            }
+        }
 
         /// <summary>
         /// This functions returns the components for the detail view of the document

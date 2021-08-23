@@ -16,8 +16,7 @@ namespace Bliss.Component.Sprites
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            Color = Color.White;
-            if (IsMouseOver && CanBeClicked) Color = HoverColor;
+            UpdateHoverColor();
 
             base.Draw(gameTime, spriteBatch);
         }
@@ -27,6 +26,12 @@ namespace Bliss.Component.Sprites
             UpdateMouseOverClick();
 
             base.Update(gameTime);
+        }
+
+        protected virtual void UpdateHoverColor()
+        {
+            Color = Color.White;
+            if (IsMouseOver && CanBeClicked) Color = HoverColor;
         }
 
         protected virtual void UpdateMouseOverClick()
