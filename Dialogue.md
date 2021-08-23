@@ -1,5 +1,20 @@
 # Dialogue
 
+## Mr. Bossmans Dialogue
+
+### Work harder
+
+"Hey, new guy! Are you working enough? ... Well, work harder!"
+I'm thinking that the boss calls and uses this voice line when the player has too many docs on his desk
+
+### Work less?
+
+"Hey, new guy! Betty told me that you were working hard... you can slow down if you want. JUST KIDDING, WORK HARDER!"
+
+### Mike?
+
+"Hey, new guy! Have you seen Mike around? You know, Mike from Accounting. He skipped 3 days of work already and I think I'll have to fire him..."
+
 ## Mikes Dialogue
 
 ### Mike want's to go to dinner
@@ -84,3 +99,18 @@ and the place had only been open for 12 minutes and was already getting overpopu
 ### library
 
 "Did you know? The local library doesn't have a maximum book checkout limit and I am about to make them regret this. You need anything?"
+
+## Actually relevant Dialogue
+
+### Mr Bossman
+
+#### Intro to the Job
+
+1. "Hey there new guy, this is your boss speaking. I thought I'd give you a quick rundown on how your job actually works."
+2. "It's rather simple. You get documents, you sort them. Done deal."
+3. "First: this is a contract. You can read them if you want, but for now, just put them in the blue bin."
+4. "Next, this is a paycheck. It's just a regular paycheck. It's got a date, it's got the amount, the department and a date. You can also just toss it into the blue bin."
+5. "This is an application. It's from the people that will replace you one day. HAHAHA just kidding. Just put them in the red bin."
+6. "Now, this is just a regular letter. Nothing special about it. Just put them in the green bin."
+7. "Now this... this is classified. Don't open it. Just throw it in the trash! I mean... I can't stop you from opening it as you throw it away anyways... Well just don't!"
+8. "Alright, that's about everything. If there are any new rules, people will call you to inform you about it. So don't hang up on them all willy nilly. And now go to work!"
