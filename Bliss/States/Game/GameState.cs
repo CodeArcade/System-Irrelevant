@@ -38,7 +38,12 @@ namespace Bliss.States.Game
             // TODO: Start first day call at first day instantly -> once finished start clock
 
             if (Keyboard.GetState().IsKeyDown(Keys.Space)) SpawnDocument();
-            if (Keyboard.GetState().IsKeyDown(Keys.T)) Phone.Ring(); // TODO: Ring at random points of time during day (2-3 times), once of which tells you important stuff
+             if (Keyboard.GetState().IsKeyDown(Keys.T)) Phone.Ring(new PhoneCall() {  IsImportant = true, 
+                 VoiceLines = new List<VoiceLine>() { 
+                     new VoiceLine() {  Text = "Ring Ring Ring Ring", Voice = ContentManager.PhoneRingingSoundEffect.CreateInstance() } ,
+                     new VoiceLine() {  Text = "Booooooooooooooooooooooooooooooooooooooooooooooooooooop", Voice = ContentManager.PhoneCallOverSoundEffect.CreateInstance() } ,
+                 }
+             } ); // TODO: Ring at random points of time during day (2-3 times), once of which tells you important stuff
             if (Keyboard.GetState().IsKeyDown(Keys.C)) // TODO: start at new days
             {
                 Clock.Enabled = !Clock.Enabled;
@@ -71,7 +76,7 @@ namespace Bliss.States.Game
         {
             RemoveDetailView();
             CurrentDocument.IsRemoved = true;
-            PlayerStats.SortedDocuments++;
+            PlayerStats.WronglySortedDocuments++;
             // TODO: Prüfen ob richtig eingeordnet
         }
 
@@ -79,20 +84,13 @@ namespace Bliss.States.Game
         {
             RemoveDetailView();
             CurrentDocument.IsRemoved = true;
-            PlayerStats.ThrahsedDocuments++;
+            PlayerStats.WronglyThrashedDocuments++;
             // TODO: Prüfen ob richtig eingeordnet
         }
 
-        private void AcceptedCall(object sender, EventArgs e)
+        private void WronglyEndedCall(object sender, EventArgs e)
         {
-            PlayerStats.PickedUpCalls++;
-            // TODO: Play call audio and show sub titles
-        }
-
-        private void EndCall(object sender, EventArgs e)
-        {
-            // TODO: Check if call was important and not over
-            PlayerStats.WronglyEndedCalls++; 
+            PlayerStats.WronglyEndedCalls++;
         }
 
         private void MissedCall(object sender, EventArgs e)

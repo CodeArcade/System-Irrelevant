@@ -6,11 +6,8 @@ namespace Bliss.Models
     {
         public int MissedCalls { get; set; }
         public int WronglyEndedCalls { get; set; }
-        public int PickedUpCalls { get; set; }
 
-        public int ThrahsedDocuments { get; set; }
         public int WronglyThrashedDocuments { get; set; }
-        public int SortedDocuments { get; set; }
         public int WronglySortedDocuments { get; set; }
         
         public int TimesToManyDocuments { get; set; }
