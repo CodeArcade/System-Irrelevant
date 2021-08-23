@@ -1,6 +1,7 @@
 ﻿using Bliss.Component.Sprites.Office;
 using Bliss.Manager;
 using Bliss.Models;
+using System;
 using System.Collections.Generic;
 using Unity;
 
@@ -10,6 +11,27 @@ namespace Bliss.Factories
     {
         [Dependency]
         public ContentManager ContentManager { get; set; }
+
+        private static int MikeProgress { get; set; }
+
+        public PhoneCall GetRandom()
+        {
+            return new Random().Next(0, 2) switch
+            {
+                0 => GetPrankCall(),
+                1 => GetPrankCall(),
+                _ => GetPrankCall(),
+            };
+        }
+
+        public PhoneCall GetRandomImportant()
+        {
+            return new Random().Next(0, 1) switch
+            {
+                _ => GetPrankCall(),
+            };
+        }
+
 
         public PhoneCall GetPrankCall()
         {
@@ -32,12 +54,12 @@ namespace Bliss.Factories
             {
                 NewValidators = new Dictionary<OrganizerIds, List<System.Func<Component.Sprites.Office.Documents.BaseDocument, bool>>>()
                 {
-                    { 
-                        OrganizerIds.Bin, 
-                        new List<System.Func<Component.Sprites.Office.Documents.BaseDocument, bool>>() 
+                    {
+                        OrganizerIds.Bin,
+                        new List<System.Func<Component.Sprites.Office.Documents.BaseDocument, bool>>()
                             {
                                 (document) => { return false; }
-                            } 
+                            }
                     }
                 },
                 VoiceLines = new List<VoiceLine>()
@@ -49,6 +71,28 @@ namespace Bliss.Factories
                     }
                 }
             };
+        }
+
+        public PhoneCall GetMike()
+        {
+            MikeProgress++;
+
+            return MikeProgress switch
+            {
+                1 => GetMike1(),
+                2 => GetMike2(),
+                _ => null,
+            };
+        }
+
+        public PhoneCall GetMike1()
+        {
+            return null;
+        }
+
+        public PhoneCall GetMike2()
+        {
+            return null;
         }
     }
 }

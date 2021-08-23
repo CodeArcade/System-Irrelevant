@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Transactions;
 using Color = Microsoft.Xna.Framework.Color;
 
 namespace Bliss.Component.Sprites.Office
@@ -29,6 +30,8 @@ namespace Bliss.Component.Sprites.Office
         public bool IsRinging { get; private set; }
         public bool IsTalking { get; private set; }
         public bool IsCallOver { get; private set; }
+
+        public bool IsInUse => IsRinging || IsTalking || !IsCallOver;
 
         public Phone(PlayerStats playerStats)
         {
@@ -88,6 +91,8 @@ namespace Bliss.Component.Sprites.Office
 
         public void Ring(PhoneCall phoneCall)
         {
+            if (phoneCall is null) return;
+
             AnimationManager.Play(Animations["ringing"]);
             RingingSoundEffect.Play();
             SecondsBeforeMissedCall = new Random().Next(10, 21);

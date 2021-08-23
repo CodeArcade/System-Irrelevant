@@ -11,7 +11,7 @@ namespace Bliss.Component.Sprites.Office
         public bool Enabled { get; set; }
 
         private double Timer { get; set; }
-        public float SecondsBetweenMinutes { get; set; } = 1;
+        public float SecondsBetweenMinutes { get; set; } = 0.5f;
 
         private List<Texture2D> Numbers { get; set; }
 

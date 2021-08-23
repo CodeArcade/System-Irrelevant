@@ -34,6 +34,10 @@ namespace Bliss.States.Game
         private double DocumentSpawnTimer { get; set; }
         private int SecondsToNextDocument { get; set; }
 
+        private double PhoneCallTimer { get; set; }
+        private int SecondsToNextPhoneCall { get; set; }
+        private List<PhoneCall> Calls { get; set; }
+
         protected override void OnLoad(params object[] parameter)
         {
             if (PlayerStats is null)
@@ -49,6 +53,14 @@ namespace Bliss.States.Game
                 PlayerStats.WronglyEndedCalls = 0;
                 PlayerStats.WronglySortedDocuments = 0;
             }
+
+            Calls = new List<PhoneCall>();
+            int callCount = new Random().Next(1, 4);
+            for (int i = 0; i < callCount - 1; i++)
+                Calls.Add(PhoneCallFactory.GetRandom());
+
+            Calls.Add(PhoneCallFactory.GetRandomImportant());
+            SecondsToNextPhoneCall = new Random().Next(25, 45);
         }
 
         public override void Update(GameTime gameTime)
@@ -58,7 +70,7 @@ namespace Bliss.States.Game
 
             if (PlayerStats.Day == 0) Intro();
 
-            if (Clock.Hour == 17)
+            if (Clock.Hour >= 17 && !Phone.IsInUse)
             {
                 PlayerStats.DocumentsLeft = DocumentCount;
                 StateManager.ChangeTo<SummaryState>(SummaryState.Name, PlayerStats);
@@ -66,7 +78,17 @@ namespace Bliss.States.Game
                 return;
             }
 
-            if (PlayerStats.Day > 0) HandleDocumentSpawn(gameTime);
+            if (PlayerStats.Day > 0)
+            {
+                HandleDocumentSpawn(gameTime);
+                HandlePhoneCall(gameTime);
+
+                if (!Clock.Enabled)
+                {
+                    Clock.Reset();
+                    Clock.Enabled = true;
+                }
+            }
 
             if (CurrentMouse.RightButton == ButtonState.Released && PreviousMouse.RightButton == ButtonState.Pressed && CurrentDetailViewComponents.Any())
             {
@@ -94,8 +116,6 @@ namespace Bliss.States.Game
 
             if (!Phone.IsTalking) return;
             PlayerStats.Day = 1;
-            Clock.Reset();
-            Clock.Enabled = true;
         }
 
         private void HandleDocumentSpawn(GameTime gameTime)
@@ -117,6 +137,21 @@ namespace Bliss.States.Game
             BaseDocument document = DocumentFactory.GetRandomDocument(DocumentSpawnPoints[random.Next(0, DocumentSpawnPoints.Count)].Position, Table.Rectangle);
             document.OnClick += DocumentClicked;
             AddComponent(document, States.Layers.PlayingArea);
+        }
+
+        private void HandlePhoneCall(GameTime gameTime)
+        {
+            if (!Phone.IsInUse) PhoneCallTimer += gameTime.ElapsedGameTime.TotalSeconds;
+
+            if (PhoneCallTimer >= SecondsToNextPhoneCall && !Phone.IsInUse)
+            {
+                int callToPlay = new Random().Next(0, Calls.Count);
+                Phone.Ring(Calls[callToPlay]);
+                Calls.RemoveAt(callToPlay);
+                
+                SecondsToNextPhoneCall = new Random().Next(30, 60);
+                PhoneCallTimer = 0;
+            }
         }
 
         private void DocumentOrganizerClicked(object sender, EventArgs e)

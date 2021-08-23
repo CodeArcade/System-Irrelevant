@@ -9,6 +9,7 @@ namespace Bliss.Models
     public class PhoneCall
     {
         public bool IsImportant => NewValidators.Any();
+
         /// <summary>
         /// Key = Organizer Id
         /// </summary>
