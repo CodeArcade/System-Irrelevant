@@ -3,5 +3,7 @@
 ## Sort Documents Game
 
 [World](WORLD.md)
-[Dialogue](Dialoge.md)
+
+[Dialogue](Dialogue.md)
+
 [Document Types](DocTypes.md)
