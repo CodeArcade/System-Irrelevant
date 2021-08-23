@@ -7,6 +7,10 @@
 "Hey, it's Mike from accounting. Do you have any plans for lunch? I was thinking that maybe we could check out that new italian place.
 What was it called again? Tony's? Little John's? I can't remember. Anyways, if you wanna join me, just come over to my desk. See ya later!"
 
+### McDogs
+
+"Hey, it's Mike from accounting. Before I worked here I had a pretty bad fast food job. The day that I quit was especially bad. I spent 15 minutes trying to explain to an old man that we do not sell hot dogs (McDogs as he called them) and then he threatened to report me for "withholding products from him". Anyways, all I wanted to say is that I'm making hot dogs later, so if you want any, scoot on over. See ya later pal"
+
 ## Bettys Dialogue
 
 ### Betty is checking in
@@ -19,11 +23,19 @@ What was it called again? Tony's? Little John's? I can't remember. Anyways, if y
 All the players are assassins and they have to figure out who reanimated the person, because that means there is someone out there who can get first-hand accounts of them.
 Wanna come over and play? You can be the corpse if you want 😉"
 
+### Pentagrams
+
+"Hey, it's Betty! I was bored yesterday and decided to draw a bunch of pentagrams on a contract. I ended up with at least 100 of them, but before I could draw any more, a devilish-looking guy wearing a red suit broke down the door of the classroom and yelled "WHAT THE HELL DO YOU WANT?!". Then he snatched the contract, somehow burned it without a lighter and ran away. I will never stop thinking about that man."
+
 ## Vlads Dialogue
 
 ### Vlad introduces himself
 
 "Hello. Vlad from IT here. You're phone working OK? If you get mail for vlad, just forward it to him. Might be Uranium. XAXAXA! Ok, we talk later."
+
+### Salamanders
+
+"Hello. Its vlad. From IT. You ever think about salamanders? The teenzy tiny crocodiles that don't hurt you? Back home we call it саламандра. I like the name. it really fits. Anyway, do you need any? I bought 20, but is too many. I will send you picture later."
 
 ### Vlad wants to help you
 
