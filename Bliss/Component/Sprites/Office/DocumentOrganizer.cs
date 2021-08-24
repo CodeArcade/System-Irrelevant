@@ -45,8 +45,6 @@ namespace Bliss.Component.Sprites.Office
         {
             UpdateHover();
             Tweener.Update(gameTime.GetElapsedSeconds());
-            Debug.WriteLine(Rectangle.X);
-            Debug.WriteLine(Position.X);
             base.Update(gameTime);
         }
 

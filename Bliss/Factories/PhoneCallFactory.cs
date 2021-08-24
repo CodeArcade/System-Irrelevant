@@ -13,10 +13,11 @@ namespace Bliss.Factories
         public ContentManager ContentManager { get; set; }
 
         private static int MikeProgress { get; set; }
+        private Random Random { get; set; } = new Random();
 
         public PhoneCall GetRandom()
         {
-            return new Random().Next(0, 13) switch
+            return Random.Next(0, 13) switch
             {
                 0 => GetPrankCall(),
                 1 => GetLibrary(),
@@ -37,7 +38,7 @@ namespace Bliss.Factories
 
         public PhoneCall GetRandomImportant()
         {
-            return new Random().Next(0, 1) switch
+            return Random.Next(0, 1) switch
             {
                 _ => GetPrankCall(),
             };

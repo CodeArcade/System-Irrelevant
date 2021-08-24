@@ -13,6 +13,9 @@ namespace Bliss.Component.Sprites.Office
         private double Timer { get; set; }
         public float SecondsBetweenMinutes { get; set; } = 0.5f;
 
+        public int TotalTimeInSeconds => (int)((17 - 8) * 60 * SecondsBetweenMinutes);
+        public int RemainingSeconds => (int)((17 - Hour) * (60 - Minute) * SecondsBetweenMinutes);
+
         private List<Texture2D> Numbers { get; set; }
 
         public Clock()

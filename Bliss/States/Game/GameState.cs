@@ -38,6 +38,8 @@ namespace Bliss.States.Game
         private int SecondsToNextPhoneCall { get; set; }
         private List<PhoneCall> Calls { get; set; }
 
+        private Random Random { get; set; } = new Random();
+
         protected override void OnLoad(params object[] parameter)
         {
             if (PlayerStats is null)
@@ -55,7 +57,7 @@ namespace Bliss.States.Game
             }
 
             Calls = new List<PhoneCall>();
-            int callCount = new Random().Next(1, 4);
+            int callCount = Random.Next(1, 4);
             for (int i = 0; i < callCount - 1; i++)
                 Calls.Add(PhoneCallFactory.GetRandom());
 
@@ -125,7 +127,7 @@ namespace Bliss.States.Game
             if (DocumentSpawnTimer >= SecondsToNextDocument)
             {
                 SpawnDocument();
-                SecondsToNextDocument = new Random().Next(5, 16);
+                SecondsToNextDocument = Random.Next(5, 16);
                 DocumentSpawnTimer = 0;
             }
         }
@@ -133,23 +135,24 @@ namespace Bliss.States.Game
         private void SpawnDocument()
         {
             AudioManager.PlayEffect(ContentManager.DocumentSpawnedSoundEffect);
-            Random random = new Random();
-            BaseDocument document = DocumentFactory.GetRandomDocument(DocumentSpawnPoints[random.Next(0, DocumentSpawnPoints.Count)].Position, Table.Rectangle);
+            BaseDocument document = DocumentFactory.GetRandomDocument(DocumentSpawnPoints[Random.Next(0, DocumentSpawnPoints.Count)].Position, Table.Rectangle);
             document.OnClick += DocumentClicked;
             AddComponent(document, States.Layers.PlayingArea);
         }
 
         private void HandlePhoneCall(GameTime gameTime)
         {
+            if (!Calls.Any()) return;
+
             PhoneCallTimer += gameTime.ElapsedGameTime.TotalSeconds;
 
             if (PhoneCallTimer >= SecondsToNextPhoneCall)
             {
-                int callToPlay = new Random().Next(0, Calls.Count);
+                int callToPlay =  Random.Next(0, Calls.Count);
                 Phone.Ring(Calls[callToPlay]);
                 Calls.RemoveAt(callToPlay);
 
-                SecondsToNextPhoneCall = new Random().Next(30, 60);
+                SecondsToNextPhoneCall = Random.Next(30, Clock.RemainingSeconds / (Calls.Count + 1));
                 PhoneCallTimer = 0;
             }
         }
