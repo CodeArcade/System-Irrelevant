@@ -28,7 +28,11 @@ namespace Bliss.Manager
         {
             if (NextState is null) return;
             if (NextState == CurrentState) return;
-            if (!NextState.HasLoaded) NextState.Load(Parameter);
+            if (!NextState.HasLoaded)
+            {
+                JamGame.Dekstop.Root = null;
+                NextState.Load(Parameter);
+            }
 
             CurrentState = NextState;
             NextState = null;

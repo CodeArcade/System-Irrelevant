@@ -72,7 +72,7 @@ namespace Bliss.States.Game
 
             if (PlayerStats.Day == 0) Intro();
 
-            if (Clock.Hour >= 17 && !Phone.IsInUse)
+            if (Clock.Hour >= 8 && !Phone.IsInUse)
             {
                 PlayerStats.DocumentsLeft = DocumentCount;
                 StateManager.ChangeTo<SummaryState>(SummaryState.Name, PlayerStats);

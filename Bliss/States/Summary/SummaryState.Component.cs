@@ -1,5 +1,6 @@
 ﻿using Bliss.Component.Sprites;
 using Bliss.States.Game;
+using Myra.Graphics2D.UI;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,15 +11,23 @@ namespace Bliss.States.Summary
     {
         protected override void LoadComponents()
         {
-            Clickable button = new Clickable()
+            Grid grid = new Grid()
             {
-                Position = SizeManager.GetPosition(500, 500),
-                Size = SizeManager.GetSize(500, 500),
-                Texture = ContentManager.BinTexture
+                ShowGridLines = true,
+                ColumnSpacing = 8,
+                RowSpacing = 8
             };
-            button.OnClick += (sender, e) => { StateManager.ChangeTo<GameState>(GameState.Name, PlayerStats); };
+            grid.ColumnsProportions.Add(new Proportion());
+            grid.RowsProportions.Add(new Proportion());
 
-            AddComponent(button, States.Layers.UI);
+            TextButton button = new TextButton
+            {
+                Text = "Next Day"
+            };
+            button.Click += (sender, e) => { StateManager.ChangeTo<GameState>(GameState.Name, PlayerStats); };
+
+            grid.Widgets.Add(button);
+            JamGame.Dekstop.Root = grid;
         }
     }
 }

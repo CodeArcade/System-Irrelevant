@@ -5,6 +5,7 @@ using Unity;
 using Bliss.Manager;
 using Bliss.States;
 using Bliss.States.Game;
+using Myra.Graphics2D.UI;
 
 namespace Bliss
 {
@@ -12,6 +13,8 @@ namespace Bliss
     {
         private GraphicsDeviceManager Graphics;
         private SpriteBatch SpriteBatch;
+
+        public static Desktop Dekstop;
 
         public int BaseWidth => 1280;
         public int BaseHeight => 720;
@@ -54,6 +57,9 @@ namespace Bliss
 
             Graphics.ApplyChanges();
 
+            Dekstop = new Desktop();
+            Myra.MyraEnvironment.Game = this;
+
             base.Initialize();
         }
 
@@ -78,6 +84,8 @@ namespace Bliss
             SpriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp);
             StateManager.Draw(gameTime, SpriteBatch);
             SpriteBatch.End();
+
+            Dekstop.Render();
 
             base.Draw(gameTime);
         }
