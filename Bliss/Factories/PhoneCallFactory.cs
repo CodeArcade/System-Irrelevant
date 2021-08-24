@@ -13,6 +13,7 @@ namespace Bliss.Factories
         public ContentManager ContentManager { get; set; }
 
         private static int MikeProgress { get; set; }
+        private static int RuleProgress { get; set; }
         private Random Random { get; set; } = new Random();
 
         public PhoneCall GetRandom()
@@ -36,9 +37,11 @@ namespace Bliss.Factories
             };
         }
 
-        public PhoneCall GetRandomImportant()
+        public PhoneCall GetImportant()
         {
-            return Random.Next(0, 1) switch
+            RuleProgress++;
+
+            return RuleProgress switch
             {
                 _ => GetPrankCall(),
             };
@@ -63,13 +66,12 @@ namespace Bliss.Factories
         {
             return new PhoneCall()
             {
-                NewValidators = new Dictionary<OrganizerIds, List<Func<Component.Sprites.Office.Documents.BaseDocument, bool>>>()
+                NewValidators = new Dictionary<OrganizerIds, List<Rule>>()
                 {
                     {
                         OrganizerIds.Bin,
-                        new List<Func<Component.Sprites.Office.Documents.BaseDocument, bool>>()
+                        new List<Rule>()
                             {
-                                (document) => { return false; }
                             }
                     }
                 },
@@ -227,12 +229,12 @@ namespace Bliss.Factories
                     },
                     new VoiceLine()
                     {
-                        Text = "You could call for them like this:",
+                        Text = "No? Nobody called I see wiener?",
                         Voice = ContentManager.SilenceSoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
-                        Text = "'IS THERE A MR. I SEE WIENER AROUND? I SEE WIENER?",
+                        Text = "You can't see a wiener? Well get some glasses then!",
                         Voice = ContentManager.SilenceSoundEffect.CreateInstance()
                     }
                 }
@@ -372,22 +374,22 @@ namespace Bliss.Factories
                     new VoiceLine()
                     {
                         Text = "Hey, it's Mike from accounting. Do you have any plans for lunch?",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.MikeDinner1SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "I was thinking that maybe we could check out that new italian place.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.MikeDinner2SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "What was it called again? Tony's? Little John's? I can't remember.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.MikeDinner3SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "Anyways, if you wanna join me, just come over to my desk. See ya later!",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.MikeDinner4SoundEffect.CreateInstance()
                     }
                 }
             };

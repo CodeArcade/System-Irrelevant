@@ -10,8 +10,10 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Component\Sprites\Office\NewFile1.txt" />
     <None Remove="Icon.ico" />
     <None Remove="Icon.bmp" />
+    <None Remove="Models\NewFile1.txt" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Icon.ico" />

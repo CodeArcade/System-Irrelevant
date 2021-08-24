@@ -35,7 +35,7 @@ namespace Bliss.States.Game
                     (int)(Table.Rectangle.Y * 1.2),
                     210,
                     160,
-                    300,
+                    100,
                     OrganizerIds.Green,
                     Microsoft.Xna.Framework.Color.LightGreen
                 );
@@ -46,7 +46,7 @@ namespace Bliss.States.Game
                     (int)(Table.Rectangle.Y * 1.4 + SizeManager.ScaleForHeight(160)),
                     210,
                     160,
-                    300,
+                    100,
                     OrganizerIds.Red,
                     Microsoft.Xna.Framework.Color.OrangeRed
                 );
@@ -57,12 +57,12 @@ namespace Bliss.States.Game
                     (int)(Table.Rectangle.Y * 1.6 + SizeManager.ScaleForHeight(160) * 2),
                     210,
                     160,
-                    300,
+                    100,
                     OrganizerIds.Blue,
                       Microsoft.Xna.Framework.Color.LightBlue
                 );
 
-            AddBin(0, Table.Rectangle.Y + Table.Rectangle.Height - (int)SizeManager.ScaleForHeight(250 / 2), 250, 250);
+            AddBin(-1000, -1000, 25, 25);
 
             DocumentSpawnPoints = new List<Sprite>();
             // left side of desk
@@ -79,15 +79,12 @@ namespace Bliss.States.Game
 
         private void AddTable()
         {
-            Size size = SizeManager.GetSize(1000, 600);
+            Size size = SizeManager.GetSize(JamGame.BaseWidth, JamGame.BaseHeight - 120);
 
             Table = new Table()
             {
                 Size = size,
-                Position = SizeManager.GetPosition(
-                        (int)(SizeManager.ScaleForWidth(JamGame.BaseWidth) - size.Width) / 4,
-                        (int)(SizeManager.ScaleForHeight(JamGame.BaseHeight) - size.Height) / 4
-                    )
+                Position = SizeManager.GetPosition(0,0)
             };
             AddComponent(Table, States.Layers.Table);
         }
@@ -125,7 +122,7 @@ namespace Bliss.States.Game
         {
             PhoneDialogueTextBox = new TextBox()
             {
-                Position = new Vector2(Phone.Position.X , Phone.Position.Y + Phone.Size.Height),
+                Position = new Vector2(Phone.Position.X, Phone.Position.Y + Phone.Size.Height),
                 Visible = false
             };
 
@@ -147,7 +144,7 @@ namespace Bliss.States.Game
 
         private void AddDocumentOrganizer(Texture2D texture, int x, int y, int width, int height, int tweenOffset, OrganizerIds id, Microsoft.Xna.Framework.Color hoverColor)
         {
-            DocumentOrganizer organizer = new DocumentOrganizer()
+            DocumentOrganizer organizer = new DocumentOrganizer(PlayerStats)
             {
                 Size = SizeManager.GetSize(width, height),
                 Position = new Vector2(x, y),
@@ -156,9 +153,8 @@ namespace Bliss.States.Game
                 CanBeClicked = false,
                 HoverColor = hoverColor,
                 OriginPosition = new Vector2(x, y),
-                TweenOffset = tweenOffset,
+                TweenOffset = (int)SizeManager.ScaleForWidth(tweenOffset),
             };
-            organizer.OnClick += DocumentOrganizerClicked;
 
             DocumentOrganizers.Add(organizer);
             AddComponent(organizer, States.Layers.PlayingArea);
@@ -166,7 +162,7 @@ namespace Bliss.States.Game
 
         private void AddBin(int x, int y, int width, int height)
         {
-            Bin = new DocumentOrganizer()
+            Bin = new DocumentOrganizer(PlayerStats)
             {
                 Size = SizeManager.GetSize(width, height),
                 Position = new Vector2(x, y),
@@ -174,9 +170,8 @@ namespace Bliss.States.Game
                 CanBeClicked = false,
                 Id = OrganizerIds.Bin,
                 OriginPosition = new Vector2(x, y),
-                TweenOffset = -300,
+                TweenOffset = (int)SizeManager.ScaleForWidth(-100) ,
             };
-            Bin.OnClick += DocumentOrganizerClicked;
 
             DocumentOrganizers.Add(Bin);
             AddComponent(Bin, States.Layers.Bin);

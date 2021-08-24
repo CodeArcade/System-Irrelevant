@@ -52,9 +52,9 @@ namespace Bliss.States.Game
 
             if (parameter.Any())
             {
-                if (parameter[0] is PlayerStats)
+                if (parameter[0] is PlayerStats stats)
                 {
-                    PlayerStats = (PlayerStats)parameter[0];
+                    PlayerStats = stats;
                     PlayerStats.DocumentsLeft = 0;
                     PlayerStats.MissedCalls = 0;
                     PlayerStats.WronglyEndedCalls = 0;
@@ -71,7 +71,7 @@ namespace Bliss.States.Game
             for (int i = 0; i < callCount - 1; i++)
                 Calls.Add(PhoneCallFactory.GetRandom());
 
-            Calls.Add(PhoneCallFactory.GetRandomImportant());
+            Calls.Add(PhoneCallFactory.GetImportant());
             SecondsToNextPhoneCall = new Random().Next(25, 45);
         }
 
@@ -180,6 +180,18 @@ namespace Bliss.States.Game
             AudioManager.PlayEffect(ContentManager.DocumentSpawnedSoundEffect);
             BaseDocument document = DocumentFactory.GetRandomDocument(DocumentSpawnPoints[Random.Next(0, DocumentSpawnPoints.Count)].Position, Table.Rectangle);
             document.OnClick += DocumentClicked;
+            document.OnDragStopped += DocumentDragStopped;
+            document.OnDragUpdate += (sender, e) =>
+            {
+                if (!Table.Rectangle.Contains(Mouse.GetState().Position))
+                {
+                    document.Color = Color.OrangeRed;
+                }
+                else
+                {
+                    document.Color = Color.White;
+                }
+            };
             AddComponent(document, States.Layers.PlayingArea);
         }
 
@@ -198,16 +210,6 @@ namespace Bliss.States.Game
                 SecondsToNextPhoneCall = Random.Next(30, Math.Max(Clock.RemainingSeconds / (Calls.Count + 1), 32));
                 PhoneCallTimer = 0;
             }
-        }
-
-        private void DocumentOrganizerClicked(object sender, EventArgs e)
-        {
-            DocumentOrganizer organizer = (DocumentOrganizer)sender;
-            if (!organizer.Validate(CurrentDocument)) PlayerStats.WronglySortedDocuments++;
-
-            CurrentDocument.IsRemoved = true;
-
-            RemoveDetailView();
         }
 
         private void ImportantPhoneCallFinished(object sender, EventArgs e)
@@ -240,6 +242,20 @@ namespace Bliss.States.Game
             AudioManager.PlayEffect(ContentManager.DocumentPickedUpSoundEffect);
         }
 
+        private void DocumentDragStopped(object sender, EventArgs e)
+        {
+            if (sender is BaseDocument document)
+            {
+                if (!Table.Rectangle.Contains(Mouse.GetState().Position))
+                {
+                    if (!Bin.Validate(document)) PlayerStats.WronglySortedDocuments++;
+
+                    AudioManager.PlayEffect(ContentManager.DocumentThrasedSoundEffect);
+                    document.IsRemoved = true;
+                }
+            }
+        }
+
         private void RemoveDetailView()
         {
             foreach (Component.Component component in CurrentDetailViewComponents)
@@ -254,8 +270,6 @@ namespace Bliss.States.Game
 
         private void ToggleClickableOfDocuments(bool clickable)
         {
-            Bin.CanBeClicked = !clickable;
-
             foreach (Component.Component component in Layers[(int)States.Layers.PlayingArea])
             {
                 if (component is BaseDocument document)
@@ -263,9 +277,6 @@ namespace Bliss.States.Game
                     document.CanBeClicked = clickable;
                     document.CanBeDragged = clickable;
                 }
-
-                if (component is DocumentOrganizer organizer)
-                    organizer.CanBeClicked = !clickable;
             }
         }
     }

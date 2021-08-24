@@ -23,7 +23,7 @@ namespace Bliss.Component.Sprites.Office
     public class DocumentOrganizer : Clickable
     {
         public OrganizerIds Id { get; set; }
-        public List<Func<BaseDocument, bool>> Validators { get; set; } = new List<Func<BaseDocument, bool>>();
+        public List<Rule> Validators { get; set; } = new List<Rule>();
         private readonly Tweener Tweener = new Tweener();
         public Vector2 OriginPosition { get; set; }
         public int TweenOffset { get; set; }
@@ -31,11 +31,20 @@ namespace Bliss.Component.Sprites.Office
         private bool IsExtending { get; set; } = false;
         private bool IsRetracting { get; set; } = false;
 
+        private MouseState TweenerCurrentMouse { get; set; }
+        
+        private PlayerStats PlayerStats { get; set; }
+
+        public DocumentOrganizer(PlayerStats playerStats)
+        {
+            PlayerStats = playerStats;
+        }
+
         public bool Validate(BaseDocument document)
         {
-            foreach (Func<BaseDocument, bool> validator in Validators)
+            foreach (Rule rule in Validators)
             {
-                if (!validator.Invoke(document)) return false;
+                if (!rule.Validate(document)) return false;
             }
 
             return true;
@@ -50,7 +59,7 @@ namespace Bliss.Component.Sprites.Office
 
         public void UpdateHover()
         {
-            CurrentMouse = Mouse.GetState();
+            TweenerCurrentMouse = Mouse.GetState();
             if (IsMouseOverOrganizer() && !IsExtending)
             {
                 Extend();
@@ -64,7 +73,7 @@ namespace Bliss.Component.Sprites.Office
 
         private bool IsMouseOverOrganizer()
         {
-            Rectangle mouseRectangle = new Rectangle(CurrentMouse.X, CurrentMouse.Y, 1, 1);
+            Rectangle mouseRectangle = new Rectangle(TweenerCurrentMouse.X, TweenerCurrentMouse.Y, 1, 1);
             return mouseRectangle.Intersects(Rectangle);
         }
 
@@ -78,10 +87,35 @@ namespace Bliss.Component.Sprites.Office
 
         public void Retract()
         {
-            Tweener.TweenTo(target: this, duration: 0.3f, expression: organizer => organizer.Position, toValue: new Vector2(OriginPosition.X, OriginPosition.Y))
+            Tweener.TweenTo(target: this, duration: 0.3f, expression: organizer => organizer.Position, toValue: OriginPosition)
                 .Easing(EasingFunctions.CircleOut);
             IsRetracting = true;
             IsExtending = false;
         }
+
+        public override void OnCollision(Sprite sprite, GameTime gameTime)
+        {
+            if (!IsExtending) return;
+            
+            if (sprite is BaseDocument document)
+            {
+                if (document.IsHeld) return;
+                if (document.TimeSinceHeld > 0.1) return;
+                if (document.IsRemoved) return;
+
+                OnDrop(document);
+            }
+        }
+
+        public void OnDrop(BaseDocument document)
+        {
+            if (!Validate(document)) PlayerStats.WronglySortedDocuments++;
+
+            AudioManager.PlayEffect(ContentManager.DocumentPutDownSoundEffect);
+            document.IsRemoved = true;
+        }
+
+        protected override void Click() { }
+
     }
 }

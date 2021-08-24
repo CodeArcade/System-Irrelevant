@@ -11,7 +11,7 @@ namespace Bliss.Component.Sprites.Office
         public bool Enabled { get; set; }
 
         private double Timer { get; set; }
-        public float SecondsBetweenMinutes { get; set; } = 0.5f;
+        public float SecondsBetweenMinutes { get; set; } = 0.25f;
 
         public int TotalTimeInSeconds => (int)((17 - 8) * 60 * SecondsBetweenMinutes);
         public int RemainingSeconds => (int)((17 - Hour) * (60 - Minute) * SecondsBetweenMinutes);

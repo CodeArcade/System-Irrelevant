@@ -13,7 +13,7 @@ namespace Bliss.Models
         /// <summary>
         /// Key = Organizer Id
         /// </summary>
-        public Dictionary<OrganizerIds, List<Func<BaseDocument, bool>>> NewValidators { get; set; } = new Dictionary<OrganizerIds, List<Func<BaseDocument, bool>>>();
+        public Dictionary<OrganizerIds, List<Rule>> NewValidators { get; set; } = new Dictionary<OrganizerIds, List<Rule>>();
 
         public List<VoiceLine> VoiceLines { get; set; }
     }

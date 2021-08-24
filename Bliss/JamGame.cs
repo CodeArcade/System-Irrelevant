@@ -12,7 +12,9 @@ namespace Bliss
 {
     public class JamGame : Game
     {
+#pragma warning disable IDE0044 // Add readonly modifier
         private GraphicsDeviceManager Graphics;
+#pragma warning restore IDE0044 // Add readonly modifier
         private SpriteBatch SpriteBatch;
 
         public static Desktop Dekstop;

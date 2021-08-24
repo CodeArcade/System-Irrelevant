@@ -31,6 +31,8 @@ namespace Bliss.Manager
         public Texture2D ClockNineTexture => JamGame.Content.Load<Texture2D>("Sprites/9");
         public Texture2D ClockColonTexture => JamGame.Content.Load<Texture2D>("Sprites/Colon");
 
+        public Texture2D StickyNoteTexture => JamGame.Content.Load<Texture2D>("Sprites/StickyNote");
+
         public Texture2D PhoneIdleAnimation => JamGame.Content.Load<Texture2D>("Animations/PhoneIdle");
         public Texture2D PhoneRingingAnimation => JamGame.Content.Load<Texture2D>("Animations/PhoneRinging");
         public Texture2D PhonePickedUpAnimation => JamGame.Content.Load<Texture2D>("Animations/PhonePickedUp");
@@ -43,6 +45,7 @@ namespace Bliss.Manager
         public SoundEffect DocumentSpawnedSoundEffect => JamGame.Content.Load<SoundEffect>("Sounds/DocumentSpawned");
         public SoundEffect DocumentPickedUpSoundEffect => JamGame.Content.Load<SoundEffect>("Sounds/DocumentPickedUp");
         public SoundEffect DocumentPutDownSoundEffect => JamGame.Content.Load<SoundEffect>("Sounds/DocumentPutDown");
+        public SoundEffect DocumentThrasedSoundEffect => JamGame.Content.Load<SoundEffect>("Sounds/DocumentThrased");
 
         public SoundEffect SilenceSoundEffect => JamGame.Content.Load<SoundEffect>("Sounds/Silence");
 
@@ -50,6 +53,11 @@ namespace Bliss.Manager
         public SoundEffect PhoneHangUpSoundEffect => JamGame.Content.Load<SoundEffect>("Sounds/PhoneHangUp");
         public SoundEffect PhonePickUpSoundEffect => JamGame.Content.Load<SoundEffect>("Sounds/PhonePickUp");
         public SoundEffect PhoneCallOverSoundEffect => JamGame.Content.Load<SoundEffect>("Sounds/PhoneCallOver");
+
+        public SoundEffect MikeDinner1SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Mike/Dinner/Mike1");
+        public SoundEffect MikeDinner2SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Mike/Dinner/Mike2");
+        public SoundEffect MikeDinner3SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Mike/Dinner/Mike3");
+        public SoundEffect MikeDinner4SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Mike/Dinner/Mike4");
 
         public SpriteFont ArialSpriteFont => JamGame.Content.Load<SpriteFont>("Fonts/Arial");
     }

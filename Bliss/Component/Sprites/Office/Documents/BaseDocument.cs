@@ -1,6 +1,4 @@
-﻿using Bliss.Models;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
@@ -16,14 +14,21 @@ namespace Bliss.Component.Sprites.Office.Documents
 
         public bool CanBeDragged { get; set; } = true;
 
-        private bool IsHeld { get; set; } = false;
+        public bool IsHeld { get; private set; } = false;
         private Vector2 HoldOffset { get; set; }
+
+        public event EventHandler OnDragStopped;
+        public event EventHandler OnDragUpdate;
 
         public int Id { get; set; }
         private static int LatestId { get; set; }
         private static List<BaseDocument> DocumentsUnderMouse { get; set; } = new List<BaseDocument>();
 
+        public double TimeSinceHeld { get; set; }
+
+#pragma warning disable IDE0060 // Remove unused parameter
         public BaseDocument(Vector2 spawnPoint, Rectangle tableArea)
+#pragma warning restore IDE0060 // Remove unused parameter
         {
         }
 
@@ -37,7 +42,7 @@ namespace Bliss.Component.Sprites.Office.Documents
 
             // pick random position on table - reduce current size so document fits fully 
             Vector2 targetDestination = new Vector2(
-                random.Next(tableArea.X + (int)(Size.Width * 1.5), tableArea.Width - Size.Width),
+                random.Next(tableArea.X + (int)(Size.Width * 1.5), tableArea.Width - (Size.Width * 2)),
                 random.Next(tableArea.Y, tableArea.Height - Size.Height)
                 );
 
@@ -45,10 +50,14 @@ namespace Bliss.Component.Sprites.Office.Documents
             DistanceToTravel = DistanceTo(targetDestination);
             Direction = DirectionTo(targetDestination);
             CanBeClicked = false;
+            CanBeDragged = false;
         }
 
         public override void Update(GameTime gameTime)
         {
+            TimeSinceHeld += gameTime.ElapsedGameTime.TotalSeconds;
+            if (TimeSinceHeld >= 1000) TimeSinceHeld = 0;
+
             // We are moving only a distance instead to the point, cause of the speed the exact point may be missed
             if (DistanceToTravel < DistanceTo(SpawnPoint) && !DidLand)
             {
@@ -60,6 +69,7 @@ namespace Bliss.Component.Sprites.Office.Documents
 
                 DidLand = true;
                 CanBeClicked = true;
+                CanBeDragged = true;
                 return;
             }
 
@@ -86,8 +96,13 @@ namespace Bliss.Component.Sprites.Office.Documents
 
         protected override void UpdateHoverColor()
         {
+            if (IsHeld) return;
+
             Color = Color.White;
-            if (IsMouseOver && CanBeClicked && CanBeDragged && IsTopMostDocumentUnderMouse()) Color = HoverColor;
+            if (IsMouseOver && CanBeClicked && CanBeDragged && IsTopMostDocumentUnderMouse())
+            {
+                Color = HoverColor;
+            }
         }
 
         protected override void UpdateMouseOverClick()
@@ -115,14 +130,17 @@ namespace Bliss.Component.Sprites.Office.Documents
 
             if (IsHeld)
             {
+                OnDragUpdate?.Invoke(this, new EventArgs());
                 CanBeClicked = false;
                 Position = new Vector2(CurrentMouse.X - HoldOffset.X, CurrentMouse.Y - HoldOffset.Y);
-                Id = Int32.MaxValue;
+                Id = int.MaxValue;
+                TimeSinceHeld = 0;
             }
 
             if (CurrentMouse.LeftButton == ButtonState.Released)
             {
                 IsHeld = false;
+                OnDragStopped?.Invoke(this, new EventArgs());
             }
 
             if (CurrentMouse.LeftButton == ButtonState.Pressed &&
@@ -155,10 +173,16 @@ namespace Bliss.Component.Sprites.Office.Documents
         private void SortDocumentsById()
         {
             DocumentsUnderMouse = DocumentsUnderMouse.OrderBy(x => x.Id).ToList();
-            if (Id == Int32.MaxValue)
+            if (Id == int.MaxValue)
             {
                 Id = ++LatestId;
             }
+        }
+
+        public override void OnRemove()
+        {
+            Id = int.MinValue;
+            base.OnRemove();
         }
 
         /// <summary>

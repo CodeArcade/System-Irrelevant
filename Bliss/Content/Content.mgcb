@@ -83,6 +83,12 @@
 /processorParam:Quality=Best
 /build:Sounds/DocumentSpawned.wav
 
+#begin Sounds/DocumentThrased.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/DocumentThrased.wav
+
 #begin Sounds/PhoneCallOver.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
@@ -329,6 +335,18 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/Phone.png
 
+#begin Sprites/StickyNote.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/StickyNote.png
+
 #begin Sprites/Table.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -364,4 +382,28 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Sprites/Textbox.png
+
+#begin VoiceLines/Mike/Dinner/Mike1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Mike/Dinner/Mike1.wav
+
+#begin VoiceLines/Mike/Dinner/Mike2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Mike/Dinner/Mike2.wav
+
+#begin VoiceLines/Mike/Dinner/Mike3.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Mike/Dinner/Mike3.wav
+
+#begin VoiceLines/Mike/Dinner/Mike4.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Mike/Dinner/Mike4.wav
 
