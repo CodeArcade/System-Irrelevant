@@ -181,17 +181,17 @@ namespace Bliss.States.Game
 
         private void AddStickyNote()
         {
-            int x = 125;
-            int y = 0;
+            int x = -70;
+            int y = 300;
 
             StickyNote = new StickyNote()
             {
                 Position = new Vector2(x, y),
                 CanBeClicked = true,
                 OriginPosition = new Vector2(x, y),
-                TweenOffset = (int)SizeManager.ScaleForHeight(50)
+                TweenOffset = (int)SizeManager.ScaleForHeight(69)
             };
-            AddComponent(StickyNote, States.Layers.Table);
+            AddComponent(StickyNote, States.Layers.PlayingArea);
         }
     }
 }

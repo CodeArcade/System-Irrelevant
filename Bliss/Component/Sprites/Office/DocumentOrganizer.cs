@@ -59,6 +59,7 @@ namespace Bliss.Component.Sprites.Office
 
         public void UpdateHover()
         {
+            if (!IsMouseInsideWindow()) return;
             TweenerCurrentMouse = Mouse.GetState();
             if (IsMouseOverOrganizer() && !IsExtending)
             {

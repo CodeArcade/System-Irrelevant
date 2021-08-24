@@ -55,5 +55,14 @@ namespace Bliss.Component.Sprites
         {
             OnClick?.Invoke(this, new EventArgs());
         }
+
+        protected bool IsMouseInsideWindow()
+        {
+            MouseState ms = Mouse.GetState();
+            Point pos = new Point(ms.X, ms.Y);
+            // somethings wrong... only works on the left side of the screen
+            // maybe i'm stupid, but who knows
+            return pos.X >= 0 && pos.Y >= 0 && pos.X <= GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width && pos.Y <= GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
+        }
     }
 }

@@ -5,6 +5,7 @@ using MonoGame.Extended.Tweening;
 using Bliss.Models;
 using Size = System.Drawing.Size;
 using MonoGame.Extended;
+using Microsoft.Xna.Framework.Input;
 
 namespace Bliss.Component.Sprites.Office
 {
@@ -22,12 +23,12 @@ namespace Bliss.Component.Sprites.Office
         public StickyNote() : base()
         {
             Texture = ContentManager.StickyNoteTexture;
-            Size = SizeManager.GetSize(Texture.Width, Texture.Height);
+            Size = SizeManager.GetSize(Texture.Width / 2, Texture.Height / 2);
         }
 
         public void Extend()
         {
-            Tweener.TweenTo(target: this, duration: 0.3f, expression: note => note.Position, toValue: new Vector2(OriginPosition.X, OriginPosition.Y + TweenOffset))
+            Tweener.TweenTo(target: this, duration: 0.3f, expression: note => note.Position, toValue: new Vector2(OriginPosition.X + TweenOffset, OriginPosition.Y))
                 .Easing(EasingFunctions.CircleOut);
             IsExtending = true;
             IsRetracting = false;
@@ -43,8 +44,27 @@ namespace Bliss.Component.Sprites.Office
 
         public override void Update(GameTime gameTime)
         {
+            UpdateHover();
             Tweener.Update(gameTime.GetElapsedSeconds());
             base.Update(gameTime);
+        }
+
+        public void UpdateHover()
+        {
+            if (!IsMouseInsideWindow())
+            {
+                Retract();
+                return;
+            }
+            if (IsMouseOverStickyNote() && !IsExtending)
+            {
+                Extend();
+            }
+
+            if (!IsMouseOverStickyNote() && !IsRetracting)
+            {
+                Retract();
+            }
         }
 
         // todo draw:
@@ -70,6 +90,13 @@ namespace Bliss.Component.Sprites.Office
             };
 
             return new List<Component> { sprite };
+        }
+
+        private bool IsMouseOverStickyNote()
+        {
+            MouseState mouse = Mouse.GetState();
+            Rectangle mouseRectangle = new Rectangle(mouse.Position.X, mouse.Position.Y, 1, 1);
+            return mouseRectangle.Intersects(Rectangle);
         }
     }
 }
