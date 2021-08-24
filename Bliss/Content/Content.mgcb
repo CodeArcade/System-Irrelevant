@@ -56,6 +56,9 @@
 /processorParam:TextureFormat=Compressed
 /build:Fonts/Arial.spritefont
 
+#begin Fonts/Arial.ttf
+/copy:Fonts/Arial.ttf
+
 #begin Sounds/DocumentLanded.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor

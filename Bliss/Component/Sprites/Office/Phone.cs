@@ -31,7 +31,7 @@ namespace Bliss.Component.Sprites.Office
         public bool IsTalking { get; private set; }
         public bool IsCallOver { get; private set; }
 
-        public bool IsInUse => IsRinging || IsTalking || !IsCallOver;
+        public bool IsInUse => IsRinging || IsTalking || IsCallOver;
 
         public Phone(PlayerStats playerStats)
         {
@@ -135,6 +135,8 @@ namespace Bliss.Component.Sprites.Office
                 {
                     PlayerStats.WronglyEndedCalls++;
                 }
+                
+                IsCallOver = false;
             }
 
             base.Click();

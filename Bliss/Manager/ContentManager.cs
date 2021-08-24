@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
+using MonoGame.Extended.Content;
 using Unity;
 
 namespace Bliss.Manager
@@ -49,7 +50,6 @@ namespace Bliss.Manager
         public SoundEffect PhoneHangUpSoundEffect => JamGame.Content.Load<SoundEffect>("Sounds/PhoneHangUp");
         public SoundEffect PhonePickUpSoundEffect => JamGame.Content.Load<SoundEffect>("Sounds/PhonePickUp");
         public SoundEffect PhoneCallOverSoundEffect => JamGame.Content.Load<SoundEffect>("Sounds/PhoneCallOver");
-
 
         public SpriteFont ArialSpriteFont => JamGame.Content.Load<SpriteFont>("Fonts/Arial");
     }
