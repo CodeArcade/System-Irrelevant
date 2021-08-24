@@ -536,7 +536,7 @@ namespace Bliss.Factories
                     },
                     new VoiceLine()
                     {
-                        Text = "Back home we call it саламандра.",
+                        Text = "Back home we call it salamandra.",
                         Voice = ContentManager.SilenceSoundEffect.CreateInstance()
                     },
                     new VoiceLine()

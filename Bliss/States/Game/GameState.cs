@@ -39,6 +39,8 @@ namespace Bliss.States.Game
         private int SecondsToNextPhoneCall { get; set; }
         private List<PhoneCall> Calls { get; set; }
 
+        private bool PlayTutorial { get; set; }
+
         private Random Random { get; set; } = new Random();
 
         protected override void OnLoad(params object[] parameter)
@@ -50,11 +52,18 @@ namespace Bliss.States.Game
 
             if (parameter.Any())
             {
-                PlayerStats = (PlayerStats)parameter[0];
-                PlayerStats.DocumentsLeft = 0;
-                PlayerStats.MissedCalls = 0;
-                PlayerStats.WronglyEndedCalls = 0;
-                PlayerStats.WronglySortedDocuments = 0;
+                if (parameter[0] is PlayerStats)
+                {
+                    PlayerStats = (PlayerStats)parameter[0];
+                    PlayerStats.DocumentsLeft = 0;
+                    PlayerStats.MissedCalls = 0;
+                    PlayerStats.WronglyEndedCalls = 0;
+                    PlayerStats.WronglySortedDocuments = 0;
+                }
+                else
+                {
+                    PlayTutorial = (bool)parameter[0];
+                }
             }
 
             Calls = new List<PhoneCall>();
@@ -116,6 +125,12 @@ namespace Bliss.States.Game
 
         private void Intro()
         {
+            if (!PlayTutorial)
+            {
+                PlayerStats.Day = 1;
+                return;
+            }
+
             if (!Phone.IsRinging && !Phone.IsTalking && !Phone.IsCallOver)
             {
                 Phone.Ring(PhoneCallFactory.GetIntro());
@@ -145,7 +160,7 @@ namespace Bliss.States.Game
             Phone.CanBeClicked = true;
 
             if (Phone.IsInUse) return;
-            StateManager.ChangeTo<GameOverState>(GameOverState.Name);
+            StateManager.ChangeTo<MenuState>(MenuState.Name);
         }
 
         private void HandleDocumentSpawn(GameTime gameTime)

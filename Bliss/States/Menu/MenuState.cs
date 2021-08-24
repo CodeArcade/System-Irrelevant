@@ -1,6 +1,6 @@
 ﻿namespace Bliss.States.GameOver
 {
-    public partial class GameOverState : State
+    public partial class MenuState : State
     {
         public static string Name = "GameOver";
     }

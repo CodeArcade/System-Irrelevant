@@ -22,7 +22,7 @@ namespace Bliss.Component.Sprites.Office.Documents
             Sprite sprite = new Sprite()
             {
                 Size = size,
-                Position = SizeManager.GetPosition(
+                Position = new Vector2(
                         (int)(SizeManager.ScaleForWidth(SizeManager.JamGame.BaseWidth) - size.Width) / 4,
                         (int)(SizeManager.ScaleForHeight(SizeManager.JamGame.BaseHeight) - size.Height) / 4
                     ),

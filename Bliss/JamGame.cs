@@ -6,6 +6,7 @@ using Bliss.Manager;
 using Bliss.States;
 using Bliss.States.Game;
 using Myra.Graphics2D.UI;
+using Bliss.States.GameOver;
 
 namespace Bliss
 {
@@ -67,7 +68,7 @@ namespace Bliss
         {
             SpriteBatch = new SpriteBatch(GraphicsDevice);
 
-            StateManager.ChangeTo<GameState>(GameState.Name);
+            StateManager.ChangeTo<MenuState>(MenuState.Name);
         }
 
         protected override void Update(GameTime gameTime)

@@ -4,6 +4,7 @@ using Bliss.Manager;
 using Bliss.States;
 using Bliss.States.Game;
 using Bliss.Factories;
+using Bliss.States.GameOver;
 
 namespace Bliss
 {
@@ -43,6 +44,8 @@ namespace Bliss
         {
             UnityContainer.RegisterType<DefaultState>(DefaultState.Name);
             UnityContainer.RegisterType<DefaultState>(GameState.Name);
+            UnityContainer.RegisterType<GameOverState>(GameState.Name);
+            UnityContainer.RegisterType<MenuState>(GameState.Name);
         }
     }
 }
