@@ -2,10 +2,11 @@
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using MonoGame.Extended.Tweening;
+using Bliss.Models;
 
 namespace Bliss.Component.Sprites.Office
 {
-    public class StickyNote : Sprite
+    public class StickyNote : Clickable
     {
         public Vector2 OriginPosition { get; set; }
         public int TweenOffset { get; set; }
@@ -13,6 +14,8 @@ namespace Bliss.Component.Sprites.Office
 
         private bool IsExtending { get; set; } = false;
         private bool IsRetracting { get; set; } = false;
+
+        public List<Rule> ActiveRules { get; set; } = new List<Rule>();
 
         public StickyNote() : base()
         {
@@ -33,6 +36,13 @@ namespace Bliss.Component.Sprites.Office
                 .Easing(EasingFunctions.CircleOut);
             IsRetracting = true;
             IsExtending = false;
+        }
+
+        // todo draw:
+        // render all active rules on the stickynote
+        public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
+        {
+            base.Draw(gameTime, spriteBatch);$0
         }
     }
 }
