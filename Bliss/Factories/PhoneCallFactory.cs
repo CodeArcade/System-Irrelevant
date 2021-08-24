@@ -59,6 +59,46 @@ namespace Bliss.Factories
             };
         }
 
+        public PhoneCall GetIntro()
+        {
+            return new PhoneCall()
+            {
+                NewValidators = new Dictionary<OrganizerIds, List<Func<Component.Sprites.Office.Documents.BaseDocument, bool>>>()
+                {
+                    {
+                        OrganizerIds.Bin,
+                        new List<Func<Component.Sprites.Office.Documents.BaseDocument, bool>>()
+                            {
+                                (document) => { return false; }
+                            }
+                    }
+                },
+                VoiceLines = new List<VoiceLine>()
+                {
+                    new VoiceLine()
+                    {
+                        Text = "...",
+                        Voice = ContentManager.DocumentSpawnedSoundEffect.CreateInstance()
+                    }
+                }
+            };
+        }
+
+        public PhoneCall GetOutro()
+        {
+            return new PhoneCall()
+            {
+                VoiceLines = new List<VoiceLine>()
+                {
+                    new VoiceLine()
+                    {
+                        Text = "...",
+                        Voice = ContentManager.DocumentSpawnedSoundEffect.CreateInstance()
+                    }
+                }
+            };
+        }
+
         public PhoneCall GetLibrary()
         {
             return new PhoneCall()
@@ -305,31 +345,6 @@ namespace Bliss.Factories
                         Text = "To buy, please call >>555-ACMEPHONE<<. That's >>555-ACMEPHONE<<<.",
                         Voice = ContentManager.SilenceSoundEffect.CreateInstance()
                     },
-                }
-            };
-        }
-
-        public PhoneCall GetIntro()
-        {
-            return new PhoneCall()
-            {
-                NewValidators = new Dictionary<OrganizerIds, List<System.Func<Component.Sprites.Office.Documents.BaseDocument, bool>>>()
-                {
-                    {
-                        OrganizerIds.Bin,
-                        new List<System.Func<Component.Sprites.Office.Documents.BaseDocument, bool>>()
-                            {
-                                (document) => { return false; }
-                            }
-                    }
-                },
-                VoiceLines = new List<VoiceLine>()
-                {
-                    new VoiceLine()
-                    {
-                        Text = "...",
-                        Voice = ContentManager.DocumentSpawnedSoundEffect.CreateInstance()
-                    }
                 }
             };
         }

@@ -31,7 +31,7 @@ namespace Bliss.Component.Sprites.Office
         public bool IsTalking { get; private set; }
         public bool IsCallOver { get; private set; }
 
-        public bool IsInUse => IsRinging || IsTalking || IsCallOver;
+        public bool IsInUse  { get; private set; }
 
         public Phone(PlayerStats playerStats)
         {
@@ -98,6 +98,7 @@ namespace Bliss.Component.Sprites.Office
             SecondsBeforeMissedCall = new Random().Next(10, 21);
             Timer = 0;
             IsRinging = true;
+            IsInUse = true;
             PhoneCall = phoneCall;
         }
 
@@ -120,6 +121,7 @@ namespace Bliss.Component.Sprites.Office
             {
                 IsTalking = false;
                 TextBox.Visible = false;
+                TextBox.Text = "";
                 AnimationManager.Play(Animations["idle"]);
                 AudioManager.PlayEffect(ContentManager.PhoneHangUpSoundEffect);
 
@@ -135,8 +137,7 @@ namespace Bliss.Component.Sprites.Office
                 {
                     PlayerStats.WronglyEndedCalls++;
                 }
-                
-                IsCallOver = false;
+                IsInUse = false;
             }
 
             base.Click();

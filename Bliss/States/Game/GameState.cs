@@ -2,6 +2,7 @@ using Bliss.Component.Sprites.Office;
 using Bliss.Component.Sprites.Office.Documents;
 using Bliss.Factories;
 using Bliss.Models;
+using Bliss.States.GameOver;
 using Bliss.States.Summary;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
@@ -72,12 +73,22 @@ namespace Bliss.States.Game
 
             if (PlayerStats.Day == 0) Intro();
 
-            if (Clock.Hour >= 9 && !Phone.IsInUse)
+            if (Clock.Hour >= 17)
             {
-                PlayerStats.DocumentsLeft = DocumentCount;
-                StateManager.ChangeTo<SummaryState>(SummaryState.Name, PlayerStats);
-                base.Update(gameTime);
-                return;
+                if (PlayerStats.Warnings >= 3)
+                {
+                    Outro();
+                    base.Update(gameTime);
+                    return;
+                }
+
+                if (!Phone.IsInUse)
+                {
+                    PlayerStats.DocumentsLeft = DocumentCount;
+                    StateManager.ChangeTo<SummaryState>(SummaryState.Name, PlayerStats);
+                    base.Update(gameTime);
+                    return;
+                }
             }
 
             if (PlayerStats.Day > 0)
@@ -105,7 +116,7 @@ namespace Bliss.States.Game
 
         private void Intro()
         {
-            if (!Phone.IsRinging && !Phone.IsTalking)
+            if (!Phone.IsRinging && !Phone.IsTalking && !Phone.IsCallOver)
             {
                 Phone.Ring(PhoneCallFactory.GetIntro());
                 Phone.SecondsBeforeMissedCall = int.MaxValue;
@@ -116,8 +127,25 @@ namespace Bliss.States.Game
             if (!Phone.IsCallOver) return;
             Phone.CanBeClicked = true;
 
-            if (!Phone.IsTalking) return;
+            if (Phone.IsInUse) return;
             PlayerStats.Day = 1;
+        }
+
+        private void Outro()
+        {
+            if (!Phone.IsRinging && !Phone.IsTalking && !Phone.IsCallOver)
+            {
+                Phone.Ring(PhoneCallFactory.GetOutro());
+                Phone.SecondsBeforeMissedCall = int.MaxValue;
+            }
+
+            if (Phone.IsTalking) Phone.CanBeClicked = false;
+
+            if (!Phone.IsCallOver) return;
+            Phone.CanBeClicked = true;
+
+            if (Phone.IsInUse) return;
+            StateManager.ChangeTo<GameOverState>(GameOverState.Name);
         }
 
         private void HandleDocumentSpawn(GameTime gameTime)
@@ -142,17 +170,17 @@ namespace Bliss.States.Game
 
         private void HandlePhoneCall(GameTime gameTime)
         {
-            if (!Calls.Any()) return;
+            if (!Calls.Any() || Phone.IsInUse) return;
 
             PhoneCallTimer += gameTime.ElapsedGameTime.TotalSeconds;
 
             if (PhoneCallTimer >= SecondsToNextPhoneCall)
             {
-                int callToPlay =  Random.Next(0, Calls.Count);
+                int callToPlay = Random.Next(0, Calls.Count);
                 Phone.Ring(Calls[callToPlay]);
                 Calls.RemoveAt(callToPlay);
 
-                SecondsToNextPhoneCall = Random.Next(30, Clock.RemainingSeconds / (Calls.Count + 1));
+                SecondsToNextPhoneCall = Random.Next(30, Math.Max(Clock.RemainingSeconds / (Calls.Count + 1), 32));
                 PhoneCallTimer = 0;
             }
         }

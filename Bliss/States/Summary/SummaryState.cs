@@ -1,7 +1,4 @@
 ﻿using Bliss.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Bliss.States.Summary
 {
