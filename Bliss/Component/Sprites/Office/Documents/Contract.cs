@@ -29,7 +29,7 @@ namespace Bliss.Component.Sprites.Office.Documents
                 Texture = ContentManager.InvoiceTexture
             };
 
-            return new List<Component>() { sprite};
+            return new List<Component>() { sprite };
         }
     }
 }

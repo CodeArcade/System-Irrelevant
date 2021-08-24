@@ -3,6 +3,8 @@ using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using MonoGame.Extended.Tweening;
 using Bliss.Models;
+using Size = System.Drawing.Size;
+using MonoGame.Extended;
 
 namespace Bliss.Component.Sprites.Office
 {
@@ -20,11 +22,12 @@ namespace Bliss.Component.Sprites.Office
         public StickyNote() : base()
         {
             Texture = ContentManager.StickyNoteTexture;
+            Size = SizeManager.GetSize(Texture.Width, Texture.Height);
         }
 
         public void Extend()
         {
-            Tweener.TweenTo(target: this, duration: 0.3f, expression: note => note.Position, toValue: new Vector2(OriginPosition.X, OriginPosition.Y - TweenOffset))
+            Tweener.TweenTo(target: this, duration: 0.3f, expression: note => note.Position, toValue: new Vector2(OriginPosition.X, OriginPosition.Y + TweenOffset))
                 .Easing(EasingFunctions.CircleOut);
             IsExtending = true;
             IsRetracting = false;
@@ -38,11 +41,35 @@ namespace Bliss.Component.Sprites.Office
             IsExtending = false;
         }
 
+        public override void Update(GameTime gameTime)
+        {
+            Tweener.Update(gameTime.GetElapsedSeconds());
+            base.Update(gameTime);
+        }
+
         // todo draw:
-        // render all active rules on the stickynote
+        // render all active rules on enlarged stickynote
+        // HELP IT NO DRAW :(
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            base.Draw(gameTime, spriteBatch);$0
+            base.Draw(gameTime, spriteBatch);
+        }
+
+        public List<Component> GetDetailViewComponents()
+        {
+            Size size = SizeManager.GetSize(450, 600);
+
+            Sprite sprite = new Sprite()
+            {
+                Size = size,
+                Position = new Vector2(
+                    (int)(SizeManager.ScaleForWidth(SizeManager.JamGame.BaseWidth) - size.Width),
+                    (int)(SizeManager.ScaleForHeight(SizeManager.JamGame.BaseHeight) - size.Height)
+                ),
+                Texture = ContentManager.StickyNoteTexture
+            };
+
+            return new List<Component> { sprite };
         }
     }
 }

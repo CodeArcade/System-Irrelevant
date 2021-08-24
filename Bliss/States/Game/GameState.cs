@@ -279,5 +279,18 @@ namespace Bliss.States.Game
                 }
             }
         }
+
+        private void StickyNoteClicked(object sender, EventArgs e)
+        {
+            ToggleClickableOfDocuments(false);
+
+            foreach (Component.Component component in CurrentDetailViewComponents)
+                component.IsRemoved = true;
+
+            StickyNote note = (StickyNote)sender;
+            CurrentDetailViewComponents = note.GetDetailViewComponents();
+
+            AudioManager.PlayEffect(ContentManager.DocumentPickedUpSoundEffect);
+        }
     }
 }

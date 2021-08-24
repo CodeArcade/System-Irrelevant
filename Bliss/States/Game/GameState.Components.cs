@@ -16,6 +16,7 @@ namespace Bliss.States.Game
         protected Clock Clock { get; set; }
         protected Phone Phone { get; set; }
         protected DocumentOrganizer Bin { get; set; }
+        protected StickyNote StickyNote { get; set; }
         protected List<Sprite> DocumentSpawnPoints { get; set; }
         protected List<DocumentOrganizer> DocumentOrganizers { get; set; }
         protected TextBox PhoneDialogueTextBox { get; set; }
@@ -26,6 +27,7 @@ namespace Bliss.States.Game
             AddClock();
             AddPhone();
             AddPhoneTextBox();
+            AddStickyNote();
 
             DocumentOrganizers = new List<DocumentOrganizer>();
 
@@ -177,5 +179,19 @@ namespace Bliss.States.Game
             AddComponent(Bin, States.Layers.Bin);
         }
 
+        private void AddStickyNote()
+        {
+            int x = 125;
+            int y = 0;
+
+            StickyNote = new StickyNote()
+            {
+                Position = new Vector2(x, y),
+                CanBeClicked = true,
+                OriginPosition = new Vector2(x, y),
+                TweenOffset = (int)SizeManager.ScaleForHeight(50)
+            };
+            AddComponent(StickyNote, States.Layers.Table);
+        }
     }
 }
