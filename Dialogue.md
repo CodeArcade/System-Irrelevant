@@ -109,11 +109,25 @@ and the place had only been open for 12 minutes and was already getting overpopu
 1. "Hey there new guy, this is your boss speaking. I thought I'd give you a quick rundown on how your job actually works."
 2. "It's rather simple. You get documents, you sort them. Done deal."
 3. "First: this is a contract. You can read them if you want, but for now, just put them in the blue bin."
-4. "Next, this is a paycheck. It's just a regular paycheck. It's got a date, it's got the amount, the department and a date. You can also just toss it into the blue bin."
+4. "Next, this is a paycheck. It's just a regular paycheck. It's got a date, it's got the amount and the department. You can also just toss it into the blue bin."
 5. "This is an application. It's from the people that will replace you one day. HAHAHA just kidding. Just put them in the red bin."
 6. "Now, this is just a regular letter. Nothing special about it. Just put them in the green bin."
 7. "Now this... this is classified. Don't open it. Just throw it in the trash! I mean... I can't stop you from opening it as you throw it away anyways... Well just don't!"
 8. "Alright, that's about everything. If there are any new rules, people will call you to inform you about it. So don't hang up on them all willy nilly. And now go to work!"
+
+#### I'm a proud boy
+
+"New guy, are you working hard? Well I hope you do. I know, I only told you what to do earlier today, but you gotta change things up a bit, right? Well, I'm calling about applications. I want you to toss all applications of people that are **not** from America. Got it? No foreigners!"
+
+#### No more racism... or something like that
+
+"Alright alright, I changed my mind. Foreigners aren't that bad. At least some of them! From now on, I only need you to toss applications from people coming from the following countries:
+- Denmark
+- Sweden
+- Norway
+- Finland
+- United Kingdom
+Also, you gotta make sure that they list an existing country! No people from 'this-aint-real-istan!"
 
 ### Betty
 
@@ -132,3 +146,9 @@ and the place had only been open for 12 minutes and was already getting overpopu
 ### Mike
 
 #### Signed Contracts
+
+"Hey, it's Mike! So, I recently got a contract that you sorted... but whoever gave it to you didn't sign it. So from now on, check if contracts are signed before passing them on."
+
+#### Paycheck
+
+"Hello, it's mike! For one reason or another I don't seem to be getting any paychecks. You're putting them in the red organizer, right? Well if you don't, you better start doing it."
