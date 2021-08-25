@@ -176,12 +176,22 @@ namespace Bliss.Factories
                 {
                     new VoiceLine()
                     {
-                        Text = "When I was in middle school, our teachers told us that you can't 'make up' hours of sleep after not getting enough.",
+                        Text = "When I was in middle school",
                         Voice = ContentManager.SilenceSoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
-                        Text = "And I thought that meant if I didn't get enough sleep one night I would be tired for the rest of my life... And then I was.",
+                        Text = "our teachers told us that you can't 'make up' hours of sleep after not getting enough.",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "And I thought that meant if I didn't get enough sleep one night",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "I would be tired for the rest of my life... And then I was.",
                         Voice = ContentManager.SilenceSoundEffect.CreateInstance()
                     },
                     new VoiceLine()
