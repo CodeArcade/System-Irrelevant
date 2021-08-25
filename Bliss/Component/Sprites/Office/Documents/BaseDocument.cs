@@ -20,6 +20,8 @@ namespace Bliss.Component.Sprites.Office.Documents
         public event EventHandler OnDragStopped;
         public event EventHandler OnDragUpdate;
 
+        protected Random Random { get; set; } = new Random();
+
         public int Id { get; set; }
         private static int LatestId { get; set; }
         private static List<BaseDocument> DocumentsUnderMouse { get; set; } = new List<BaseDocument>();
@@ -34,16 +36,14 @@ namespace Bliss.Component.Sprites.Office.Documents
 
         protected void Load(Vector2 spawnPoint, Rectangle tableArea)
         {
-            Random random = new Random();
-
             SpawnPoint = spawnPoint;
             Position = spawnPoint;
             HoverColor = Color.Yellow;
 
             // pick random position on table - reduce current size so document fits fully 
             Vector2 targetDestination = new Vector2(
-                random.Next(tableArea.X + (int)(Size.Width * 1.5), tableArea.Width - (Size.Width * 2)),
-                random.Next(tableArea.Y, tableArea.Height - Size.Height)
+                Random.Next(tableArea.X + (int)(Size.Width * 1.5), tableArea.Width - (Size.Width * 2)),
+                Random.Next(tableArea.Y, tableArea.Height - Size.Height)
                 );
 
             Speed = 3000;

@@ -1,4 +1,8 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Bliss.Component.Sprites.Ui;
+using FontStashSharp;
+using Microsoft.Xna.Framework;
+using MonoGame.Extended.Content;
+using Myra.Graphics2D.UI;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -7,10 +11,16 @@ namespace Bliss.Component.Sprites.Office.Documents
 {
     public class Contract : BaseDocument
     {
+        public bool HasSignature { get; set; }
+        public bool HasDate { get; set; }
+
         public Contract(Vector2 spawnPoint, Microsoft.Xna.Framework.Rectangle table) : base(spawnPoint, table)
         {
             Texture = ContentManager.InvoiceTexture;
             Size = SizeManager.GetSize(150, 200);
+
+            HasSignature = Random.Next(0, 2) == 0;
+            HasDate = Random.Next(0, 2) == 0;
 
             Load(spawnPoint, table);
         }
@@ -29,7 +39,47 @@ namespace Bliss.Component.Sprites.Office.Documents
                 Texture = ContentManager.InvoiceTexture
             };
 
-            return new List<Component>() { sprite };
+            FontSystem fontSystem = new FontSystem();
+            fontSystem.AddFont(SizeManager.JamGame.Content.OpenStream("Fonts/Arial.ttf"));
+
+            Grid grid = new Grid();
+            grid.ColumnsProportions.Add(new Proportion(ProportionType.Pixels, sprite.Size.Width));
+            grid.RowsProportions.Add(new Proportion(ProportionType.Pixels, sprite.Size.Height / 2f));
+            grid.RowsProportions.Add(new Proportion(ProportionType.Pixels, sprite.Size.Height / 2f));
+
+            if (HasDate)
+            {
+                Label label = new Label()
+                {
+                    Text = DateTime.Now.AddDays(Random.Next(0, 10)).ToString("dd.MM.yyyy"),
+                    GridColumn = 0,
+                    GridRow = 0,
+                    HorizontalAlignment = HorizontalAlignment.Stretch,
+                    VerticalAlignment = VerticalAlignment.Stretch,
+                    Font = fontSystem.GetFont((int)SizeManager.ScaleForWidth(32)),
+                    TextColor = Microsoft.Xna.Framework.Color.Black,
+                };
+                grid.Widgets.Add(label);
+            }
+
+            if (HasSignature)
+            {
+                Label label = new Label()
+                {
+                    Text = "H. Meier",
+                    GridColumn = 0,
+                    GridRow = 1,
+                    HorizontalAlignment = HorizontalAlignment.Stretch,
+                    VerticalAlignment = VerticalAlignment.Stretch,
+                    Font = fontSystem.GetFont((int)SizeManager.ScaleForWidth(32)),
+                    TextColor = Microsoft.Xna.Framework.Color.Black,
+                };
+                grid.Widgets.Add(label);
+            }
+
+            UiGridComponent uiGridComponent = new UiGridComponent(grid, sprite.Size, sprite.Position);
+
+            return new List<Component>() { sprite, uiGridComponent };
         }
     }
 }

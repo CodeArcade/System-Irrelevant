@@ -1,12 +1,8 @@
-﻿using Bliss.Component.Sprites;
-using Bliss.States.Game;
+﻿using Bliss.States.Game;
 using FontStashSharp;
 using Microsoft.Xna.Framework;
 using MonoGame.Extended.Content;
 using Myra.Graphics2D.UI;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Bliss.States.Summary
 {
