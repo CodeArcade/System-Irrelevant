@@ -25,6 +25,9 @@ namespace Bliss.States.Game
         private MouseState CurrentMouse { get; set; }
         private MouseState PreviousMouse { get; set; }
 
+        private KeyboardState CurrentKeyboad { get; set; }
+        private KeyboardState PreviousKeyboard { get; set; }
+
         private List<Component.Component> CurrentDetailViewComponents { get; set; } = new List<Component.Component>();
         private BaseDocument CurrentDocument { get; set; }
 
@@ -82,6 +85,9 @@ namespace Bliss.States.Game
             PreviousMouse = CurrentMouse;
             CurrentMouse = Mouse.GetState();
 
+            PreviousKeyboard = CurrentKeyboad;
+            CurrentKeyboad = Keyboard.GetState();
+
             if (PlayerStats.Day == 0) Intro();
 
             if (Clock.Hour >= 17)
@@ -116,10 +122,13 @@ namespace Bliss.States.Game
                 }
             }
 
-            if (CurrentMouse.RightButton == ButtonState.Released && PreviousMouse.RightButton == ButtonState.Pressed && CurrentDetailViewComponents.Any())
-            {
+            if (
+                (
+                 (CurrentMouse.RightButton == ButtonState.Released && PreviousMouse.RightButton == ButtonState.Pressed) ||
+                 (CurrentKeyboad.IsKeyUp(Keys.Escape) && PreviousKeyboard.IsKeyDown(Keys.Escape)) ||
+                 (CurrentKeyboad.IsKeyUp(Keys.Space) && PreviousKeyboard.IsKeyDown(Keys.Space))
+                 ) && CurrentDetailViewComponents.Any())
                 RemoveDetailView();
-            }
 
             base.Update(gameTime);
         }
