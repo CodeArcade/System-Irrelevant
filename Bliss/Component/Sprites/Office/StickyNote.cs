@@ -32,12 +32,13 @@ namespace Bliss.Component.Sprites.Office
             Size = SizeManager.GetSize(Texture.Width / 2, Texture.Height / 2);
         }
 
-        public void Extend()
+        public void Extend(bool permanent = false)
         {
             Tweener.TweenTo(target: this, duration: 0.3f, expression: note => note.Position, toValue: new Vector2(OriginPosition.X + TweenOffset, OriginPosition.Y))
                 .Easing(EasingFunctions.CircleOut);
             IsExtending = true;
             IsRetracting = false;
+            if (permanent) CanHover = false;
         }
 
         public void Retract()
@@ -116,12 +117,11 @@ namespace Bliss.Component.Sprites.Office
             grid.RowsProportions.Add(new Proportion(ProportionType.Pixels, sprite.Size.Height * 0.05f));
             grid.RowsProportions.Add(new Proportion(ProportionType.Pixels, sprite.Size.Height * 0.05f));
 
-            List<Rule> rules = null;
             int lastIndex = 0;
-            AddOrganizerLables(rules, grid, ref lastIndex, fontSystem, OrganizerIds.Green);
-            AddOrganizerLables(rules, grid, ref lastIndex, fontSystem, OrganizerIds.Red);
-            AddOrganizerLables(rules, grid, ref lastIndex, fontSystem, OrganizerIds.Blue);
-            AddOrganizerLables(rules, grid, ref lastIndex, fontSystem, OrganizerIds.Bin);
+            AddOrganizerLables(grid, ref lastIndex, fontSystem, OrganizerIds.Green);
+            AddOrganizerLables(grid, ref lastIndex, fontSystem, OrganizerIds.Red);
+            AddOrganizerLables(grid, ref lastIndex, fontSystem, OrganizerIds.Blue);
+            AddOrganizerLables(grid, ref lastIndex, fontSystem, OrganizerIds.Bin);
 
             return new List<Component> { sprite, new UiGridComponent(grid, sprite.Size, sprite.Position) };
         }
@@ -150,11 +150,11 @@ namespace Bliss.Component.Sprites.Office
             };
         }
 
-        private void AddOrganizerLables(List<Rule> rules, Grid grid, ref int lastIndex, FontSystem fontSystem, OrganizerIds organizerId)
+        private void AddOrganizerLables(Grid grid, ref int lastIndex, FontSystem fontSystem, OrganizerIds organizerId)
         {
             if (ActiveRules.ContainsKey(organizerId) && lastIndex < 19)
             {
-                rules = ActiveRules[organizerId];
+                List<Rule> rules = ActiveRules[organizerId];
                 grid.Widgets.Add(GetLabel("", lastIndex, fontSystem));
                 lastIndex++;
                 grid.Widgets.Add(GetLabel(GetOrganizerName(organizerId) + ":", lastIndex, fontSystem));

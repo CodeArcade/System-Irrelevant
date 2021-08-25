@@ -232,7 +232,9 @@ namespace Bliss.States.Game
                 organizer.Validators = validatorGroup.Value;
             }
 
+            AudioManager.PlayEffect(ContentManager.NewRuleSoundEffect);
             SetStickyNoteValidators();
+            StickyNote.Extend(true);
         }
 
         private void SetStickyNoteValidators()
