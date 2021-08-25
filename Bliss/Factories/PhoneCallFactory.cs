@@ -404,22 +404,27 @@ namespace Bliss.Factories
                     new VoiceLine()
                     {
                         Text = "Hey, it's Mike from accounting. Before I worked here I had a pretty bad fast food job.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.MikeHotdog1SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "The day that I quit was especially bad.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.MikeHotdog2SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
-                        Text = "I spent 15 minutes trying to explain to an old man that we do not sell hot dogs and then he threatened to report me for 'withholding products from him'.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Text = "I spent 15 minutes trying to explain to an old man that we do not sell hot dogs",
+                        Voice = ContentManager.MikeHotdog3SoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "and then he threatened to report me for 'withholding products from him'.",
+                        Voice = ContentManager.MikeHotdog4SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "Anyways, all I wanted to say is that I'm making hot dogs later, so if you want any, scoot on over. See ya later pal.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.MikeHotdog5SoundEffect.CreateInstance()
                     }
                 }
             };

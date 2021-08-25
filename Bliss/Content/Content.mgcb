@@ -419,3 +419,33 @@
 /processorParam:Quality=Best
 /build:VoiceLines/Mike/Dinner/Mike4.wav
 
+#begin VoiceLines/Mike/Hotdog/Mike1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Mike/Hotdog/Mike1.wav
+
+#begin VoiceLines/Mike/Hotdog/Mike2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Mike/Hotdog/Mike2.wav
+
+#begin VoiceLines/Mike/Hotdog/Mike3.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Mike/Hotdog/Mike3.wav
+
+#begin VoiceLines/Mike/Hotdog/Mike4.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Mike/Hotdog/Mike4.wav
+
+#begin VoiceLines/Mike/Hotdog/Mike5.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Mike/Hotdog/Mike5.wav
+

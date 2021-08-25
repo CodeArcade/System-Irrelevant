@@ -74,6 +74,7 @@ namespace Bliss.States.Game
             Calls.Add(PhoneCallFactory.GetImportant());
             SecondsToNextPhoneCall = new Random().Next(25, 45);
 
+
             AudioManager.ChangeSong(ContentManager.CalmSong, true);
         }
 
@@ -205,9 +206,8 @@ namespace Bliss.States.Game
 
             if (PhoneCallTimer >= SecondsToNextPhoneCall)
             {
-                int callToPlay = Random.Next(0, Calls.Count);
-                Phone.Ring(Calls[callToPlay]);
-                Calls.RemoveAt(callToPlay);
+                Phone.Ring(Calls[0]);
+                Calls.RemoveAt(0);
 
                 SecondsToNextPhoneCall = Random.Next(30, Math.Max(Clock.RemainingSeconds / (Calls.Count + 1), 32));
                 PhoneCallTimer = 0;

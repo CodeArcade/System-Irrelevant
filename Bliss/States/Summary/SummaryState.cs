@@ -13,9 +13,9 @@ namespace Bliss.States.Summary
             PlayerStats = (PlayerStats)parameter[0];
 
             if (PlayerStats.WronglyEndedCalls > 0) PlayerStats.Warnings++;
-            if (PlayerStats.WronglySortedDocuments >= 5) PlayerStats.Warnings++;
+            if (PlayerStats.WronglySortedDocuments >= 3) PlayerStats.Warnings++;
             if (PlayerStats.MissedCalls >= 1) PlayerStats.Warnings++;
-            if (PlayerStats.DocumentsLeft >= 10) PlayerStats.Warnings++;
+            if (PlayerStats.DocumentsLeft >= 3) PlayerStats.Warnings++;
 
             AudioManager.ChangeSong(ContentManager.UpbeatSong, true);
         }
