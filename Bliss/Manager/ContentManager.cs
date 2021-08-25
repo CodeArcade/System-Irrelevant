@@ -12,7 +12,11 @@ namespace Bliss.Manager
         public JamGame JamGame { get; set; }
         
         public Texture2D TableTexture => JamGame.Content.Load<Texture2D>("Sprites/Table");
-        public Texture2D InvoiceTexture => JamGame.Content.Load<Texture2D>("Sprites/Invoice");
+        public Texture2D ContractTexture => JamGame.Content.Load<Texture2D>("Sprites/Contract");
+        public Texture2D ApplicationTexture => JamGame.Content.Load<Texture2D>("Sprites/Application");
+        public Texture2D ClassifiedTexture => JamGame.Content.Load<Texture2D>("Sprites/Classified");
+        public Texture2D LetterTexture => JamGame.Content.Load<Texture2D>("Sprites/Letter");
+        public Texture2D PaycheckTexture => JamGame.Content.Load<Texture2D>("Sprites/Paycheck");
         public Texture2D ClockTexture => JamGame.Content.Load<Texture2D>("Sprites/Clock");
 
         public Texture2D DocumentOrganizerOneTexture => JamGame.Content.Load<Texture2D>("Sprites/DocumentOrganizerOne");

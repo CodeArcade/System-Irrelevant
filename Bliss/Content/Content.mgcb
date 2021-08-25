@@ -251,6 +251,18 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/9.png
 
+#begin Sprites/Application.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/Application.png
+
 #begin Sprites/Bin.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -262,6 +274,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Sprites/Bin.png
+
+#begin Sprites/Classified.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/Classified.png
 
 #begin Sprites/Clock.png
 /importer:TextureImporter
@@ -286,6 +310,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Sprites/Colon.png
+
+#begin Sprites/Contract.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/Contract.png
 
 #begin Sprites/DocumentOrganizerOne.png
 /importer:TextureImporter
@@ -323,7 +359,7 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/DocumentOrganizerTwo.png
 
-#begin Sprites/Invoice.png
+#begin Sprites/Letter.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -333,7 +369,19 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Sprites/Invoice.png
+/build:Sprites/Letter.png
+
+#begin Sprites/Paycheck.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/Paycheck.png
 
 #begin Sprites/Phone.png
 /importer:TextureImporter
