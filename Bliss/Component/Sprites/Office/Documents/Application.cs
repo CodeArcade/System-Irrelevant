@@ -5,10 +5,17 @@ using System.Drawing;
 
 namespace Bliss.Component.Sprites.Office.Documents
 {
+    public enum Sexes
+    {
+        Male,
+        Female,
+        Misc
+    }
+
     public class Application : BaseDocument
     {
         public DateTime Birthday { get; set; }
-        public bool? Sex { get; set; }
+        public Sexes Sex { get; set; }
         public string Address { get; set; }
 
         public Application(Vector2 spawnPoint, Microsoft.Xna.Framework.Rectangle tableArea) : base(spawnPoint, tableArea)

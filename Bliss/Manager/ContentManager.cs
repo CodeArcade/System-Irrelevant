@@ -52,6 +52,8 @@ namespace Bliss.Manager
         public SoundEffect DocumentPutDownSoundEffect => JamGame.Content.Load<SoundEffect>("Sounds/DocumentPutDown");
         public SoundEffect DocumentThrasedSoundEffect => JamGame.Content.Load<SoundEffect>("Sounds/DocumentThrased");
 
+        public SoundEffect NewRuleSoundEffect => JamGame.Content.Load<SoundEffect>("Sounds/NewRule");
+
         public SoundEffect SilenceSoundEffect => JamGame.Content.Load<SoundEffect>("Sounds/Silence");
 
         public SoundEffect PhoneRingingSoundEffect => JamGame.Content.Load<SoundEffect>("Sounds/PhoneRinging");

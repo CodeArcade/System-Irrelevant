@@ -1,4 +1,5 @@
 ﻿using Bliss.Component.Sprites.Office;
+using Bliss.Component.Sprites.Office.Documents;
 using Bliss.Manager;
 using Bliss.Models;
 using System;
@@ -13,12 +14,13 @@ namespace Bliss.Factories
         public ContentManager ContentManager { get; set; }
 
         private static int MikeProgress { get; set; }
+        private static int BettyProgress { get; set; }
         private static int RuleProgress { get; set; }
         private Random Random { get; set; } = new Random();
 
         public PhoneCall GetRandom()
         {
-            return Random.Next(0, 13) switch
+            return Random.Next(0, 14) switch
             {
                 0 => GetPrankCall(),
                 1 => GetLibrary(),
@@ -33,6 +35,7 @@ namespace Bliss.Factories
                 10 => GetVladIntro(),
                 11 => GetVladSalamanders(),
                 12 => GetVladCarAlarms(),
+                13 => GetBetty(),
                 _ => GetPrankCall(),
             };
         }
@@ -43,9 +46,13 @@ namespace Bliss.Factories
 
             return RuleProgress switch
             {
+                1 => GetBettyFuckMen(),
+                2 => GetBettyLetters(),
                 _ => GetPrankCall(),
             };
         }
+
+        #region Misc
 
         public PhoneCall GetPrankCall()
         {
@@ -351,6 +358,10 @@ namespace Bliss.Factories
             };
         }
 
+        #endregion
+
+        #region MikeStory
+
         public PhoneCall GetMike()
         {
             MikeProgress++;
@@ -490,6 +501,10 @@ namespace Bliss.Factories
             };
         }
 
+        #endregion
+
+        #region VladMisc
+
         public PhoneCall GetVladIntro()
         {
             return new PhoneCall()
@@ -590,6 +605,21 @@ namespace Bliss.Factories
             };
         }
 
+        #endregion
+
+        #region BettyStory
+
+        public PhoneCall GetBetty()
+        {
+            BettyProgress++;
+            return BettyProgress switch
+            {
+                1 => GetBettyIntro(),
+                2 => GetBettyMystery(),
+                _ => GetPrankCall()
+            };
+        }
+
         public PhoneCall GetBettyIntro()
         {
             return new PhoneCall()
@@ -603,7 +633,7 @@ namespace Bliss.Factories
                     },
                     new VoiceLine()
                     {
-                        Text = "ust checking in that you're still employed and well... alive.",
+                        Text = "Just checking in that you're still employed and well... alive.",
                         Voice = ContentManager.SilenceSoundEffect.CreateInstance()
                     },
                     new VoiceLine()
@@ -628,11 +658,221 @@ namespace Bliss.Factories
                     },
                     new VoiceLine()
                     {
-                        Text = "Hey, Betty here. Say, do you like party games?",
+                        Text = "I came up with a fun one.",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "It's a reverse murder mystery called 'who the hell reanimated this person'?",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "All the players are assassins and they have to figure out who reanimated the person",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "because that means there is someone out there who can get first-hand accounts of them.",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "Wanna come over and play? You can be the corpse if you want.",
                         Voice = ContentManager.SilenceSoundEffect.CreateInstance()
                     }
                 }
             };
         }
+
+        public PhoneCall GetPentagrams()
+        {
+            return new PhoneCall()
+            {
+                VoiceLines = new List<VoiceLine>()
+                {
+                    new VoiceLine()
+                    {
+                        Text = "Hey, it's Betty!",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "I was bored yesterday and decided to draw a bunch of pentagrams on a contract.",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "I ended up with at least 100 of them, but before I could draw any more,",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "a devilish-looking guy wearing a red suit broke down the door of the office",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "and yelled 'WHAT THE HELL DO YOU WANT?!'",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "Then he snatched the contract, somehow burned it without a lighter and ran away.",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "I will never stop thinking about that man.",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    }
+                }
+            };
+        }
+
+        #endregion
+
+        #region Rules
+
+        public PhoneCall GetBettyFuckMen()
+        {
+            return new PhoneCall()
+            {
+                NewValidators = new Dictionary<OrganizerIds, List<Rule>>()
+                {
+                    {
+                        OrganizerIds.Bin, new List<Rule>
+                        {
+                            new Rule()
+                            { 
+                                Validate = (document) => { if( document is Application application) { return application.Sex == Sexes.Male; }  return false; }, 
+                                Description = "Toss all applications sent by men!"  
+                            } // TODO: previous validators ?
+                        }
+                    }
+                },
+                VoiceLines = new List<VoiceLine>()
+                {
+                    new VoiceLine()
+                    {
+                        Text = "Hey rookie! This is Betty. You know, from acconting.",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "Listen, I have some new rules for you.",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "Now, we get lot's of applications. But we don't need that many, right?",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "So, until further notice, just toss all applications sent by men!",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "Don't worry, the Boss approved it. Alright, talk to you later!",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    }
+                }
+            };
+        }
+
+        public PhoneCall GetBettyLetters()
+        {
+            return new PhoneCall()
+            {
+                NewValidators = new Dictionary<OrganizerIds, List<Rule>>()
+                {
+                    {
+                        OrganizerIds.Bin, new List<Rule>
+                        {
+                            new Rule()
+                            {
+                                Validate = (document) => { if( document is Application application) { return application.Sex == Sexes.Male; }  return false; },
+                                Description = "Toss all applications sent by men!"
+                            }
+                        } // TODO: previous validators - Every letter as stamp and return address -> which organizer?
+                    }
+                },
+                VoiceLines = new List<VoiceLine>()
+                {
+                    new VoiceLine()
+                    {
+                        Text = "Hey sweetheart.",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "So, about 50 letters in the last week arrived without any stamps and return addresses",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "so we couldn't send them out",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "From now on, please make sure that every letter has a stamp and a return address on it.",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "Thanks dear!",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    }
+                }
+            };
+        }
+
+        public PhoneCall GetBettyPayment()
+        {
+            return new PhoneCall()
+            {
+                NewValidators = new Dictionary<OrganizerIds, List<Rule>>()
+                {
+                    {
+                        OrganizerIds.Bin, new List<Rule>
+                        {
+                            new Rule()
+                            {
+                                Validate = (document) => { if( document is Application application) { return application.Sex == Sexes.Male; }  return false; },
+                                Description = "Toss all applications sent by men!"
+                            } // TODO: previous validators + new validator
+                        }
+                    }
+                },
+                VoiceLines = new List<VoiceLine>()
+                {
+                    new VoiceLine()
+                    {
+                        Text = "If I could I'd kill every single stupid braindead monkey from HR.",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "NONE OF THE CHECKS I RECEIVED TODAY hat a department listed on them.",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "So from now on, when you get a paycheck",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "please confirm that there is a department on it and that it is a valid one.",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    }
+                }
+            };
+        }
+
+        #endregion
     }
 }
