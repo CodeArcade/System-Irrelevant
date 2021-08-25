@@ -12,11 +12,27 @@ namespace Bliss.Component.Sprites.Office.Documents
         Misc
     }
 
+    public enum Locations
+    {
+        America,
+        Germany,
+        Canada,
+        Sweden,
+        Finland,
+        UnitedKingdom,
+        Norway,
+        Denmark,
+        Netherlands,
+        Russia,
+        Mexico
+    }
+
     public class Application : BaseDocument
     {
         public DateTime Birthday { get; set; }
         public Sexes Sex { get; set; }
         public string Address { get; set; }
+        public Locations Location { get; set; }
 
         public Application(Vector2 spawnPoint, Microsoft.Xna.Framework.Rectangle tableArea) : base(spawnPoint, tableArea)
         {
