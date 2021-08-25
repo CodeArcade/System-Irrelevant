@@ -28,7 +28,6 @@ namespace Bliss.States.Game
             AddClock();
             AddPhone();
             AddPhoneTextBox();
-            AddStickyNote();
 
             DocumentOrganizers = new List<DocumentOrganizer>();
 
@@ -66,6 +65,8 @@ namespace Bliss.States.Game
                 );
 
             AddBin(-1000, -1000, 25, 25);
+
+            AddStickyNote();
 
             DocumentSpawnPoints = new List<Sprite>();
             // left side of desk
@@ -194,6 +195,7 @@ namespace Bliss.States.Game
 
             StickyNote.OnClick += StickyNoteClicked;
             AddComponent(StickyNote, States.Layers.PlayingArea);
+            SetStickyNoteValidators();
         }
     }
 }

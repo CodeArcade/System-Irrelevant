@@ -231,6 +231,16 @@ namespace Bliss.States.Game
                 DocumentOrganizer organizer = DocumentOrganizers.First(x => x.Id == validatorGroup.Key);
                 organizer.Validators = validatorGroup.Value;
             }
+
+            SetStickyNoteValidators();
+        }
+
+        private void SetStickyNoteValidators()
+        {
+            StickyNote.ActiveRules = new Dictionary<OrganizerIds, List<Rule>>();
+
+            foreach (DocumentOrganizer organizer in DocumentOrganizers)
+                StickyNote.ActiveRules.Add(organizer.Id, organizer.Validators);
         }
 
         private void DocumentClicked(object sender, EventArgs e)
