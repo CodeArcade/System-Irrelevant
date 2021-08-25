@@ -75,8 +75,20 @@ namespace Bliss.Component.Sprites.Office
                 {
                     PlayerStats.MissedCalls++;
                     IsRinging = false;
+                    IsInUse = false;
                     AnimationManager.Play(Animations["idle"]);
                     RingingSoundEffect.Stop();
+                    Timer = 0;
+                }
+            }
+
+            if (IsCallOver && IsTalking)
+            {
+                Timer += gameTime.ElapsedGameTime.TotalSeconds;
+
+                if (Timer >= 5)
+                {
+                    EndCall();
                     Timer = 0;
                 }
             }
@@ -95,7 +107,7 @@ namespace Bliss.Component.Sprites.Office
 
             AnimationManager.Play(Animations["ringing"]);
             RingingSoundEffect.Play();
-            SecondsBeforeMissedCall = new Random().Next(10, 21);
+            SecondsBeforeMissedCall = new Random().Next(3, 8);
             Timer = 0;
             IsRinging = true;
             IsInUse = true;
@@ -119,28 +131,33 @@ namespace Bliss.Component.Sprites.Office
             }
             else if (IsTalking)
             {
-                IsTalking = false;
-                TextBox.Visible = false;
-                TextBox.Text = "";
-                AnimationManager.Play(Animations["idle"]);
-                AudioManager.PlayEffect(ContentManager.PhoneHangUpSoundEffect);
-
-                CallOverSoundEffect.Stop();
-                if (CurrentVoiceLine != PhoneCall.VoiceLines.Count) PhoneCall.VoiceLines[CurrentVoiceLine].Voice.Stop();
-                if (PhoneCall.IsImportant)
-                {
-                    OnImportantCallFinished?.Invoke(PhoneCall, new EventArgs());
-                }
-                PhoneCall = null;
-
-                if (!IsCallOver)
-                {
-                    PlayerStats.WronglyEndedCalls++;
-                }
-                IsInUse = false;
+                EndCall();
             }
 
             base.Click();
+        }
+
+        private void EndCall()
+        {
+            IsTalking = false;
+            TextBox.Visible = false;
+            TextBox.Text = "";
+            AnimationManager.Play(Animations["idle"]);
+            AudioManager.PlayEffect(ContentManager.PhoneHangUpSoundEffect);
+
+            CallOverSoundEffect.Stop();
+            if (CurrentVoiceLine != PhoneCall.VoiceLines.Count) PhoneCall.VoiceLines[CurrentVoiceLine].Voice.Stop();
+            if (PhoneCall.IsImportant)
+            {
+                OnImportantCallFinished?.Invoke(PhoneCall, new EventArgs());
+            }
+            PhoneCall = null;
+
+            if (!IsCallOver)
+            {
+                PlayerStats.WronglyEndedCalls++;
+            }
+            IsInUse = false;
         }
 
         private void PlayPhoneCall()

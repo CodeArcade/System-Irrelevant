@@ -95,6 +95,7 @@ namespace Bliss.States.Game
 
                 if (!Phone.IsInUse)
                 {
+                    PlayerStats.Day++;
                     PlayerStats.DocumentsLeft = DocumentCount;
                     AudioManager.StopMusic();
                     StateManager.ChangeTo<SummaryState>(SummaryState.Name, PlayerStats);
@@ -199,9 +200,9 @@ namespace Bliss.States.Game
 
         private void HandlePhoneCall(GameTime gameTime)
         {
-            if (!Calls.Any() || Phone.IsInUse) return;
-
             PhoneCallTimer += gameTime.ElapsedGameTime.TotalSeconds;
+
+            if (!Calls.Any() || Phone.IsInUse) return;
 
             if (PhoneCallTimer >= SecondsToNextPhoneCall)
             {

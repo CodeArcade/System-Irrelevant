@@ -23,8 +23,8 @@ namespace Bliss.Component.Sprites.Office.Documents
             {
                 Size = size,
                 Position = new Vector2(
-                        (int)(SizeManager.ScaleForWidth(SizeManager.JamGame.BaseWidth) - size.Width) / 4,
-                        (int)(SizeManager.ScaleForHeight(SizeManager.JamGame.BaseHeight) - size.Height) / 4
+                        (int)(SizeManager.ScaleForWidth(SizeManager.JamGame.BaseWidth) - size.Width) / 2,
+                        (int)(SizeManager.ScaleForHeight(SizeManager.JamGame.BaseHeight) - size.Height) / 2
                     ),
                 Texture = ContentManager.InvoiceTexture
             };
