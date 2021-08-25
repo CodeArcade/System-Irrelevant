@@ -413,12 +413,12 @@ namespace Bliss.Factories
                     },
                     new VoiceLine()
                     {
-                        Text = "I spent 15 minutes trying to explain to an old man that we do not sell hot dogs",
+                        Text = "I spent 15 minutes trying to explain to an old man that we do not sell hot dogs - McDogs as he called them.",
                         Voice = ContentManager.MikeHotdog3SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
-                        Text = "and then he threatened to report me for 'withholding products from him'.",
+                        Text = "And then he threatened to report me for 'withholding products from him'.",
                         Voice = ContentManager.MikeHotdog4SoundEffect.CreateInstance()
                     },
                     new VoiceLine()

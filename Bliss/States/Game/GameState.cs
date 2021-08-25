@@ -74,7 +74,6 @@ namespace Bliss.States.Game
             Calls.Add(PhoneCallFactory.GetImportant());
             SecondsToNextPhoneCall = new Random().Next(25, 45);
 
-
             AudioManager.ChangeSong(ContentManager.CalmSong, true);
         }
 
@@ -289,7 +288,7 @@ namespace Bliss.States.Game
                     document.CanBeDragged = clickable;
                 }
 
-                if(component is DocumentOrganizer organizer)
+                if (component is DocumentOrganizer organizer)
                 {
                     organizer.CanHover = clickable;
                 }

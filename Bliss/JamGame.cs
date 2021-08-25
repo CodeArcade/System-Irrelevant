@@ -42,13 +42,13 @@ namespace Bliss
         {
             // this should work - but no dynamic resize
 
-            //Graphics.IsFullScreen = true;
-            //Graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
-            //Graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
+            Graphics.IsFullScreen = true;
+            Graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
+            Graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
 
-            Graphics.IsFullScreen = false;
-            Graphics.PreferredBackBufferWidth = BaseWidth;
-            Graphics.PreferredBackBufferHeight = BaseHeight;
+            //Graphics.IsFullScreen = false;
+            //Graphics.PreferredBackBufferWidth = BaseWidth;
+            //Graphics.PreferredBackBufferHeight = BaseHeight;
 
             //Graphics.IsFullScreen = false;
             //Graphics.PreferredBackBufferWidth = 720;
