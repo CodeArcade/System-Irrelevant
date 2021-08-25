@@ -127,7 +127,7 @@ and the place had only been open for 12 minutes and was already getting overpopu
 
 #### paycheck departments
 
-"If I could I'd kill every single stupid braindead monkey from HR. NONE OF THE CHECKS I RECEIVED TODAY hat a department listed on them. So from now on, when you get a paycheck, please confirm that there is a department on it and that it is a valid one."
+"If I could I'd kill every single stupid braindead monkey from accounting. NONE OF THE CHECKS I RECEIVED TODAY hat a department listed on them. So from now on, when you get a paycheck, please confirm that there is a department on it and that it is a valid one."
 
 ### Mike
 
