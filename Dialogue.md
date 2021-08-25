@@ -114,3 +114,21 @@ and the place had only been open for 12 minutes and was already getting overpopu
 6. "Now, this is just a regular letter. Nothing special about it. Just put them in the green bin."
 7. "Now this... this is classified. Don't open it. Just throw it in the trash! I mean... I can't stop you from opening it as you throw it away anyways... Well just don't!"
 8. "Alright, that's about everything. If there are any new rules, people will call you to inform you about it. So don't hang up on them all willy nilly. And now go to work!"
+
+### Betty
+
+#### fuck men, but not literally
+
+"Hey rookie! This is Betty. You know, from HR. Listen, I have some new rules for you. Now, we get lot's of applications. But we don't need that many, right? So, until further notice, just toss all applications sent by men! Don't worry, the Boss approved it. Alright, talk to you later!"
+
+#### why does no one know how letters work
+
+"Hey sweetheart. So, about 50 letters in the last week arrived without any stamps and return addresses, so we couldn't send them out. From now on, please make sure that every letter has a stamp and a return address on it. Thanks dear!"
+
+#### paycheck departments
+
+"If I could I'd kill every single stupid braindead monkey from HR. NONE OF THE CHECKS I RECEIVED TODAY hat a department listed on them. So from now on, when you get a paycheck, please confirm that there is a department on it and that it is a valid one."
+
+### Mike
+
+#### Signed Contracts
