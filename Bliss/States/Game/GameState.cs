@@ -77,7 +77,7 @@ namespace Bliss.States.Game
             Calls.Add(PhoneCallFactory.GetImportant());
             SecondsToNextPhoneCall = new Random().Next(25, 45);
 
-            AudioManager.ChangeSong(ContentManager.CalmSong, true);
+            AudioManager.ChangeSong(ContentManager.CalmSong, true,  -(Manager.AudioManager.GlobalVolume * 0.5f));
         }
 
         public override void Update(GameTime gameTime)

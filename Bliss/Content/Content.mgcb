@@ -461,6 +461,186 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/Textbox.png
 
+#begin VoiceLines/Betty/FuckMen/Betty1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Betty/FuckMen/Betty1.wav
+
+#begin VoiceLines/Betty/FuckMen/Betty2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Betty/FuckMen/Betty2.wav
+
+#begin VoiceLines/Betty/FuckMen/Betty3.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Betty/FuckMen/Betty3.wav
+
+#begin VoiceLines/Betty/FuckMen/Betty4.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Betty/FuckMen/Betty4.wav
+
+#begin VoiceLines/Betty/FuckMen/Betty5.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Betty/FuckMen/Betty5.wav
+
+#begin VoiceLines/Betty/Introduction/Betty1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Betty/Introduction/Betty1.wav
+
+#begin VoiceLines/Betty/Introduction/Betty2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Betty/Introduction/Betty2.wav
+
+#begin VoiceLines/Betty/Introduction/Betty3.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Betty/Introduction/Betty3.wav
+
+#begin VoiceLines/Betty/Letter/Betty1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Betty/Letter/Betty1.wav
+
+#begin VoiceLines/Betty/Letter/Betty2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Betty/Letter/Betty2.wav
+
+#begin VoiceLines/Betty/Letter/Betty3.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Betty/Letter/Betty3.wav
+
+#begin VoiceLines/Betty/Letter/Betty4.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Betty/Letter/Betty4.wav
+
+#begin VoiceLines/Betty/Letter/Betty5.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Betty/Letter/Betty5.wav
+
+#begin VoiceLines/Betty/Mystery/Betty1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Betty/Mystery/Betty1.wav
+
+#begin VoiceLines/Betty/Mystery/Betty2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Betty/Mystery/Betty2.wav
+
+#begin VoiceLines/Betty/Mystery/Betty3.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Betty/Mystery/Betty3.wav
+
+#begin VoiceLines/Betty/Mystery/Betty4.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Betty/Mystery/Betty4.wav
+
+#begin VoiceLines/Betty/Mystery/Betty5.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Betty/Mystery/Betty5.wav
+
+#begin VoiceLines/Betty/Mystery/Betty6.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Betty/Mystery/Betty6.wav
+
+#begin VoiceLines/Betty/Paycheck/Betty1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Betty/Paycheck/Betty1.wav
+
+#begin VoiceLines/Betty/Paycheck/Betty2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Betty/Paycheck/Betty2.wav
+
+#begin VoiceLines/Betty/Paycheck/Betty3.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Betty/Paycheck/Betty3.wav
+
+#begin VoiceLines/Betty/Paycheck/Betty4.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Betty/Paycheck/Betty4.wav
+
+#begin VoiceLines/Betty/Pentagrams/Betty1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Betty/Pentagrams/Betty1.wav
+
+#begin VoiceLines/Betty/Pentagrams/Betty2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Betty/Pentagrams/Betty2.wav
+
+#begin VoiceLines/Betty/Pentagrams/Betty3.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Betty/Pentagrams/Betty3.wav
+
+#begin VoiceLines/Betty/Pentagrams/Betty4.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Betty/Pentagrams/Betty4.wav
+
+#begin VoiceLines/Betty/Pentagrams/Betty5.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Betty/Pentagrams/Betty5.wav
+
+#begin VoiceLines/Betty/Pentagrams/Betty6.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Betty/Pentagrams/Betty6.wav
+
+#begin VoiceLines/Betty/Pentagrams/Betty7.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Betty/Pentagrams/Betty7.wav
+
 #begin VoiceLines/Mike/Dinner/Mike1.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
@@ -514,4 +694,52 @@
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:VoiceLines/Mike/Hotdog/Mike5.wav
+
+#begin VoiceLines/Tired/Tired1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Tired/Tired1.wav
+
+#begin VoiceLines/Tired/Tired2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Tired/Tired2.wav
+
+#begin VoiceLines/Tired/Tired3.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Tired/Tired3.wav
+
+#begin VoiceLines/Tired/Tired4.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Tired/Tired4.wav
+
+#begin VoiceLines/Tired/Tired5.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Tired/Tired5.wav
+
+#begin VoiceLines/Wiener/Winer1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Wiener/Winer1.wav
+
+#begin VoiceLines/Wiener/Winer2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Wiener/Winer2.wav
+
+#begin VoiceLines/Wiener/Winer3.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Wiener/Winer3.wav
 
