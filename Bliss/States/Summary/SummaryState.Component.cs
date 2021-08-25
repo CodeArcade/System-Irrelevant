@@ -88,7 +88,7 @@ namespace Bliss.States.Summary
                 Width = (int)SizeManager.ScaleForWidth(JamGame.BaseWidth / 6),
                 VerticalAlignment = VerticalAlignment.Stretch
             };
-            button.Click += (sender, e) => { StateManager.ChangeTo<GameState>(GameState.Name, PlayerStats); };
+            button.Click += (sender, e) => { AudioManager.StopMusic(); StateManager.ChangeTo<GameState>(GameState.Name, PlayerStats); };
 
             innerGrid.Widgets.Add(title);
             innerGrid.Widgets.Add(button);

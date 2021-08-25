@@ -18,6 +18,8 @@ namespace Bliss.Component.Sprites.Office
         private bool IsExtending { get; set; } = false;
         private bool IsRetracting { get; set; } = false;
 
+        public bool CanHover { get; set; } = true;
+
         public List<Rule> ActiveRules { get; set; } = new List<Rule>();
 
         public StickyNote() : base()
@@ -51,6 +53,8 @@ namespace Bliss.Component.Sprites.Office
 
         public void UpdateHover()
         {
+            if (!CanHover) return;
+
             if (!IsMouseInsideWindow())
             {
                 Retract();

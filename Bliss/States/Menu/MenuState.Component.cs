@@ -89,7 +89,7 @@ namespace Bliss.States.GameOver
                 Width = (int)SizeManager.ScaleForWidth(JamGame.BaseWidth / 6),
                 VerticalAlignment = VerticalAlignment.Stretch,
             };
-            button.Click += (sender, e) => { StateManager.ChangeTo<GameState>(GameState.Name, checkBox.IsChecked); };
+            button.Click += (sender, e) => { AudioManager.StopMusic(); StateManager.ChangeTo<GameState>(GameState.Name, checkBox.IsChecked); };
             grid.Widgets.Add(button);
 
             JamGame.Dekstop.Root = grid;

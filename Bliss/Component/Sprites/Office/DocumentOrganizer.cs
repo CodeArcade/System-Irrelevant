@@ -28,6 +28,8 @@ namespace Bliss.Component.Sprites.Office
         public Vector2 OriginPosition { get; set; }
         public int TweenOffset { get; set; }
 
+        public bool CanHover { get; set; } = true;
+
         private bool IsExtending { get; set; } = false;
         private bool IsRetracting { get; set; } = false;
 
@@ -59,6 +61,7 @@ namespace Bliss.Component.Sprites.Office
 
         public void UpdateHover()
         {
+            if (!CanHover) return;
             if (!IsMouseInsideWindow()) return;
             TweenerCurrentMouse = Mouse.GetState();
             if (IsMouseOverOrganizer() && !IsExtending)

@@ -191,6 +191,7 @@ namespace Bliss.States.Game
                 OriginPosition = new Vector2(x, y),
                 TweenOffset = (int)SizeManager.ScaleForHeight(69)
             };
+            StickyNote.OnClick += StickyNoteClicked;
             AddComponent(StickyNote, States.Layers.PlayingArea);
         }
     }

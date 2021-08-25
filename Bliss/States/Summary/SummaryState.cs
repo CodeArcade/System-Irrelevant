@@ -16,6 +16,8 @@ namespace Bliss.States.Summary
             if (PlayerStats.WronglySortedDocuments >= 5) PlayerStats.Warnings++;
             if (PlayerStats.MissedCalls >= 1) PlayerStats.Warnings++;
             if (PlayerStats.DocumentsLeft >= 10) PlayerStats.Warnings++;
+
+            AudioManager.ChangeSong(ContentManager.UpbeatSong, true);
         }
     }
 }

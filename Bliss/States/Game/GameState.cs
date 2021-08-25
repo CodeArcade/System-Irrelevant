@@ -73,6 +73,8 @@ namespace Bliss.States.Game
 
             Calls.Add(PhoneCallFactory.GetImportant());
             SecondsToNextPhoneCall = new Random().Next(25, 45);
+
+            AudioManager.ChangeSong(ContentManager.CalmSong, true);
         }
 
         public override void Update(GameTime gameTime)
@@ -94,6 +96,7 @@ namespace Bliss.States.Game
                 if (!Phone.IsInUse)
                 {
                     PlayerStats.DocumentsLeft = DocumentCount;
+                    AudioManager.StopMusic();
                     StateManager.ChangeTo<SummaryState>(SummaryState.Name, PlayerStats);
                     base.Update(gameTime);
                     return;
@@ -114,10 +117,7 @@ namespace Bliss.States.Game
 
             if (CurrentMouse.RightButton == ButtonState.Released && PreviousMouse.RightButton == ButtonState.Pressed && CurrentDetailViewComponents.Any())
             {
-                if (!(CurrentDocument is null))
-                {
-                    RemoveDetailView();
-                }
+                RemoveDetailView();
             }
 
             base.Update(gameTime);
@@ -160,6 +160,8 @@ namespace Bliss.States.Game
             Phone.CanBeClicked = true;
 
             if (Phone.IsInUse) return;
+
+            AudioManager.StopMusic();
             StateManager.ChangeTo<MenuState>(MenuState.Name);
         }
 
@@ -225,8 +227,11 @@ namespace Bliss.States.Game
         private void DocumentClicked(object sender, EventArgs e)
         {
             if (!(CurrentDocument is null)) return;
+            if (CurrentDetailViewComponents.Any()) return;
 
             ToggleClickableOfDocuments(false);
+            StickyNote.CanBeClicked = false;
+            StickyNote.CanHover = false;
 
             foreach (Component.Component component in CurrentDetailViewComponents)
                 component.IsRemoved = true;
@@ -258,10 +263,16 @@ namespace Bliss.States.Game
 
         private void RemoveDetailView()
         {
+            if (!CurrentDetailViewComponents.Any()) return;
+
             foreach (Component.Component component in CurrentDetailViewComponents)
                 component.IsRemoved = true;
 
+            CurrentDetailViewComponents.Clear();
+
             ToggleClickableOfDocuments(true);
+            StickyNote.CanBeClicked = true;
+            StickyNote.CanHover = true;
 
             CurrentDocument = null;
 
@@ -277,6 +288,11 @@ namespace Bliss.States.Game
                     document.CanBeClicked = clickable;
                     document.CanBeDragged = clickable;
                 }
+
+                if(component is DocumentOrganizer organizer)
+                {
+                    organizer.CanHover = clickable;
+                }
             }
         }
 
@@ -289,6 +305,9 @@ namespace Bliss.States.Game
 
             StickyNote note = (StickyNote)sender;
             CurrentDetailViewComponents = note.GetDetailViewComponents();
+
+            foreach (Component.Component component in CurrentDetailViewComponents)
+                AddComponent(component, States.Layers.DocumentDetailView);
 
             AudioManager.PlayEffect(ContentManager.DocumentPickedUpSoundEffect);
         }

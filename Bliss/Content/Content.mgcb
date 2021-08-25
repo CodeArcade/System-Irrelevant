@@ -59,6 +59,18 @@
 #begin Fonts/Arial.ttf
 /copy:Fonts/Arial.ttf
 
+#begin Music/Calm.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Music/Calm.mp3
+
+#begin Music/Upbeat.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Music/Upbeat.mp3
+
 #begin Sounds/DocumentLanded.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor

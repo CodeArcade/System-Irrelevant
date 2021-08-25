@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Media;
 using MonoGame.Extended.Content;
 using Unity;
 
@@ -60,5 +61,8 @@ namespace Bliss.Manager
         public SoundEffect MikeDinner4SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Mike/Dinner/Mike4");
 
         public SpriteFont ArialSpriteFont => JamGame.Content.Load<SpriteFont>("Fonts/Arial");
+
+        public Song CalmSong => JamGame.Content.Load<Song>("Music/Calm");
+        public Song UpbeatSong => JamGame.Content.Load<Song>("Music/Upbeat");
     }
 }

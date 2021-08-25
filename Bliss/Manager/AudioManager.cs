@@ -41,7 +41,7 @@ namespace Bliss.Manager
             MediaPlayer.Play(CurrentSong);
         }
 
-        public void Changesong(Song song, bool loop = false, float volume = 0)
+        public void ChangeSong(Song song, bool loop = false, float volume = 0)
         {
             NextSong = song;
             Loop = loop;
