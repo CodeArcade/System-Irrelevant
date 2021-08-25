@@ -59,7 +59,7 @@ namespace Bliss.Component.Sprites.Office
 
             CallOverSoundEffect = AudioManager.PlayEffect(ContentManager.PhoneCallOverSoundEffect, isLooped: true);
             CallOverSoundEffect.Stop();
-            RingingSoundEffect = AudioManager.PlayEffect(ContentManager.PhoneRingingSoundEffect, volume: -0.5f, isLooped: true);
+            RingingSoundEffect = AudioManager.PlayEffect(ContentManager.PhoneRingingSoundEffect, isLooped: true);
             RingingSoundEffect.Stop();
         }
 

@@ -1,6 +1,7 @@
 ﻿using Bliss.Component.Sprites;
 using Bliss.Component.Sprites.Office;
 using Bliss.Component.Sprites.Ui;
+using Bliss.Manager;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -86,7 +87,7 @@ namespace Bliss.States.Game
             Table = new Table()
             {
                 Size = size,
-                Position = SizeManager.GetPosition(0,0)
+                Position = SizeManager.GetPosition(0, 0)
             };
             AddComponent(Table, States.Layers.Table);
         }
@@ -172,7 +173,7 @@ namespace Bliss.States.Game
                 CanBeClicked = false,
                 Id = OrganizerIds.Bin,
                 OriginPosition = new Vector2(x, y),
-                TweenOffset = (int)SizeManager.ScaleForWidth(-100) ,
+                TweenOffset = (int)SizeManager.ScaleForWidth(-100),
             };
 
             DocumentOrganizers.Add(Bin);
@@ -181,16 +182,16 @@ namespace Bliss.States.Game
 
         private void AddStickyNote()
         {
-            int x = -70;
-            int y = 300;
+            int y = 350;
 
             StickyNote = new StickyNote()
             {
-                Position = new Vector2(x, y),
                 CanBeClicked = true,
-                OriginPosition = new Vector2(x, y),
                 TweenOffset = (int)SizeManager.ScaleForHeight(69)
             };
+            StickyNote.Position = SizeManager.GetPosition(-(StickyNote.Texture.Width / 3), y);
+            StickyNote.OriginPosition = SizeManager.GetPosition(-(StickyNote.Texture.Width / 3), y);
+
             StickyNote.OnClick += StickyNoteClicked;
             AddComponent(StickyNote, States.Layers.PlayingArea);
         }

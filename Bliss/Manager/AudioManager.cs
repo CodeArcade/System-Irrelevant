@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Media;
+using System;
 
 namespace Bliss.Manager
 {
@@ -15,7 +16,9 @@ namespace Bliss.Manager
         public SoundEffectInstance PlayEffect(SoundEffect effect, float volume = 0, float pitch = 0, bool isLooped = false)
         {
             SoundEffectInstance soundEffectInstance = effect.CreateInstance();
-            soundEffectInstance.Volume = GlobalVolume + volume;
+            soundEffectInstance.Volume = Math.Max(GlobalVolume + volume, 0.01f);
+            if (GlobalVolume == 0) soundEffectInstance.Volume = 0;
+
             soundEffectInstance.Pitch = pitch;
             soundEffectInstance.IsLooped = isLooped;
 
