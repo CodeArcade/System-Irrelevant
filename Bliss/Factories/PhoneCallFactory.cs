@@ -708,12 +708,12 @@ namespace Bliss.Factories
                     },
                     new VoiceLine()
                     {
-                        Text = "a devilish-looking guy wearing a red suit broke down the door of the office",
+                        Text = "a devilish-looking guy wearing a red suit broke down the door of the office and yelled",
                         Voice = ContentManager.SilenceSoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
-                        Text = "and yelled 'WHAT THE HELL DO YOU WANT?!'",
+                        Text = "'WHAT THE HELL DO YOU WANT?!'",
                         Voice = ContentManager.SilenceSoundEffect.CreateInstance()
                     },
                     new VoiceLine()
@@ -851,7 +851,7 @@ namespace Bliss.Factories
                 {
                     new VoiceLine()
                     {
-                        Text = "If I could I'd kill every single stupid braindead monkey from HR.",
+                        Text = "If I could I'd kill every single stupid braindead monkey from accounting.",
                         Voice = ContentManager.SilenceSoundEffect.CreateInstance()
                     },
                     new VoiceLine()
