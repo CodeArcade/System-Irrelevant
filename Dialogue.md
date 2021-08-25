@@ -40,7 +40,7 @@ Wanna come over and play? You can be the corpse if you want 😉"
 
 ### Pentagrams
 
-"Hey, it's Betty! I was bored yesterday and decided to draw a bunch of pentagrams on a contract. I ended up with at least 100 of them, but before I could draw any more, a devilish-looking guy wearing a red suit broke down the door of the classroom and yelled "WHAT THE HELL DO YOU WANT?!". Then he snatched the contract, somehow burned it without a lighter and ran away. I will never stop thinking about that man."
+"Hey, it's Betty! I was bored yesterday and decided to draw a bunch of pentagrams on a contract. I ended up with at least 100 of them, but before I could draw any more, a devilish-looking guy wearing a red suit broke down the door of my office and yelled "WHAT THE HELL DO YOU WANT?!". Then he snatched the contract, somehow burned it without a lighter and ran away. I will never stop thinking about that man."
 
 ## Vlads Dialogue
 
