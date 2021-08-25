@@ -72,6 +72,52 @@ namespace Bliss.Manager
         public SoundEffect MikeHotdog4SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Mike/Hotdog/Mike4");
         public SoundEffect MikeHotdog5SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Mike/Hotdog/Mike5");
 
+        public SoundEffect BettyFuckMen1SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Betty/FuckMen/Betty1");
+        public SoundEffect BettyFuckMen2SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Betty/FuckMen/Betty2");
+        public SoundEffect BettyFuckMen3SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Betty/FuckMen/Betty3");
+        public SoundEffect BettyFuckMen4SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Betty/FuckMen/Betty4");
+        public SoundEffect BettyFuckMen5SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Betty/FuckMen/Betty5");
+
+        public SoundEffect BettyIntroduction1SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Betty/Introduction/Betty1");
+        public SoundEffect BettyIntroduction2SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Betty/Introduction/Betty2");
+        public SoundEffect BettyIntroduction3SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Betty/Introduction/Betty3");
+
+        public SoundEffect BettyLetter1SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Betty/Letter/Betty1");
+        public SoundEffect BettyLetter2SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Betty/Letter/Betty2");
+        public SoundEffect BettyLetter3SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Betty/Letter/Betty3");
+        public SoundEffect BettyLetter4SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Betty/Letter/Betty4");
+        public SoundEffect BettyLetter5SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Betty/Letter/Betty5");
+
+        public SoundEffect BettyMyster1SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Betty/Mystery/Betty1");
+        public SoundEffect BettyMyster2SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Betty/Mystery/Betty2");
+        public SoundEffect BettyMyster3SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Betty/Mystery/Betty3");
+        public SoundEffect BettyMyster4SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Betty/Mystery/Betty4");
+        public SoundEffect BettyMyster5SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Betty/Mystery/Betty5");
+        public SoundEffect BettyMyster6SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Betty/Mystery/Betty6");
+
+        public SoundEffect BettyPaycheck1SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Betty/Paycheck/Betty1");
+        public SoundEffect BettyPaycheck2SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Betty/Paycheck/Betty2");
+        public SoundEffect BettyPaycheck3SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Betty/Paycheck/Betty3");
+        public SoundEffect BettyPaycheck4SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Betty/Paycheck/Betty4");
+
+        public SoundEffect BettyPentagram1SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Betty/Pentagrams/Betty1");
+        public SoundEffect BettyPentagram2SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Betty/Pentagrams/Betty2");
+        public SoundEffect BettyPentagram3SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Betty/Pentagrams/Betty3");
+        public SoundEffect BettyPentagram4SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Betty/Pentagrams/Betty4");
+        public SoundEffect BettyPentagram5SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Betty/Pentagrams/Betty5");
+        public SoundEffect BettyPentagram6SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Betty/Pentagrams/Betty6");
+        public SoundEffect BettyPentagram7SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Betty/Pentagrams/Betty7");
+
+        public SoundEffect Tired1SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Tired/Tired1");
+        public SoundEffect Tired2SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Tired/Tired2");
+        public SoundEffect Tired3SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Tired/Tired3");
+        public SoundEffect Tired4SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Tired/Tired4");
+        public SoundEffect Tired5SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Tired/Tired5");
+
+        public SoundEffect Wiener1SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Wiener/Winer1");
+        public SoundEffect Wiener2SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Wiener/Winer2");
+        public SoundEffect Wiener3SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Wiener/Winer3");
+
         public SpriteFont ArialSpriteFont => JamGame.Content.Load<SpriteFont>("Fonts/Arial");
 
         public Song CalmSong => JamGame.Content.Load<Song>("Music/Calm");

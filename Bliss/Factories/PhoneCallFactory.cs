@@ -15,27 +15,34 @@ namespace Bliss.Factories
 
         private static int MikeProgress { get; set; }
         private static int BettyProgress { get; set; }
+        private static int ValdProgress { get; set; }
         private static int RuleProgress { get; set; }
         private Random Random { get; set; } = new Random();
 
         public PhoneCall GetRandom()
         {
-            return Random.Next(0, 14) switch
+            return Random.Next(0, 4) switch
             {
-                0 => GetPrankCall(),
-                1 => GetLibrary(),
-                2 => GetBananas(),
-                3 => GetTired(),
-                4 => GetTimeTraveler(),
-                5 => GetIcWiener(),
-                6 => GetTrash(),
-                7 => GetBigSmokes(),
-                8 => GetDebbie(),
-                9 => GetMike(),
-                10 => GetVladIntro(),
-                11 => GetVladSalamanders(),
-                12 => GetVladCarAlarms(),
-                13 => GetBetty(),
+                0 => GetMisc(),
+                1 => GetMike(),
+                2 => GetVlad(),
+                3 => GetBetty(),
+                _ => GetPrankCall(),
+            };
+        }
+
+        public PhoneCall GetMisc()
+        {
+            return Random.Next(0, 8) switch
+            {
+                0 => GetLibrary(),
+                1 => GetBananas(),
+                2 => GetTired(),
+                3 => GetTimeTraveler(),
+                4 => GetIcWiener(),
+                5 => GetTrash(),
+                6 => GetBigSmokes(),
+                7 => GetDebbie(),
                 _ => GetPrankCall(),
             };
         }
@@ -176,18 +183,28 @@ namespace Bliss.Factories
                 {
                     new VoiceLine()
                     {
-                        Text = "When I was in middle school, our teachers told us that you can't 'make up' hours of sleep after not getting enough.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Text = "When I was in middle school",
+                        Voice = ContentManager.Tired1SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
-                        Text = "And I thought that meant if I didn't get enough sleep one night I would be tired for the rest of my life... And then I was.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Text = "our teachers told us that you can't 'make up' hours of sleep after not getting enough.",
+                        Voice = ContentManager.Tired2SoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "And I thought that meant if I didn't get enough sleep one night",
+                        Voice = ContentManager.Tired3SoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "I would be tired for the rest of my life... And then I was.",
+                        Voice = ContentManager.Tired4SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "Remember to go to sleep kiddo.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.Tired5SoundEffect.CreateInstance()
                     }
                 }
             };
@@ -232,17 +249,17 @@ namespace Bliss.Factories
                     new VoiceLine()
                     {
                         Text = "Hi, I'm calling to talk to a Mr. Wiener, first name initials 'I.C.'?",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.Wiener1SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
-                        Text = "No? Nobody called I see wiener?",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Text = "No? No one called I see wiener?",
+                        Voice = ContentManager.Wiener2SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "You can't see a wiener? Well get some glasses then!",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.Wiener3SoundEffect.CreateInstance()
                     }
                 }
             };
@@ -372,7 +389,7 @@ namespace Bliss.Factories
                 2 => GetMike2(),
                 3 => GetMike3(),
                 4 => GetMike4(),
-                _ => null,
+                _ => GetMisc(),
             };
         }
 
@@ -503,7 +520,20 @@ namespace Bliss.Factories
 
         #endregion
 
-        #region VladMisc
+        #region VladStory
+
+        public PhoneCall GetVlad()
+        {
+            ValdProgress++;
+
+            return ValdProgress switch
+            {
+                0 => GetVladIntro(),
+                1 => GetVladSalamanders(),
+                2 => GetVladCarAlarms(),
+                _ => GetMisc()
+            };
+        }
 
         public PhoneCall GetVladIntro()
         {
@@ -616,7 +646,7 @@ namespace Bliss.Factories
             {
                 1 => GetBettyIntro(),
                 2 => GetBettyMystery(),
-                _ => GetPrankCall()
+                _ => GetMisc()
             };
         }
 
@@ -629,17 +659,17 @@ namespace Bliss.Factories
                     new VoiceLine()
                     {
                         Text = "Hey, Betty from HR!",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BettyIntroduction1SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "Just checking in that you're still employed and well... alive.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BettyIntroduction2SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "Teehee. Byebyee",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BettyIntroduction3SoundEffect.CreateInstance()
                     }
                 }
             };
@@ -654,32 +684,32 @@ namespace Bliss.Factories
                     new VoiceLine()
                     {
                         Text = "Hey, Betty here. Say, do you like party games?",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BettyMyster1SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "I came up with a fun one.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BettyMyster2SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "It's a reverse murder mystery called 'who the hell reanimated this person'?",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BettyMyster3SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "All the players are assassins and they have to figure out who reanimated the person",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BettyMyster4SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "because that means there is someone out there who can get first-hand accounts of them.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BettyMyster5SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "Wanna come over and play? You can be the corpse if you want.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BettyMyster6SoundEffect.CreateInstance()
                     }
                 }
             };
@@ -694,37 +724,37 @@ namespace Bliss.Factories
                     new VoiceLine()
                     {
                         Text = "Hey, it's Betty!",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BettyPentagram1SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "I was bored yesterday and decided to draw a bunch of pentagrams on a contract.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BettyPentagram2SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "I ended up with at least 100 of them, but before I could draw any more,",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BettyPentagram3SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "a devilish-looking guy wearing a red suit broke down the door of the office and yelled",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BettyPentagram4SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "'WHAT THE HELL DO YOU WANT?!'",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BettyPentagram5SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "Then he snatched the contract, somehow burned it without a lighter and ran away.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BettyPentagram6SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "I will never stop thinking about that man.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BettyPentagram7SoundEffect.CreateInstance()
                     }
                 }
             };
@@ -744,9 +774,9 @@ namespace Bliss.Factories
                         OrganizerIds.Bin, new List<Rule>
                         {
                             new Rule()
-                            { 
-                                Validate = (document) => { if( document is Application application) { return application.Sex == Sexes.Male; }  return false; }, 
-                                Description = "Toss all applications sent by men!"  
+                            {
+                                Validate = (document) => { if( document is Application application) { return application.Sex == Sexes.Male; }  return false; },
+                                Description = "Toss all applications sent by men!"
                             } // TODO: previous validators ?
                         }
                     }
@@ -756,27 +786,27 @@ namespace Bliss.Factories
                     new VoiceLine()
                     {
                         Text = "Hey rookie! This is Betty. You know, from acconting.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BettyFuckMen1SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "Listen, I have some new rules for you.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BettyFuckMen2SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "Now, we get lot's of applications. But we don't need that many, right?",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BettyFuckMen3SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "So, until further notice, just toss all applications sent by men!",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BettyFuckMen4SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "Don't worry, the Boss approved it. Alright, talk to you later!",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BettyFuckMen5SoundEffect.CreateInstance()
                     }
                 }
             };
@@ -804,27 +834,27 @@ namespace Bliss.Factories
                     new VoiceLine()
                     {
                         Text = "Hey sweetheart.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BettyLetter1SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "So, about 50 letters in the last week arrived without any stamps and return addresses",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BettyLetter2SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "so we couldn't send them out",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BettyLetter3SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "From now on, please make sure that every letter has a stamp and a return address on it.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BettyLetter4SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "Thanks dear!",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BettyLetter5SoundEffect.CreateInstance()
                     }
                 }
             };
@@ -852,22 +882,22 @@ namespace Bliss.Factories
                     new VoiceLine()
                     {
                         Text = "If I could I'd kill every single stupid braindead monkey from accounting.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BettyPentagram1SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "NONE OF THE CHECKS I RECEIVED TODAY hat a department listed on them.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BettyPentagram2SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "So from now on, when you get a paycheck",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BettyPentagram3SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "please confirm that there is a department on it and that it is a valid one.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BettyPentagram4SoundEffect.CreateInstance()
                     }
                 }
             };
