@@ -8,7 +8,7 @@ namespace Bliss.Models
     public class Rule
     {
         public string Description { get; set; }
-        public bool IsActive;
+        public bool IsActive { get; set; }
 
         public Func<BaseDocument, bool> Validate { get; set; }
     }

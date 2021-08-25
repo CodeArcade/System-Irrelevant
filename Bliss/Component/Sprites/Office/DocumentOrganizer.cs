@@ -40,6 +40,7 @@ namespace Bliss.Component.Sprites.Office
         public DocumentOrganizer(PlayerStats playerStats)
         {
             PlayerStats = playerStats;
+            Validators.Add(new Rule() { Description = "Don't put something in here.", Validate = (document) => false });
         }
 
         public bool Validate(BaseDocument document)

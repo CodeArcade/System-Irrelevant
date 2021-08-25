@@ -71,12 +71,13 @@ namespace Bliss.States.Summary
                 TextColor = Color.Black
             };
 
-            innerGrid.Widgets.Add(GetStatGrid("Day:", PlayerStats.Day.ToString(), 2));
-            innerGrid.Widgets.Add(GetStatGrid("Unsorted Documents:", PlayerStats.DocumentsLeft.ToString(), 3));
-            innerGrid.Widgets.Add(GetStatGrid("Wrongly Sorted Documents:", PlayerStats.WronglySortedDocuments.ToString(), 4));
-            innerGrid.Widgets.Add(GetStatGrid("Missed Calls:", PlayerStats.MissedCalls.ToString(), 5));
-            innerGrid.Widgets.Add(GetStatGrid("Prematurely Ended Calls:", PlayerStats.WronglyEndedCalls.ToString(), 6));
-            innerGrid.Widgets.Add(GetStatGrid(@"\c[yellow]Warning Notices:", @"\c[yellow]" + PlayerStats.Warnings.ToString(), 7));
+            innerGrid.Widgets.Add(GetStatGrid("Day:", PlayerStats.Day.ToString(), 2, Color.Black));
+            innerGrid.Widgets.Add(GetStatGrid("Unsorted Documents:", PlayerStats.DocumentsLeft.ToString(), 3, PlayerStats.DocumentsLeft >= 3 ? Color.Red : Color.Black));
+            innerGrid.Widgets.Add(GetStatGrid("Wrongly Sorted Documents:", PlayerStats.WronglySortedDocuments.ToString(), 4, PlayerStats.WronglySortedDocuments >= 3 ? Color.Red : Color.Black));
+            innerGrid.Widgets.Add(GetStatGrid("Missed Calls:", PlayerStats.MissedCalls.ToString(), 5, PlayerStats.MissedCalls >= 1 ? Color.Red : Color.Black));
+            innerGrid.Widgets.Add(GetStatGrid("Prematurely Ended Calls:", PlayerStats.WronglyEndedCalls.ToString(), 6, PlayerStats.WronglyEndedCalls >= 1 ? Color.Red : Color.Black));
+            innerGrid.Widgets.Add(GetStatGrid("Warning Notices:", PlayerStats.Warnings.ToString(), 7,
+                PlayerStats.Warnings == 0 ? Color.Green : PlayerStats.Warnings >= 1 && PlayerStats.Warnings < 3 ? Color.Yellow : Color.Red));
 
             TextButton button = new TextButton
             {
@@ -96,7 +97,7 @@ namespace Bliss.States.Summary
             JamGame.Dekstop.Root = grid;
         }
 
-        private Grid GetStatGrid(string text, string value, int row)
+        private Grid GetStatGrid(string text, string value, int row, Color foregroundColor)
         {
             Grid grid = new Grid()
             {
@@ -117,7 +118,7 @@ namespace Bliss.States.Summary
                 HorizontalAlignment = HorizontalAlignment.Right,
                 VerticalAlignment = VerticalAlignment.Center,
                 Font = FontSystem.GetFont((int)SizeManager.ScaleForWidth(16)),
-                TextColor = Color.Black
+                TextColor = foregroundColor
             };
 
             Label valueLabel = new Label()
@@ -128,8 +129,8 @@ namespace Bliss.States.Summary
                 HorizontalAlignment = HorizontalAlignment.Left,
                 VerticalAlignment = VerticalAlignment.Center,
                 Font = FontSystem.GetFont((int)SizeManager.ScaleForWidth(16)),
-                TextColor = Color.Black,
-                Padding = new Myra.Graphics2D.Thickness((int)SizeManager.ScaleForWidth(20), 0,0,0)
+                TextColor = foregroundColor,
+                Padding = new Myra.Graphics2D.Thickness((int)SizeManager.ScaleForWidth(20), 0, 0, 0)
             };
 
             grid.Widgets.Add(textLabel);

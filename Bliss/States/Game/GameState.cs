@@ -163,7 +163,7 @@ namespace Bliss.States.Game
             if (Phone.IsInUse) return;
 
             AudioManager.StopMusic();
-            StateManager.ChangeTo<MenuState>(MenuState.Name);
+            StateManager.ChangeTo<GameOverState>(GameOverState.Name);
         }
 
         private void HandleDocumentSpawn(GameTime gameTime)
