@@ -15,7 +15,7 @@ namespace Bliss.Factories
 
         private static int MikeProgress { get; set; }
         private static int BettyProgress { get; set; }
-        private static int ValdProgress { get; set; }
+        private static int VladProgress { get; set; }
         private static int RuleProgress { get; set; }
         private Random Random { get; set; } = new Random();
 
@@ -524,9 +524,9 @@ namespace Bliss.Factories
 
         public PhoneCall GetVlad()
         {
-            ValdProgress++;
+            VladProgress++;
 
-            return ValdProgress switch
+            return VladProgress switch
             {
                 0 => GetVladIntro(),
                 1 => GetVladSalamanders(),
@@ -900,6 +900,218 @@ namespace Bliss.Factories
                         Voice = ContentManager.BettyPentagram4SoundEffect.CreateInstance()
                     }
                 }
+            };
+        }
+
+        public PhoneCall GetMikeRedChecks()
+        {
+            return new PhoneCall()
+            {
+                NewValidators = new Dictionary<OrganizerIds, List<Rule>>()
+                {
+                    {
+                        OrganizerIds.Red, new List<Rule>()
+                        {
+                            Rules.IsPaycheck,
+                            Rules.IsApplication
+                        }
+                    }
+                },
+                VoiceLines = new List<VoiceLine>()
+                {
+                    new VoiceLine()
+                    {
+                        Text = "Hello, it's Mike!",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "For one reason or another I don't seem to be getting any paychecks.",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "You're putting them in the red organizer, right?",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "Well if you don't, you better start doing it.",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    }
+                }
+            };
+        }
+
+        
+
+        public PhoneCall GetBossTutorial()
+        {
+            return new PhoneCall()
+            {
+                NewValidators = new Dictionary<OrganizerIds, List<Rule>>()
+                {
+                    {
+                        OrganizerIds.Blue, new List<Rule>()
+                        {
+                            Rules.IsContract,
+                            Rules.IsPaycheck
+                        }
+                    },
+                    {
+                        OrganizerIds.Red, new List<Rule>()
+                        {
+                            Rules.IsApplication
+                        }
+                    },
+                    {
+                        OrganizerIds.Green, new List<Rule>()
+                        {
+                            Rules.IsLetter
+                        }
+                    },
+                    {
+                        OrganizerIds.Bin, new List<Rule>()
+                        {
+                            Rules.IsClassified
+                        }
+                    }
+                },
+                VoiceLines = new List<VoiceLine>()
+                {
+                    new VoiceLine()
+                    {
+                        Text = "Hey there new guy, this is your boss speaking.",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "I thought I'd give you a quick rundown on how your job actually works.",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "It's rather simple.",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "You get documents, you sort them. Done deal.",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "First: this is a contract.",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "You can read them if you want, but for now put them in the blue organizer.",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "Next, this is a paycheck.",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "It's just a regular paycheck.",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "It's got a date, it's got the amount and the department.",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "You can also toss them into the blue organizer.",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "This is an application.",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "It's from the people that will replace you one day.",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "Hahaha, just kidding. Just put them in the red organizer.",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "Now this is just a regular letter.",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "Nothing special about it. Put 'em in the green organizer.",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "Now this... this is classified.",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "Don't open it. Just throw it in the trash!",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "I mean, I can't stop you from opening it as you throw it away anyways...",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "Well just don't!",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "Alright, that's about everything.",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "If there are any new rules, people will call you to inform you about it.",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "So don't hang up on them all willy nilly.",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "And now go to work!",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    }
+                }
+            };
+        }
+
+        public PhoneCall GetBossRacism()
+        {
+            return new PhoneCall()
+            {
+                NewValidators = new Dictionary<OrganizerIds, List<Rule>>()
+                {
+                    {
+                        OrganizerIds.Red, new List<Rule>()
+                        {
+                            Rules.AmericanApplicants
+                        }
+                    }
+                }
+                // TODO ADD VOICE LINES
             };
         }
 

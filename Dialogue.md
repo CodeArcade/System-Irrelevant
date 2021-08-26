@@ -50,7 +50,7 @@ Wanna come over and play? You can be the corpse if you want 😉"
 
 ### Salamanders
 
-"Hello. Its vlad. From IT. You ever think about salamanders? The teenzy tiny crocodiles that don't hurt you? Back home we call it саламандра. I like the name. it really fits. Anyway, do you need any? I bought 20, but is too many. I will send you picture later."
+"Hello. Its vlad. From IT. You ever think about salamanders? The teenzy tiny crocodiles that don't hurt you? Back home we call саламандра. I like the name. it really fits. Anyway, do you need any? I bought 20, but is too many. I will send you picture later."
 
 ### Car Alarms
 

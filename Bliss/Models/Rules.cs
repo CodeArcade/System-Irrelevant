@@ -7,9 +7,9 @@ namespace Bliss.Models
 {
     public static class Rules
     {
-        /// <summary>
-        /// bin rule
-        /// </summary>
+        #region BettyRules
+
+        #region BinRules
         public static Rule NoMaleApplicants
         {
             get
@@ -30,10 +30,8 @@ namespace Bliss.Models
             }
         }
 
-        /// <summary>
-        /// bin rule
-        /// </summary>
-        public static Rule Classified
+
+        public static Rule InvalidDepartments
         {
             get
             {
@@ -41,12 +39,76 @@ namespace Bliss.Models
                 {
                     Validate = (document) =>
                     {
-                        return document is Classified;
+                        if (document is Paycheck check)
+                        {
+                            return (int)check.Department >= 5;
+                        }
+
+                        return false;
                     },
-                    Description = "Toss all classified documents",
+                    Description = "Toss the paycheck if its not adressed to one of these departments:\n"
+                        + "Human Resources, Public Relations, Research and Development, IT, Accounting"
                 };
             }
         }
+
+        public static Rule InvalidLetter
+        {
+            get
+            {
+                return new Rule()
+                {
+                    Validate = (document) =>
+                    {
+                        if (document is Letter letter)
+                        {
+                            return !letter.HasStamp && string.IsNullOrEmpty(letter.ReturnAdress);
+                        }
+
+                        return false;
+                    },
+                    Description = "Toss letters if they don't have a stamp and a return address."
+                };
+            }
+        }
+
+        #endregion
+
+        #endregion
+
+        #region Mike Rules
+
+        #region Bin Rules 
+
+        /// <summary>
+        /// bin rule
+        /// </summary>
+        public static Rule UnsignedContracts
+        {
+            get
+            {
+                return new Rule()
+                {
+                    Validate = (document) =>
+                    {
+                        if (document is Contract contract)
+                        {
+                            return !contract.HasSignature;
+                        }
+                        return false;
+                    },
+                    Description = "Toss contracts without signature."
+                };
+            }
+        }
+
+        #endregion
+
+        #endregion
+
+        #region Boss Rules
+
+        #region Bin Rules
 
         /// <summary>
         /// bin rule
@@ -100,10 +162,11 @@ namespace Bliss.Models
             }
         }
 
-        /// <summary>
-        /// bin rule
-        /// </summary>
-        public static Rule UnsignedContracts
+        #endregion
+
+        #region Blue Rules
+
+        public static Rule SignedContracts
         {
             get
             {
@@ -113,19 +176,20 @@ namespace Bliss.Models
                     {
                         if (document is Contract contract)
                         {
-                            return !contract.HasSignature;
+                            return contract.HasSignature;
                         }
                         return false;
                     },
-                    Description = "Toss contracts without signature."
+                    Description = "Contracts need a valid signature."
                 };
             }
         }
 
-        /// <summary>
-        /// bin rule
-        /// </summary>
-        public static Rule InvalidDepartments
+        #endregion
+
+        #region Red Rules
+
+        public static Rule AmericanApplicants
         {
             get
             {
@@ -133,37 +197,78 @@ namespace Bliss.Models
                 {
                     Validate = (document) =>
                     {
-                        if (document is Paycheck check)
+                        if (document is Application application)
                         {
-                            return (int)check.Department >= 5;
+                            return application.Location == Locations.America;
                         }
-
                         return false;
                     },
-                    Description = "Toss the paycheck if its not adressed to one of these departments:\n"
-                        + "Human Resources, Public Relations, Research and Development, IT, Accounting"
+                    Description = "Contracts need a valid signature."
                 };
             }
         }
 
-        public static Rule InvalidLetter
+        #endregion
+
+        #endregion
+
+        #region General Document Rules
+
+        public static Rule IsPaycheck
         {
             get
             {
                 return new Rule()
                 {
-                    Validate = (document) =>
-                    {
-                        if (document is Letter letter)
-                        {
-                            return !letter.HasStamp && string.IsNullOrEmpty(letter.ReturnAdress);
-                        }
-
-                        return false;
-                    },
-                    Description = "Toss letters if they don't have a stamp and a return address."
+                    Validate = document => document is Paycheck
                 };
             }
         }
+
+        public static Rule IsContract
+        {
+            get
+            {
+                return new Rule()
+                {
+                    Validate = document => document is Contract
+                };
+            }
+        }
+
+        public static Rule IsApplication
+        {
+            get
+            {
+                return new Rule()
+                {
+                    Validate = document => document is Application
+                };
+            }
+        }
+
+        public static Rule IsClassified
+        {
+            get
+            {
+                return new Rule()
+                {
+                    Validate = document => document is Classified
+                };
+            }
+        }
+
+        public static Rule IsLetter
+        {
+            get
+            {
+                return new Rule()
+                {
+                    Validate = document => document is Letter
+                };
+            }
+        }
+
+        #endregion
     }
 }
