@@ -302,6 +302,9 @@ namespace Bliss.States.Game
 
         private void ToggleClickableOfDocuments(bool clickable)
         {
+            StickyNote.CanBeClicked = clickable;
+            StickyNote.CanHover = clickable;
+
             foreach (Component.Component component in Layers[(int)States.Layers.PlayingArea])
             {
                 if (component is BaseDocument document)
@@ -320,6 +323,7 @@ namespace Bliss.States.Game
         private void StickyNoteClicked(object sender, EventArgs e)
         {
             ToggleClickableOfDocuments(false);
+            StickyNote.Retract();
 
             foreach (Component.Component component in CurrentDetailViewComponents)
                 component.IsRemoved = true;
