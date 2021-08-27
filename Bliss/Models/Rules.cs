@@ -208,6 +208,33 @@ namespace Bliss.Models
             }
         }
 
+        public static Rule FuckNorthernEurope
+        {
+            get
+            {
+                return new Rule()
+                {
+                    Validate = (document) =>
+                    {
+                        if (document is Application application)
+                        {
+                            switch (application.Location)
+                            {
+                                case Locations.Denmark:
+                                case Locations.Sweden:
+                                case Locations.Norway:
+                                case Locations.Finland:
+                                case Locations.UnitedKingdom:
+                                    return false;
+                            }
+                            return true;
+                        }
+                        return false;
+                    }
+                };
+            }
+        }
+
         #endregion
 
         #endregion

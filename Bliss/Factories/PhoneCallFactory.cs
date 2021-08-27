@@ -53,8 +53,9 @@ namespace Bliss.Factories
 
             return RuleProgress switch
             {
-                1 => GetBettyFuckMen(),
-                2 => GetBettyLetters(),
+                1 => GetBossRacism(),
+                2 => GetBettyFuckMen(),
+                3 => GetBettyLetters(),
                 _ => GetPrankCall(),
             };
         }
@@ -1108,10 +1109,113 @@ namespace Bliss.Factories
                         OrganizerIds.Red, new List<Rule>()
                         {
                             Rules.AmericanApplicants
+                        },
+                    },
+                    {
+                        OrganizerIds.Bin, new List<Rule>()
+                        {
+                            Rules.HardcoreRacism
                         }
                     }
+                },
+                VoiceLines = new List<VoiceLine>()
+                {
+                    new VoiceLine()
+                    {
+                        Text = "New guy, are you working hard?",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "Well, I hope you do!",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine() 
+                    {
+                        Text = "I know, I only told yo what to do earlier today,",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "but you gotta change things up a bit, right?",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "Well, I'm calling about applications.",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "I want you to toss all applications that are not from americans.",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "Got it? No foreigners!",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    }
                 }
-                // TODO ADD VOICE LINES
+            };
+        }
+
+        public PhoneCall GetBossLightRacism()
+        {
+            return new PhoneCall()
+            {
+                NewValidators = new Dictionary<OrganizerIds, List<Rule>>()
+                {
+                    {
+                        OrganizerIds.Red, new List<Rule>()
+                        {
+                            Rules.FuckNorthernEurope
+                        },
+                    },
+                    {
+                        OrganizerIds.Bin, new List<Rule>()
+                        {
+                            Rules.LightcoreRacism
+                        }
+                    }
+                },
+                VoiceLines = new List<VoiceLine>()
+                {
+                    new VoiceLine()
+                    {
+                        Text = "Alright alright, I changed my mind.",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "Foreigners aren't that bad. At least some of them!",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "From now on, I only need you to toss applications",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "from poeple coming from the following countries:",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "Denmark, Sweden, Norway, Finland and the UK",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "Also, you gotta make sure that they list an existing country!",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "No people from 'This-aint-real-istan'!",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    }
+                }
             };
         }
 
