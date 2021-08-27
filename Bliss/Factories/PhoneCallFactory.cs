@@ -445,27 +445,27 @@ namespace Bliss.Factories
                     new VoiceLine()
                     {
                         Text = "Hello. Vlad from IT. Everything alright?",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.VladMike1SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "Is Mike bothering you?",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.VladMike2SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "Don't worry, I got you.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.VladMike3SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "Don't say word.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.VladMike4SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "I will make it stop. Do svidaniya.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.VladMike5SoundEffect.CreateInstance()
                     },
                 }
             };
@@ -522,22 +522,22 @@ namespace Bliss.Factories
                     new VoiceLine()
                     {
                         Text = "Hello. Vlad from IT here.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.VladIntro1SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "You're phone working OK?",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.VladIntro2SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "If you get mail for vlad, just forward it to him.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.VladIntro3SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "Might be Uranium. XAXAXA! Ok, we talk later.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.VladIntro4SoundEffect.CreateInstance()
                     }
                 }
             };
@@ -552,32 +552,32 @@ namespace Bliss.Factories
                     new VoiceLine()
                     {
                         Text = "Hello. Its Vlad. From IT.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.VladSalamandra1SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "You ever think about salamanders?",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.VladSalamandra2SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "The teenzy tiny crocodiles that don't hurt you?",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.VladSalamandra3SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "Back home we call it salamandra.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.VladSalamandra4SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "I like the name. it really fits. Anyway, do you need any? ",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.VladSalamandra5SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "I bought 20, but is too many. I will send you picture later.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.VladSalamandra6SoundEffect.CreateInstance()
                     }
                 }
             };
@@ -592,22 +592,22 @@ namespace Bliss.Factories
                     new VoiceLine()
                     {
                         Text = "Hello. It is Vlad talking.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.VladCar1SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "Have you noticed that nobody hears car alarm and thinks 'Oh. Car is being stolen'.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.VladCar2SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "They only think 'I hope car gets stolen faster, sound is annoying'.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.VladCar3SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "So anyway... You need car?",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.VladCar4SoundEffect.CreateInstance()
                     }
                 }
             };

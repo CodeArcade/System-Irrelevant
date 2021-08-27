@@ -737,6 +737,120 @@
 /processorParam:Quality=Best
 /build:VoiceLines/Tired/Tired5.wav
 
+#begin VoiceLines/Vlad/Car/Vlad1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Vlad/Car/Vlad1.wav
+
+#begin VoiceLines/Vlad/Car/Vlad2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Vlad/Car/Vlad2.wav
+
+#begin VoiceLines/Vlad/Car/Vlad3.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Vlad/Car/Vlad3.wav
+
+#begin VoiceLines/Vlad/Car/Vlad4.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Vlad/Car/Vlad4.wav
+
+#begin VoiceLines/Vlad/Intro/Vlad1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Vlad/Intro/Vlad1.wav
+
+#begin VoiceLines/Vlad/Intro/Vlad2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Vlad/Intro/Vlad2.wav
+
+#begin VoiceLines/Vlad/Intro/Vlad3.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Vlad/Intro/Vlad3.wav
+
+#begin VoiceLines/Vlad/Intro/Vlad4.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Vlad/Intro/Vlad4.wav
+
+#begin VoiceLines/Vlad/Mike/Vlad1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Vlad/Mike/Vlad1.wav
+
+#begin VoiceLines/Vlad/Mike/Vlad2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Vlad/Mike/Vlad2.wav
+
+#begin VoiceLines/Vlad/Mike/Vlad3.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Vlad/Mike/Vlad3.wav
+
+#begin VoiceLines/Vlad/Mike/Vlad4.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Vlad/Mike/Vlad4.wav
+
+#begin VoiceLines/Vlad/Mike/Vlad5.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Vlad/Mike/Vlad5.wav
+
+#begin VoiceLines/Vlad/Salamandra/Vlad1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Vlad/Salamandra/Vlad1.wav
+
+#begin VoiceLines/Vlad/Salamandra/Vlad2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Vlad/Salamandra/Vlad2.wav
+
+#begin VoiceLines/Vlad/Salamandra/Vlad3.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Vlad/Salamandra/Vlad3.wav
+
+#begin VoiceLines/Vlad/Salamandra/Vlad4.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Vlad/Salamandra/Vlad4.wav
+
+#begin VoiceLines/Vlad/Salamandra/Vlad5.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Vlad/Salamandra/Vlad5.wav
+
+#begin VoiceLines/Vlad/Salamandra/Vlad6.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Vlad/Salamandra/Vlad6.wav
+
 #begin VoiceLines/Wiener/Winer1.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor

@@ -123,6 +123,30 @@ namespace Bliss.Manager
         public SoundEffect Wiener2SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Wiener/Winer2");
         public SoundEffect Wiener3SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Wiener/Winer3");
 
+        public SoundEffect VladCar1SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Vlad/Car/Vlad1");
+        public SoundEffect VladCar2SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Vlad/Car/Vlad2");
+        public SoundEffect VladCar3SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Vlad/Car/Vlad3");
+        public SoundEffect VladCar4SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Vlad/Car/Vlad4");
+
+        public SoundEffect VladIntro1SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Vlad/Intro/Vlad1");
+        public SoundEffect VladIntro2SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Vlad/Intro/Vlad2");
+        public SoundEffect VladIntro3SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Vlad/Intro/Vlad3");
+        public SoundEffect VladIntro4SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Vlad/Intro/Vlad4");
+
+        public SoundEffect VladMike1SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Vlad/Mike/Vlad1");
+        public SoundEffect VladMike2SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Vlad/Mike/Vlad2");
+        public SoundEffect VladMike3SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Vlad/Mike/Vlad3");
+        public SoundEffect VladMike4SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Vlad/Mike/Vlad4");
+        public SoundEffect VladMike5SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Vlad/Mike/Vlad5");
+        public SoundEffect VladMike6SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Vlad/Mike/Vlad6");
+
+        public SoundEffect VladSalamandra1SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Vlad/Salamandra/Vlad1");
+        public SoundEffect VladSalamandra2SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Vlad/Salamandra/Vlad2");
+        public SoundEffect VladSalamandra3SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Vlad/Salamandra/Vlad3");
+        public SoundEffect VladSalamandra4SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Vlad/Salamandra/Vlad4");
+        public SoundEffect VladSalamandra5SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Vlad/Salamandra/Vlad5");
+        public SoundEffect VladSalamandra6SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Vlad/Salamandra/Vlad6");
+
         public SpriteFont ArialSpriteFont => JamGame.Content.Load<SpriteFont>("Fonts/Arial");
 
         public Song CalmSong => JamGame.Content.Load<Song>("Music/Calm");
