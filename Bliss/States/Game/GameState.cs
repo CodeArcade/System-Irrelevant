@@ -77,7 +77,7 @@ namespace Bliss.States.Game
             Calls.Add(PhoneCallFactory.GetImportant());
             SecondsToNextPhoneCall = new Random().Next(25, 45);
 
-            AudioManager.ChangeSong(ContentManager.CalmSong, true,  -(Manager.AudioManager.GlobalVolume * 0.5f));
+            AudioManager.ChangeSong(ContentManager.CalmSong, true,  -(Manager.AudioManager.GlobalVolume * 0.75f));
         }
 
         public override void Update(GameTime gameTime)
@@ -137,13 +137,14 @@ namespace Bliss.States.Game
         {
             if (!PlayTutorial)
             {
+                ImportantPhoneCallFinished(PhoneCallFactory.GetBossTutorial(), new EventArgs());
                 PlayerStats.Day = 1;
                 return;
             }
 
             if (!Phone.IsRinging && !Phone.IsTalking && !Phone.IsCallOver)
             {
-                Phone.Ring(PhoneCallFactory.GetIntro());
+                Phone.Ring(PhoneCallFactory.GetBossTutorial());
                 Phone.SecondsBeforeMissedCall = int.MaxValue;
             }
 
@@ -177,6 +178,8 @@ namespace Bliss.States.Game
 
         private void HandleDocumentSpawn(GameTime gameTime)
         {
+            if (Clock.Hour >= 16) return;
+
             DocumentSpawnTimer += gameTime.ElapsedGameTime.TotalSeconds;
 
             if (DocumentSpawnTimer >= SecondsToNextDocument)

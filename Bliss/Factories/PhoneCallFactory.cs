@@ -54,8 +54,9 @@ namespace Bliss.Factories
             return RuleProgress switch
             {
                 1 => GetBossRacism(),
-                2 => GetBettyFuckMen(),
-                3 => GetBettyLetters(),
+                2 => GetMikeRedChecks(),
+                3 => GetBettyFuckMen(),
+                4 => GetBettyLetters(),
                 _ => GetPrankCall(),
             };
         }
@@ -72,30 +73,6 @@ namespace Bliss.Factories
                     {
                         Text = "...",
                         Voice = ContentManager.SilenceSoundEffect.CreateInstance()
-                    }
-                }
-            };
-        }
-
-        public PhoneCall GetIntro()
-        {
-            return new PhoneCall()
-            {
-                NewValidators = new Dictionary<OrganizerIds, List<Rule>>()
-                {
-                    {
-                        OrganizerIds.Bin,
-                        new List<Rule>()
-                            {
-                            }
-                    }
-                },
-                VoiceLines = new List<VoiceLine>()
-                {
-                    new VoiceLine()
-                    {
-                        Text = "...",
-                        Voice = ContentManager.DocumentSpawnedSoundEffect.CreateInstance()
                     }
                 }
             };
@@ -774,7 +751,7 @@ namespace Bliss.Factories
                     {
                         OrganizerIds.Bin, new List<Rule>
                         {
-                            new Rule()
+                            new Rule(DocumentType.Application)
                             {
                                 Validate = (document) => { if( document is Application application) { return application.Sex == Sexes.Male; }  return false; },
                                 Description = "Toss all applications sent by men!"
@@ -786,7 +763,7 @@ namespace Bliss.Factories
                 {
                     new VoiceLine()
                     {
-                        Text = "Hey rookie! This is Betty. You know, from acconting.",
+                        Text = "Hey rookie! This is Betty. You know, from HR.",
                         Voice = ContentManager.BettyFuckMen1SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
@@ -822,12 +799,12 @@ namespace Bliss.Factories
                     {
                         OrganizerIds.Bin, new List<Rule>
                         {
-                            new Rule()
+                            new Rule(DocumentType.Application)
                             {
                                 Validate = (document) => { if( document is Application application) { return application.Sex == Sexes.Male; }  return false; },
                                 Description = "Toss all applications sent by men!"
                             }
-                        } // TODO: previous validators - Every letter as stamp and return address -> which organizer?
+                        } 
                     }
                 },
                 VoiceLines = new List<VoiceLine>()
@@ -870,11 +847,11 @@ namespace Bliss.Factories
                     {
                         OrganizerIds.Bin, new List<Rule>
                         {
-                            new Rule()
+                            new Rule(DocumentType.Application)
                             {
                                 Validate = (document) => { if( document is Application application) { return application.Sex == Sexes.Male; }  return false; },
                                 Description = "Toss all applications sent by men!"
-                            } // TODO: previous validators + new validator
+                            } 
                         }
                     }
                 },
@@ -913,9 +890,13 @@ namespace Bliss.Factories
                     {
                         OrganizerIds.Red, new List<Rule>()
                         {
-                            Rules.IsPaycheck,
-                            Rules.IsApplication
+                            Rules.IsPaycheckForRed,
+                            Rules.IsApplicationForRed
                         }
+                    },
+                    { 
+                        OrganizerIds.Blue, 
+                        new List<Rule>() 
                     }
                 },
                 VoiceLines = new List<VoiceLine>()
@@ -923,28 +904,26 @@ namespace Bliss.Factories
                     new VoiceLine()
                     {
                         Text = "Hello, it's Mike!",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.MikePaycheck1SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "For one reason or another I don't seem to be getting any paychecks.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.MikePaycheck2SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "You're putting them in the red organizer, right?",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.MikePaycheck3SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "Well if you don't, you better start doing it.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.MikePaycheck4SoundEffect.CreateInstance()
                     }
                 }
             };
         }
-
-        
 
         public PhoneCall GetBossTutorial()
         {
@@ -956,13 +935,13 @@ namespace Bliss.Factories
                         OrganizerIds.Blue, new List<Rule>()
                         {
                             Rules.IsContract,
-                            Rules.IsPaycheck
+                            Rules.IsPaycheckForBlue
                         }
                     },
                     {
                         OrganizerIds.Red, new List<Rule>()
                         {
-                            Rules.IsApplication
+                            Rules.IsApplicationForRed
                         }
                     },
                     {

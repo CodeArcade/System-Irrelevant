@@ -14,7 +14,7 @@ namespace Bliss.Models
         {
             get
             {
-                return new Rule()
+                return new Rule(DocumentType.Application)
                 {
                     Validate = (document) =>
                     {
@@ -35,7 +35,7 @@ namespace Bliss.Models
         {
             get
             {
-                return new Rule()
+                return new Rule(DocumentType.Paycheck)
                 {
                     Validate = (document) =>
                     {
@@ -56,7 +56,7 @@ namespace Bliss.Models
         {
             get
             {
-                return new Rule()
+                return new Rule(DocumentType.Letter)
                 {
                     Validate = (document) =>
                     {
@@ -67,7 +67,7 @@ namespace Bliss.Models
 
                         return false;
                     },
-                    Description = "Toss letters if they don't have a stamp and a return address."
+                    Description = "Toss if they don't have a stamp and a return address"
                 };
             }
         }
@@ -87,7 +87,7 @@ namespace Bliss.Models
         {
             get
             {
-                return new Rule()
+                return new Rule(DocumentType.Contract)
                 {
                     Validate = (document) =>
                     {
@@ -97,7 +97,7 @@ namespace Bliss.Models
                         }
                         return false;
                     },
-                    Description = "Toss contracts without signature."
+                    Description = "Toss without signature"
                 };
             }
         }
@@ -117,7 +117,7 @@ namespace Bliss.Models
         {
             get
             {
-                return new Rule()
+                return new Rule(DocumentType.Application)
                 {
                     Validate = (document) =>
                     {
@@ -127,7 +127,7 @@ namespace Bliss.Models
                         }
                         return false;
                     },
-                    Description = "Toss applications from non-american applicants"
+                    Description = "Toss from non-american applicants"
                 };
             }
         }
@@ -139,7 +139,7 @@ namespace Bliss.Models
         {
             get
             {
-                return new Rule()
+                return new Rule(DocumentType.Application)
                 {
                     Validate = (document) =>
                     {
@@ -157,7 +157,7 @@ namespace Bliss.Models
                         }
                         return false;
                     },
-                    Description = "Toss applications from Denmark, Sweden, Norway, Finland and UK"
+                    Description = "Toss from Denmark, Sweden, Norway, Finland and UK"
                 };
             }
         }
@@ -170,7 +170,7 @@ namespace Bliss.Models
         {
             get
             {
-                return new Rule()
+                return new Rule(DocumentType.Contract)
                 {
                     Validate = (document) =>
                     {
@@ -193,7 +193,7 @@ namespace Bliss.Models
         {
             get
             {
-                return new Rule()
+                return new Rule(DocumentType.Application)
                 {
                     Validate = (document) =>
                     {
@@ -203,7 +203,7 @@ namespace Bliss.Models
                         }
                         return false;
                     },
-                    Description = "Contracts need a valid signature."
+                    Description = "Contracts need a valid signature." // TODO: Not a good condition -> what to do when they have no valid signature
                 };
             }
         }
@@ -241,12 +241,25 @@ namespace Bliss.Models
 
         #region General Document Rules
 
-        public static Rule IsPaycheck
+        public static Rule IsPaycheckForBlue
         {
             get
             {
-                return new Rule()
+                return new Rule(DocumentType.Paycheck)
                 {
+                    Description = "Put in blue organizer",
+                    Validate = document => document is Paycheck
+                };
+            }
+        }
+
+        public static Rule IsPaycheckForRed
+        {
+            get
+            {
+                return new Rule(DocumentType.Paycheck)
+                {
+                    Description = "Put in red organizer",
                     Validate = document => document is Paycheck
                 };
             }
@@ -256,19 +269,21 @@ namespace Bliss.Models
         {
             get
             {
-                return new Rule()
+                return new Rule(DocumentType.Contract)
                 {
+                    Description = "Put in blue organizer",
                     Validate = document => document is Contract
                 };
             }
         }
 
-        public static Rule IsApplication
+        public static Rule IsApplicationForRed
         {
             get
             {
-                return new Rule()
+                return new Rule(DocumentType.Application)
                 {
+                    Description = "Put in red organizer",
                     Validate = document => document is Application
                 };
             }
@@ -278,8 +293,9 @@ namespace Bliss.Models
         {
             get
             {
-                return new Rule()
+                return new Rule(DocumentType.Classified)
                 {
+                    Description = "Toss in trash",
                     Validate = document => document is Classified
                 };
             }
@@ -289,8 +305,9 @@ namespace Bliss.Models
         {
             get
             {
-                return new Rule()
+                return new Rule(DocumentType.Letter)
                 {
+                    Description = "Put in green organizer",
                     Validate = document => document is Letter
                 };
             }
