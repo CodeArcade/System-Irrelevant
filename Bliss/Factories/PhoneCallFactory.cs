@@ -939,6 +939,12 @@ namespace Bliss.Factories
                         {
                             Rules.SignedContracts
                         }
+                    },
+                    {
+                        OrganizerIds.Bin, new List<Rule>()
+                        {
+                            Rules.UnsignedContracts
+                        }
                     }
                 },
                 VoiceLines = new List<VoiceLine>()
@@ -946,22 +952,22 @@ namespace Bliss.Factories
                     new VoiceLine()
                     {
                         Text = "Hey, it's Mike!",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.MikeContract1SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "So I recently got a contract that you sorted...",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.MikeContract2SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "but whoever gave it to you didn't sign it.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.MikeContract3SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "So from now on, check if contracts are signed before passing them on.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.MikeContract4SoundEffect.CreateInstance()
                     }
                 }
             };

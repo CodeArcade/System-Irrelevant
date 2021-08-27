@@ -629,11 +629,47 @@
 /processorParam:Quality=Best
 /build:VoiceLines/Betty/Pentagrams/Betty7.wav
 
+#begin VoiceLines/Mike/Contract/Mike1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Mike/Contract/Mike1.wav
+
+#begin VoiceLines/Mike/Contract/Mike2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Mike/Contract/Mike2.wav
+
+#begin VoiceLines/Mike/Contract/Mike3.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Mike/Contract/Mike3.wav
+
+#begin VoiceLines/Mike/Contract/Mike4.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Mike/Contract/Mike4.wav
+
 #begin VoiceLines/Mike/Dinner/Mike1.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:VoiceLines/Mike/Dinner/Mike1.wav
+
+#begin VoiceLines/Mike/Dinner/Mike1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Mike/Dinner/Mike1.wav
+
+#begin VoiceLines/Mike/Dinner/Mike2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Mike/Dinner/Mike2.wav
 
 #begin VoiceLines/Mike/Dinner/Mike2.wav
 /importer:WavImporter
@@ -647,11 +683,29 @@
 /processorParam:Quality=Best
 /build:VoiceLines/Mike/Dinner/Mike3.wav
 
+#begin VoiceLines/Mike/Dinner/Mike3.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Mike/Dinner/Mike3.wav
+
 #begin VoiceLines/Mike/Dinner/Mike4.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:VoiceLines/Mike/Dinner/Mike4.wav
+
+#begin VoiceLines/Mike/Dinner/Mike4.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Mike/Dinner/Mike4.wav
+
+#begin VoiceLines/Mike/Hotdog/Mike1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Mike/Hotdog/Mike1.wav
 
 #begin VoiceLines/Mike/Hotdog/Mike1.wav
 /importer:WavImporter
@@ -665,11 +719,29 @@
 /processorParam:Quality=Best
 /build:VoiceLines/Mike/Hotdog/Mike2.wav
 
+#begin VoiceLines/Mike/Hotdog/Mike2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Mike/Hotdog/Mike2.wav
+
 #begin VoiceLines/Mike/Hotdog/Mike3.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:VoiceLines/Mike/Hotdog/Mike3.wav
+
+#begin VoiceLines/Mike/Hotdog/Mike3.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Mike/Hotdog/Mike3.wav
+
+#begin VoiceLines/Mike/Hotdog/Mike4.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Mike/Hotdog/Mike4.wav
 
 #begin VoiceLines/Mike/Hotdog/Mike4.wav
 /importer:WavImporter
@@ -683,6 +755,18 @@
 /processorParam:Quality=Best
 /build:VoiceLines/Mike/Hotdog/Mike5.wav
 
+#begin VoiceLines/Mike/Hotdog/Mike5.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Mike/Hotdog/Mike5.wav
+
+#begin VoiceLines/Mike/Paycheck/Mike1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Mike/Paycheck/Mike1.wav
+
 #begin VoiceLines/Mike/Paycheck/Mike1.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
@@ -695,11 +779,29 @@
 /processorParam:Quality=Best
 /build:VoiceLines/Mike/Paycheck/Mike2.wav
 
+#begin VoiceLines/Mike/Paycheck/Mike2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Mike/Paycheck/Mike2.wav
+
 #begin VoiceLines/Mike/Paycheck/Mike3.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:VoiceLines/Mike/Paycheck/Mike3.wav
+
+#begin VoiceLines/Mike/Paycheck/Mike3.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Mike/Paycheck/Mike3.wav
+
+#begin VoiceLines/Mike/Paycheck/Mike4.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Mike/Paycheck/Mike4.wav
 
 #begin VoiceLines/Mike/Paycheck/Mike4.wav
 /importer:WavImporter
