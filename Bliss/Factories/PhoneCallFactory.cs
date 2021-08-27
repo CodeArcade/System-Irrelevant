@@ -42,7 +42,7 @@ namespace Bliss.Factories
                 4 => GetIcWiener(),
                 5 => GetIrigatex(),
                 6 => GetBigSmokes(),
-                7 => GetDebbie(),
+                7 => GetMom(),
                 _ => GetPrankCall(),
             };
         }
@@ -89,7 +89,23 @@ namespace Bliss.Factories
                 {
                     new VoiceLine()
                     {
-                        Text = "...",
+                        Text = "Hey new guy, uhm I have some news for you.",
+                        Voice = ContentManager.DocumentSpawnedSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "You know how you have been 'new guy' all the time?",
+                        Voice = ContentManager.DocumentSpawnedSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "Well now ... you are previous guy.",
+                        Voice = ContentManager.DocumentSpawnedSoundEffect.CreateInstance()
+                    }
+                    ,
+                    new VoiceLine()
+                    {
+                        Text = "You're fired!",
                         Voice = ContentManager.DocumentSpawnedSoundEffect.CreateInstance()
                     }
                 }
@@ -139,12 +155,22 @@ namespace Bliss.Factories
                     },
                     new VoiceLine()
                     {
-                        Text = "Apparently artificial banana flavoring is based on the gros michel banana, which was wiped out by a banana plague in the 50s.",
+                        Text = "Apparently artificial banana flavoring is based on the gros michel banana,",
                         Voice = ContentManager.SilenceSoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
-                        Text = "The banana we eat today is a completely different thing calld 'The cavendish' and thats why banana candy doesn't taste like bananas.",
+                        Text = "which was wiped out by a banana plague in the 50s.",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "The banana we eat today is a completely different thing calld 'The cavendish'",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "and thats why banana candy doesn't taste like bananas.",
                         Voice = ContentManager.SilenceSoundEffect.CreateInstance()
                     },
                     new VoiceLine()
@@ -204,24 +230,44 @@ namespace Bliss.Factories
                 {
                     new VoiceLine()
                     {
-                        Text = "I had a dream I was able to time travel and went like 10 million years into the future, but the INSTANT I went to the year 4000 I got stuck in a time dilation jail set up by the american government in the year 3877.",
+                        Text = "I had a dream I was able to time travel and went like 10 million years into the future,",
                         Voice = ContentManager.SilenceSoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
-                        Text = "Everyone who tried to time travel back or forth across May 23, 3877 while on Earth would end up stuck in this time dilation chamber trap to stop time travelers.",
+                        Text = "but the INSTANT I went to the year 4000 I got stuck in a time dilation jail set up by the american government in the year 3877.",
                         Voice = ContentManager.SilenceSoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
-                        Text = "But like, it was so crazy and mismanaged because it was legit capturing like every single time traveler ever and the place had only been open for 12 minutes and was already getting overpopulated with nonstop multople recursive instances of this one guy trying to break previous versions of himself out of this time traveler jail.",
+                        Text = "Everyone who tried to time travel back or forth across May 23 3877,",
                         Voice = ContentManager.SilenceSoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
-                        Text = "Crazy times, I tell ya!",
+                        Text = "while on Earth would end up stuck in this time dilation chamber trap to stop time travelers.",
                         Voice = ContentManager.SilenceSoundEffect.CreateInstance()
                     },
+                    new VoiceLine()
+                    {
+                        Text = "But like, it was so crazy and mismanaged because it was legit capturing like every single time traveler ever and",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "the place had only been open for 12 minutes and was already getting overpopulated with nonstop multiple recursive instances",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "of this one guy trying to break previous versions of himself out of this time traveler jail.",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "And you know what? This is probalby exactly something America would do!",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    }
                 }
             };
         }
@@ -331,7 +377,7 @@ namespace Bliss.Factories
             };
         }
 
-        public PhoneCall GetDebbie()
+        public PhoneCall GetMom()
         {
             return new PhoneCall()
             {
@@ -339,24 +385,14 @@ namespace Bliss.Factories
                 {
                     new VoiceLine()
                     {
-                        Text = "Hello, this is Deborah from ACME Inc.",
+                        Text = "Dude ... your mom is named mom ... my mom is also named mom.",
                         Voice = ContentManager.SilenceSoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
-                        Text = "I'm calling to inform you about our new mobile data plan!",
+                        Text = "Bro I swear don't freak out ... but I think we might be related.",
                         Voice = ContentManager.SilenceSoundEffect.CreateInstance()
-                    },
-                    new VoiceLine()
-                    {
-                        Text = "It's just $44.95 a week and offers up to 20 free minutes and 10 texts.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
-                    },
-                    new VoiceLine()
-                    {
-                        Text = "To buy, please call >>555-ACMEPHONE<<. That's >>555-ACMEPHONE<<<.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
-                    },
+                    }
                 }
             };
         }
