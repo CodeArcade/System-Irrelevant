@@ -1088,7 +1088,7 @@ namespace Bliss.Factories
                         OrganizerIds.Red, new List<Rule>()
                         {
                             Rules.AmericanApplicants
-                        },
+                        }
                     },
                     {
                         OrganizerIds.Bin, new List<Rule>()
@@ -1148,7 +1148,7 @@ namespace Bliss.Factories
                         OrganizerIds.Red, new List<Rule>()
                         {
                             Rules.FuckNorthernEurope
-                        },
+                        }
                     },
                     {
                         OrganizerIds.Bin, new List<Rule>()

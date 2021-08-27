@@ -212,7 +212,7 @@ namespace Bliss.Models
         {
             get
             {
-                return new Rule()
+                return new Rule(DocumentType.Application)
                 {
                     Validate = (document) =>
                     {
