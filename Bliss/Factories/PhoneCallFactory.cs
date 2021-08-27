@@ -40,7 +40,7 @@ namespace Bliss.Factories
                 2 => GetTired(),
                 3 => GetTimeTraveler(),
                 4 => GetIcWiener(),
-                5 => GetTrash(),
+                5 => GetIrigatex(),
                 6 => GetBigSmokes(),
                 7 => GetDebbie(),
                 _ => GetPrankCall(),
@@ -251,7 +251,7 @@ namespace Bliss.Factories
             };
         }
 
-        public PhoneCall GetTrash()
+        public PhoneCall GetIrigatex()
         {
             return new PhoneCall()
             {
