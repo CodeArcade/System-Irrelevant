@@ -104,17 +104,22 @@ namespace Bliss.Factories
                 {
                     new VoiceLine()
                     {
-                        Text = "Did you know?",
+                        Text = "Ahoy, Did you know that the local library",
                         Voice = ContentManager.SilenceSoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
-                        Text = "The local library doesn't have a maximum book checkout limit and I am about to make them regret this.",
+                        Text = "doesn't have a maximum book checkout limit?",
                         Voice = ContentManager.SilenceSoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
-                        Text = "You need anything?",
+                        Text ="I am about to make them regret this,",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "do you need anything?",
                         Voice = ContentManager.SilenceSoundEffect.CreateInstance()
                     }
                 }
@@ -492,8 +497,12 @@ namespace Bliss.Factories
                     },
                     new VoiceLine()
                     {
-                        Text = "He skipped 3 days of work already and I think I'll have to fire him...",
+                        Text = "He skipped 3 days of work already and if keeps up this behaviour,",
                         Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "I have to fire him."
                     }
                 }
             };
@@ -807,7 +816,7 @@ namespace Bliss.Factories
                                 Validate = (document) => { if( document is Application application) { return application.Sex == Sexes.Male; }  return false; },
                                 Description = "Toss all applications sent by men!"
                             }
-                        } 
+                        }
                     }
                 },
                 VoiceLines = new List<VoiceLine>()
@@ -854,7 +863,7 @@ namespace Bliss.Factories
                             {
                                 Validate = (document) => { if( document is Application application) { return application.Sex == Sexes.Male; }  return false; },
                                 Description = "Toss all applications sent by men!"
-                            } 
+                            }
                         }
                     }
                 },
@@ -897,9 +906,9 @@ namespace Bliss.Factories
                             Rules.IsApplicationForRed
                         }
                     },
-                    { 
-                        OrganizerIds.Blue, 
-                        new List<Rule>() 
+                    {
+                        OrganizerIds.Blue,
+                        new List<Rule>()
                     }
                 },
                 VoiceLines = new List<VoiceLine>()
@@ -1074,7 +1083,7 @@ namespace Bliss.Factories
                     },
                     new VoiceLine()
                     {
-                        Text = "Now this is just a regular letter.",
+                        Text = "This one is just a regular letter.",
                         Voice = ContentManager.SilenceSoundEffect.CreateInstance()
                     },
                     new VoiceLine()
@@ -1099,7 +1108,7 @@ namespace Bliss.Factories
                     },
                     new VoiceLine()
                     {
-                        Text = "Well just don't!",
+                        Text = "Well just don't do it!",
                         Voice = ContentManager.SilenceSoundEffect.CreateInstance()
                     },
                     new VoiceLine()
@@ -1157,7 +1166,7 @@ namespace Bliss.Factories
                         Text = "Well, I hope you do!",
                         Voice = ContentManager.SilenceSoundEffect.CreateInstance()
                     },
-                    new VoiceLine() 
+                    new VoiceLine()
                     {
                         Text = "I know, I only told yo what to do earlier today,",
                         Voice = ContentManager.SilenceSoundEffect.CreateInstance()
