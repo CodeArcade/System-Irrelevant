@@ -84,8 +84,9 @@ namespace Bliss.States.GameOver
                 HorizontalAlignment = HorizontalAlignment.Left,
                 VerticalAlignment = VerticalAlignment.Center,
             };
+            for (int i = 0; i < 10; i++) soundCombobox.Items.Add(new ListItem($"{(i + 1)}"));
             for (int i = 0; i < 10; i++) soundCombobox.Items.Add(new ListItem($"{(i + 1) * 10}"));
-            soundCombobox.SelectedIndex = 4;
+            soundCombobox.SelectedIndex = 14;
             Manager.AudioManager.GlobalVolume = 0.5f;
             soundCombobox.SelectedIndexChanged += (sender, e) =>
             {
