@@ -90,23 +90,23 @@ namespace Bliss.Factories
                     new VoiceLine()
                     {
                         Text = "Hey new guy, uhm I have some news for you.",
-                        Voice = ContentManager.DocumentSpawnedSoundEffect.CreateInstance()
+                        Voice = ContentManager.BossOutro1SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "You know how you have been 'new guy' all the time?",
-                        Voice = ContentManager.DocumentSpawnedSoundEffect.CreateInstance()
+                        Voice = ContentManager.BossOutro2SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "Well now ... you are previous guy.",
-                        Voice = ContentManager.DocumentSpawnedSoundEffect.CreateInstance()
+                        Voice = ContentManager.BossOutro3SoundEffect.CreateInstance()
                     }
                     ,
                     new VoiceLine()
                     {
                         Text = "You're fired!",
-                        Voice = ContentManager.DocumentSpawnedSoundEffect.CreateInstance()
+                        Voice = ContentManager.BossOutro4SoundEffect.CreateInstance()
                     }
                 }
             };
@@ -121,22 +121,22 @@ namespace Bliss.Factories
                     new VoiceLine()
                     {
                         Text = "Ahoy, Did you know that the local library",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.Library1SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "doesn't have a maximum book checkout limit?",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.Library2SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text ="I am about to make them regret this,",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.Library3SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "do you need anything?",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.Library4SoundEffect.CreateInstance()
                     }
                 }
             };
@@ -151,37 +151,37 @@ namespace Bliss.Factories
                     new VoiceLine()
                     {
                         Text = "OH MY GOD!",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.Banana1SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "Apparently artificial banana flavoring is based on the gros michel banana,",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.Banana2SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "which was wiped out by a banana plague in the 50s.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.Banana3SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "The banana we eat today is a completely different thing calld 'The cavendish'",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.Banana4SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "and thats why banana candy doesn't taste like bananas.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.Banana5SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "DO YOU KNOW how lied to I feel?!",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.Banana6SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "Like, there was a BANANA APOCALYPSE and no one told me about it until now.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.Banana7SoundEffect.CreateInstance()
                     }
                 }
             };
@@ -231,42 +231,42 @@ namespace Bliss.Factories
                     new VoiceLine()
                     {
                         Text = "I had a dream I was able to time travel and went like 10 million years into the future,",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.TimeTraveler1SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "but the INSTANT I went to the year 4000 I got stuck in a time dilation jail set up by the american government in the year 3877.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.TimeTraveler2SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "Everyone who tried to time travel back or forth across May 23 3877,",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.TimeTraveler3SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "while on Earth would end up stuck in this time dilation chamber trap to stop time travelers.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.TimeTraveler4SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "But like, it was so crazy and mismanaged because it was legit capturing like every single time traveler ever and",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.TimeTraveler5SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "the place had only been open for 12 minutes and was already getting overpopulated with nonstop multiple recursive instances",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.TimeTraveler6SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "of this one guy trying to break previous versions of himself out of this time traveler jail.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.TimeTraveler7SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "And you know what? This is probalby exactly something America would do!",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.TimeTraveler8SoundEffect.CreateInstance()
                     }
                 }
             };
@@ -306,32 +306,32 @@ namespace Bliss.Factories
                     new VoiceLine()
                     {
                         Text = "Is this Irigatex corporation?",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.Irigatex1SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "You guys were supposed to come and get my trash 4 days ago!",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.Irigatex2SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "Do you have any idea how much hecking trash is lying around here?",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.Irigatex3SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "It smells like a dump. But this ain't a dump.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.Irigatex4SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "My house is not where my trash belongs.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.Irigatex5SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "So you better get your guys movin', I'm drowing in garbage!",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.Irigatex6SoundEffect.CreateInstance()
                     }
                 }
             };
@@ -346,32 +346,32 @@ namespace Bliss.Factories
                     new VoiceLine()
                     {
                         Text = "Yeah is that McBurgerBies?",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BigSmokes1SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "I'll have 2 number 9s.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BigSmokes2SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "A number 9 large.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BigSmokes3SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "A number 6 with extra dip.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BigSmokes4SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "A number 7.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BigSmokes5SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "Two number 45s, one with cheese and a large soda.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BigSmokes6SoundEffect.CreateInstance()
                     },
                 }
             };
@@ -386,12 +386,12 @@ namespace Bliss.Factories
                     new VoiceLine()
                     {
                         Text = "Dude ... your mom is named mom ... my mom is also named mom.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.MyMom1SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "Bro I swear don't freak out ... but I think we might be related.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.MyMom2SoundEffect.CreateInstance()
                     }
                 }
             };
@@ -524,21 +524,22 @@ namespace Bliss.Factories
                     new VoiceLine()
                     {
                         Text = "Hey, new guy! Have you seen Mike around?",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BossMike1SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "You know, Mike from Accounting.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BossMike2SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "He skipped 3 days of work already",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BossMike3SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
-                        Text = "and if keeps up this behaviour, I have to fire him."
+                        Text = "and if keeps up this behaviour, I have to fire him.",
+                        Voice = ContentManager.BossMike4SoundEffect.CreateInstance()
                     }
                 }
             };
@@ -1055,117 +1056,117 @@ namespace Bliss.Factories
                     new VoiceLine()
                     {
                         Text = "Hey there new guy, this is your boss speaking.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BossIntro1SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "I thought I'd give you a quick rundown on how your job actually works.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BossIntro2SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "It's rather simple.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BossIntro3SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "You get documents, you sort them. Done deal.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BossIntro4SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "First: this is a contract.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BossIntro5SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "You can read them if you want, but for now put them in the blue organizer.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BossIntro6SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "Next, this is a paycheck.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BossIntro7SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "It's just a regular paycheck.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BossIntro8SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "It's got a date, it's got the amount and the department.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BossIntro9SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "You can also toss them into the blue organizer.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BossIntro10SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "This is an application.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BossIntro11SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "It's from the people that will replace you one day.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BossIntro12SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "Hahaha, just kidding. Just put them in the red organizer.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BossIntro13SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "This one is just a regular letter.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BossIntro14SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "Nothing special about it. Put 'em in the green organizer.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BossIntro15SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "Now this... this is classified.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BossIntro16SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "Don't open it. Just throw it in the trash!",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BossIntro17SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "I mean, I can't stop you from opening it as you throw it away anyways...",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BossIntro18SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "Well just don't do it!",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BossIntro19SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "Alright, that's about everything.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BossIntro20SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "If there are any new rules, people will call you to inform you about it.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BossIntro21SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "So don't hang up on them all willy nilly.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BossIntro22SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "And now go to work!",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BossIntro23SoundEffect.CreateInstance()
                     }
                 }
             };
@@ -1195,37 +1196,37 @@ namespace Bliss.Factories
                     new VoiceLine()
                     {
                         Text = "New guy, are you working hard?",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BossHardcoreRacism1SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "Well, I hope you do!",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BossHardcoreRacism2SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "I know, I only told yo what to do earlier today,",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BossHardcoreRacism3SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "but you gotta change things up a bit, right?",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BossHardcoreRacism4SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "Well, I'm calling about applications.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BossHardcoreRacism5SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "I want you to toss all applications that are not from americans.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BossHardcoreRacism6SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "Got it? No foreigners!",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BossHardcoreRacism7SoundEffect.CreateInstance()
                     }
                 }
             };
@@ -1255,37 +1256,37 @@ namespace Bliss.Factories
                     new VoiceLine()
                     {
                         Text = "Alright alright, I changed my mind.",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BossLightcoreRacism1SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "Foreigners aren't that bad. At least some of them!",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BossLightcoreRacism2SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "From now on, I only need you to toss applications",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BossLightcoreRacism3SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "from poeple coming from the following countries:",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BossLightcoreRacism4SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "Denmark, Sweden, Norway, Finland and the UK",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BossLightcoreRacism5SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "Also, you gotta make sure that they list an existing country!",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BossLightcoreRacism6SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "No people from 'This-aint-real-istan'!",
-                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                        Voice = ContentManager.BossLightcoreRacism7SoundEffect.CreateInstance()
                     }
                 }
             };

@@ -152,6 +152,95 @@ namespace Bliss.Manager
         public SoundEffect VladSalamandra5SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Vlad/Salamandra/Vlad5");
         public SoundEffect VladSalamandra6SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Vlad/Salamandra/Vlad6");
 
+        public SoundEffect BossIntro1SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Boss/Intro/Boss1");
+        public SoundEffect BossIntro2SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Boss/Intro/Boss2");
+        public SoundEffect BossIntro3SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Boss/Intro/Boss3");
+        public SoundEffect BossIntro4SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Boss/Intro/Boss4");
+        public SoundEffect BossIntro5SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Boss/Intro/Boss5");
+        public SoundEffect BossIntro6SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Boss/Intro/Boss6");
+        public SoundEffect BossIntro7SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Boss/Intro/Boss7");
+        public SoundEffect BossIntro8SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Boss/Intro/Boss8");
+        public SoundEffect BossIntro9SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Boss/Intro/Boss9");
+        public SoundEffect BossIntro10SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Boss/Intro/Boss10");
+        public SoundEffect BossIntro11SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Boss/Intro/Boss11");
+        public SoundEffect BossIntro12SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Boss/Intro/Boss12");
+        public SoundEffect BossIntro13SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Boss/Intro/Boss13");
+        public SoundEffect BossIntro14SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Boss/Intro/Boss14");
+        public SoundEffect BossIntro15SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Boss/Intro/Boss15");
+        public SoundEffect BossIntro16SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Boss/Intro/Boss16");
+        public SoundEffect BossIntro17SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Boss/Intro/Boss17");
+        public SoundEffect BossIntro18SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Boss/Intro/Boss18");
+        public SoundEffect BossIntro19SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Boss/Intro/Boss19");
+        public SoundEffect BossIntro20SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Boss/Intro/Boss20");
+        public SoundEffect BossIntro21SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Boss/Intro/Boss21");
+        public SoundEffect BossIntro22SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Boss/Intro/Boss22");
+        public SoundEffect BossIntro23SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Boss/Intro/Boss23");
+
+        public SoundEffect BossHardcoreRacism1SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Boss/Hardcore Racism/Boss1");
+        public SoundEffect BossHardcoreRacism2SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Boss/Hardcore Racism/Boss2");
+        public SoundEffect BossHardcoreRacism3SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Boss/Hardcore Racism/Boss3");
+        public SoundEffect BossHardcoreRacism4SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Boss/Hardcore Racism/Boss4");
+        public SoundEffect BossHardcoreRacism5SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Boss/Hardcore Racism/Boss5");
+        public SoundEffect BossHardcoreRacism6SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Boss/Hardcore Racism/Boss6");
+        public SoundEffect BossHardcoreRacism7SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Boss/Hardcore Racism/Boss7");
+
+        public SoundEffect BossLightcoreRacism1SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Boss/Lightcore Racism/Boss1");
+        public SoundEffect BossLightcoreRacism2SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Boss/Lightcore Racism/Boss2");
+        public SoundEffect BossLightcoreRacism3SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Boss/Lightcore Racism/Boss3");
+        public SoundEffect BossLightcoreRacism4SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Boss/Lightcore Racism/Boss4");
+        public SoundEffect BossLightcoreRacism5SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Boss/Lightcore Racism/Boss5");
+        public SoundEffect BossLightcoreRacism6SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Boss/Lightcore Racism/Boss6");
+        public SoundEffect BossLightcoreRacism7SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Boss/Lightcore Racism/Boss7");
+
+        public SoundEffect BossMike1SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Boss/Mike/Boss1");
+        public SoundEffect BossMike2SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Boss/Mike/Boss2");
+        public SoundEffect BossMike3SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Boss/Mike/Boss3");
+        public SoundEffect BossMike4SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Boss/Mike/Boss4");
+
+        public SoundEffect BossOutro1SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Boss/Outro/Boss1");
+        public SoundEffect BossOutro2SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Boss/Outro/Boss2");
+        public SoundEffect BossOutro3SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Boss/Outro/Boss3");
+        public SoundEffect BossOutro4SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Boss/Outro/Boss4");
+
+        public SoundEffect Banana1SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Banana/Banana1");
+        public SoundEffect Banana2SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Banana/Banana2");
+        public SoundEffect Banana3SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Banana/Banana3");
+        public SoundEffect Banana4SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Banana/Banana4");
+        public SoundEffect Banana5SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Banana/Banana5");
+        public SoundEffect Banana6SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Banana/Banana6");
+        public SoundEffect Banana7SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Banana/Banana7");
+
+        public SoundEffect BigSmokes1SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/BigSmoke/BigSmokes1");
+        public SoundEffect BigSmokes2SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/BigSmoke/BigSmokes2");
+        public SoundEffect BigSmokes3SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/BigSmoke/BigSmokes3");
+        public SoundEffect BigSmokes4SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/BigSmoke/BigSmokes4");
+        public SoundEffect BigSmokes5SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/BigSmoke/BigSmokes5");
+        public SoundEffect BigSmokes6SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/BigSmoke/BigSmokes6");
+
+        public SoundEffect Irigatex1SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Irigatex/Irigatex1");
+        public SoundEffect Irigatex2SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Irigatex/Irigatex2");
+        public SoundEffect Irigatex3SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Irigatex/Irigatex3");
+        public SoundEffect Irigatex4SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Irigatex/Irigatex4");
+        public SoundEffect Irigatex5SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Irigatex/Irigatex5");
+        public SoundEffect Irigatex6SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Irigatex/Irigatex6");
+
+        public SoundEffect Library1SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Library/Library1");
+        public SoundEffect Library2SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Library/Library2");
+        public SoundEffect Library3SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Library/Library3");
+        public SoundEffect Library4SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Library/Library4");
+
+        public SoundEffect MyMom1SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/MyMom/Mom1");
+        public SoundEffect MyMom2SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/MyMom/Mom2");
+
+        public SoundEffect TimeTraveler1SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/TimeTraveler/TimeTraveler1");
+        public SoundEffect TimeTraveler2SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/TimeTraveler/TimeTraveler2");
+        public SoundEffect TimeTraveler3SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/TimeTraveler/TimeTraveler3");
+        public SoundEffect TimeTraveler4SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/TimeTraveler/TimeTraveler4");
+        public SoundEffect TimeTraveler5SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/TimeTraveler/TimeTraveler5");
+        public SoundEffect TimeTraveler6SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/TimeTraveler/TimeTraveler6");
+        public SoundEffect TimeTraveler7SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/TimeTraveler/TimeTraveler7");
+        public SoundEffect TimeTraveler8SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/TimeTraveler/TimeTraveler8");
+
         public SpriteFont ArialSpriteFont => JamGame.Content.Load<SpriteFont>("Fonts/Arial");
 
         public Song CalmSong => JamGame.Content.Load<Song>("Music/Calm");
