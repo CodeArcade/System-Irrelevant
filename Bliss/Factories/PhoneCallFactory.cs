@@ -56,7 +56,10 @@ namespace Bliss.Factories
                 1 => GetBossRacism(),
                 2 => GetMikeRedChecks(),
                 3 => GetBettyFuckMen(),
-                4 => GetBettyLetters(),
+                4 => GetMikeSignedContracts(),
+                5 => GetBettyLetters(),
+                6 => GetBossLightRacism(),
+                7 => GetBettyPayment(),
                 _ => GetPrankCall(),
             };
         }
@@ -920,6 +923,45 @@ namespace Bliss.Factories
                     {
                         Text = "Well if you don't, you better start doing it.",
                         Voice = ContentManager.MikePaycheck4SoundEffect.CreateInstance()
+                    }
+                }
+            };
+        }
+
+        public PhoneCall GetMikeSignedContracts()
+        {
+            return new PhoneCall()
+            {
+                NewValidators = new Dictionary<OrganizerIds, List<Rule>>()
+                {
+                    {
+                        OrganizerIds.Blue, new List<Rule>()
+                        {
+                            Rules.SignedContracts
+                        }
+                    }
+                },
+                VoiceLines = new List<VoiceLine>()
+                {
+                    new VoiceLine()
+                    {
+                        Text = "Hey, it's Mike!",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "So I recently got a contract that you sorted...",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "but whoever gave it to you didn't sign it.",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "So from now on, check if contracts are signed before passing them on.",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
                     }
                 }
             };
