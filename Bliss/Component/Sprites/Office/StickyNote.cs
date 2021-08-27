@@ -24,6 +24,7 @@ namespace Bliss.Component.Sprites.Office
 
         private bool IsExtending { get; set; } = false;
         private bool IsRetracting { get; set; } = false;
+        private int Rows { get; set; } = 35;
 
         public bool CanHover { get; set; } = true;
 
@@ -99,10 +100,9 @@ namespace Bliss.Component.Sprites.Office
             Grid grid = new Grid();
             grid.ColumnsProportions.Add(new Proportion(ProportionType.Pixels, sprite.Size.Width));
 
-            float rows = 30f;
-            for(int i = 0; i < rows; i++)
+            for(int i = 0; i < Rows; i++)
             {
-                grid.RowsProportions.Add(new Proportion(ProportionType.Pixels, sprite.Size.Height * 1f / rows));
+                grid.RowsProportions.Add(new Proportion(ProportionType.Pixels, sprite.Size.Height * 1f / Rows));
             }
 
             int lastIndex = 0;
@@ -124,7 +124,7 @@ namespace Bliss.Component.Sprites.Office
                 GridRow = row,
                 GridColumn = 0,
                 TextColor = Color.Black,
-                Font = fontSystem.GetFont((int)SizeManager.ScaleForWidth(16)),
+                Font = fontSystem.GetFont((int)SizeManager.ScaleForWidth(14)),
                 Text = text
             };
         }
@@ -135,10 +135,10 @@ namespace Bliss.Component.Sprites.Office
             lastIndex++;
             grid.Widgets.Add(GetLabel(documentType.ToString() + ":", lastIndex, fontSystem));
             lastIndex++;
-            for (int i = 0; i < 30; i++)
+            for (int i = 0; i < Rows; i++)
             {
                 if (i == rules.Count) break;
-                if (lastIndex >= 19) break;
+                if (lastIndex >= Rows) break;
                 grid.Widgets.Add(GetLabel(" - " + rules[i].Description, lastIndex, fontSystem));
                 lastIndex++;
             }
