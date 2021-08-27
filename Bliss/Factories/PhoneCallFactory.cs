@@ -42,7 +42,7 @@ namespace Bliss.Factories
                 4 => GetIcWiener(),
                 5 => GetTrash(),
                 6 => GetBigSmokes(),
-                7 => GetDebbie(),
+                7 => GetMoms(),
                 _ => GetPrankCall(),
             };
         }
@@ -269,7 +269,7 @@ namespace Bliss.Factories
                     },
                     new VoiceLine()
                     {
-                        Text = "Do you have any idea how much hecking trash is lying around here?",
+                        Text = "Do you have any idea how much trash is lying around here?",
                         Voice = ContentManager.SilenceSoundEffect.CreateInstance()
                     },
                     new VoiceLine()
@@ -331,7 +331,7 @@ namespace Bliss.Factories
             };
         }
 
-        public PhoneCall GetDebbie()
+        public PhoneCall GetMoms()
         {
             return new PhoneCall()
             {
@@ -339,22 +339,22 @@ namespace Bliss.Factories
                 {
                     new VoiceLine()
                     {
-                        Text = "Hello, this is Deborah from ACME Inc.",
+                        Text = "Dude... your mom is named mom...",
                         Voice = ContentManager.SilenceSoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
-                        Text = "I'm calling to inform you about our new mobile data plan!",
+                        Text = "my mom is also named mom...",
                         Voice = ContentManager.SilenceSoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
-                        Text = "It's just $44.95 a week and offers up to 20 free minutes and 10 texts.",
+                        Text = "Bro I swear, don't freak out,",
                         Voice = ContentManager.SilenceSoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
-                        Text = "To buy, please call >>555-ACMEPHONE<<. That's >>555-ACMEPHONE<<<.",
+                        Text = "but I think we might be related!",
                         Voice = ContentManager.SilenceSoundEffect.CreateInstance()
                     },
                 }
