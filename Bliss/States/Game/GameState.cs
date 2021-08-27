@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using Unity;
 
 namespace Bliss.States.Game
@@ -77,7 +78,21 @@ namespace Bliss.States.Game
             Calls.Add(PhoneCallFactory.GetImportant());
             SecondsToNextPhoneCall = new Random().Next(25, 45);
 
-            AudioManager.ChangeSong(ContentManager.CalmSong, true,  -(Manager.AudioManager.GlobalVolume * 0.75f));
+            AudioManager.ChangeSong(ContentManager.CalmSong, true, -(Manager.AudioManager.GlobalVolume * 0.75f));
+        }
+
+        protected override void AfterLoad(params object[] parameter)
+        {
+            if (parameter.Any())
+                if (parameter[0] is PlayerStats stats)
+                    if (parameter[1] is Dictionary<OrganizerIds, List<Rule>> rules)
+                    {
+                        foreach (KeyValuePair<OrganizerIds, List<Rule>> keyValuePair in rules)
+                            DocumentOrganizers.First(x => x.Id == keyValuePair.Key).Validators = keyValuePair.Value;
+
+                        StickyNote.ActiveRules = rules;
+
+                    }
         }
 
         public override void Update(GameTime gameTime)
@@ -104,7 +119,7 @@ namespace Bliss.States.Game
                     PlayerStats.Day++;
                     PlayerStats.DocumentsLeft = DocumentCount;
                     AudioManager.StopMusic();
-                    StateManager.ChangeTo<SummaryState>(SummaryState.Name, PlayerStats);
+                    StateManager.ChangeTo<SummaryState>(SummaryState.Name, PlayerStats, DocumentOrganizers.ToDictionary(key => key.Id, value => value.Validators));
                     base.Update(gameTime);
                     return;
                 }

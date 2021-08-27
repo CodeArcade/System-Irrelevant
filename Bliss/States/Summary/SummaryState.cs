@@ -1,4 +1,6 @@
-﻿using Bliss.Models;
+﻿using Bliss.Component.Sprites.Office;
+using Bliss.Models;
+using System.Collections.Generic;
 
 namespace Bliss.States.Summary
 {
@@ -7,10 +9,12 @@ namespace Bliss.States.Summary
         public static string Name = "Summary";
 
         PlayerStats PlayerStats { get; set; }
+        Dictionary<OrganizerIds, List<Rule>> Rules { get; set; }
 
         protected override void OnLoad(params object[] parameter)
         {
             PlayerStats = (PlayerStats)parameter[0];
+            Rules = (Dictionary<OrganizerIds, List<Rule>>)parameter[1];
 
             if (PlayerStats.WronglyEndedCalls >= 1) PlayerStats.Warnings++;
             if (PlayerStats.WronglySortedDocuments >= 3) PlayerStats.Warnings++;

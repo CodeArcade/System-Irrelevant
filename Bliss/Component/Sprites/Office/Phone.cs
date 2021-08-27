@@ -76,6 +76,7 @@ namespace Bliss.Component.Sprites.Office
                     PlayerStats.MissedCalls++;
                     IsRinging = false;
                     IsInUse = false;
+                    if (PhoneCall.IsImportant) OnImportantCallFinished?.Invoke(PhoneCall, new EventArgs());
                     AnimationManager.Play(Animations["idle"]);
                     RingingSoundEffect.Stop();
                     Timer = 0;

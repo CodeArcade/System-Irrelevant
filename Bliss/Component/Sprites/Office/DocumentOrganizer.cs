@@ -105,6 +105,7 @@ namespace Bliss.Component.Sprites.Office
             if (sprite is BaseDocument document)
             {
                 if (document.IsHeld) return;
+                if (!document.DidLand) return;
                 if (document.TimeSinceHeld > 0.1) return;
                 if (document.IsRemoved) return;
 

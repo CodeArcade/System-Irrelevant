@@ -54,11 +54,13 @@ namespace Bliss.States
             }
             OnLoad(parameter);
             LoadComponents();
+            AfterLoad(parameter);
             HasLoaded = true;
         }
 
         protected virtual void LoadComponents() { }
         protected virtual void OnLoad(params object[] parameter) { }
+        protected virtual void AfterLoad(params object[] parameter) { }
 
         public virtual void AddComponent(Component.Component component, int layer)
         {
