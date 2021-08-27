@@ -214,13 +214,25 @@ namespace Bliss.Models
 
         #region General Document Rules
 
-        public static Rule IsPaycheck
+        public static Rule IsPaycheckForBlue
         {
             get
             {
                 return new Rule(DocumentType.Paycheck)
                 {
                     Description = "Put in blue organizer",
+                    Validate = document => document is Paycheck
+                };
+            }
+        }
+
+        public static Rule IsPaycheckForRed
+        {
+            get
+            {
+                return new Rule(DocumentType.Paycheck)
+                {
+                    Description = "Put in red organizer",
                     Validate = document => document is Paycheck
                 };
             }
@@ -238,7 +250,7 @@ namespace Bliss.Models
             }
         }
 
-        public static Rule IsApplication
+        public static Rule IsApplicationForRed
         {
             get
             {

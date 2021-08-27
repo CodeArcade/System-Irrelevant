@@ -72,6 +72,11 @@ namespace Bliss.Manager
         public SoundEffect MikeHotdog4SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Mike/Hotdog/Mike4");
         public SoundEffect MikeHotdog5SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Mike/Hotdog/Mike5");
 
+        public SoundEffect MikePaycheck1SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Mike/Paycheck/Mike1");
+        public SoundEffect MikePaycheck2SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Mike/Paycheck/Mike2");
+        public SoundEffect MikePaycheck3SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Mike/Paycheck/Mike3");
+        public SoundEffect MikePaycheck4SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Mike/Paycheck/Mike4");
+
         public SoundEffect BettyFuckMen1SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Betty/FuckMen/Betty1");
         public SoundEffect BettyFuckMen2SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Betty/FuckMen/Betty2");
         public SoundEffect BettyFuckMen3SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/Betty/FuckMen/Betty3");

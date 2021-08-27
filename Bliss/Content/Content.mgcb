@@ -329,18 +329,6 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/Contract.png
 
-#begin Sprites/Contract.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Sprites/Contract.png
-
 #begin Sprites/DocumentOrganizerOne.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -694,6 +682,30 @@
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:VoiceLines/Mike/Hotdog/Mike5.wav
+
+#begin VoiceLines/Mike/Paycheck/Mike1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Mike/Paycheck/Mike1.wav
+
+#begin VoiceLines/Mike/Paycheck/Mike2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Mike/Paycheck/Mike2.wav
+
+#begin VoiceLines/Mike/Paycheck/Mike3.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Mike/Paycheck/Mike3.wav
+
+#begin VoiceLines/Mike/Paycheck/Mike4.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Mike/Paycheck/Mike4.wav
 
 #begin VoiceLines/Tired/Tired1.wav
 /importer:WavImporter
