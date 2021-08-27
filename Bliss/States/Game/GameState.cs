@@ -137,13 +137,14 @@ namespace Bliss.States.Game
         {
             if (!PlayTutorial)
             {
+                ImportantPhoneCallFinished(PhoneCallFactory.GetBossTutorial(), new EventArgs());
                 PlayerStats.Day = 1;
                 return;
             }
 
             if (!Phone.IsRinging && !Phone.IsTalking && !Phone.IsCallOver)
             {
-                Phone.Ring(PhoneCallFactory.GetIntro());
+                Phone.Ring(PhoneCallFactory.GetBossTutorial());
                 Phone.SecondsBeforeMissedCall = int.MaxValue;
             }
 

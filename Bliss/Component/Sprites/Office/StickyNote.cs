@@ -10,6 +10,9 @@ using FontStashSharp;
 using MonoGame.Extended.Content;
 using Myra.Graphics2D.UI;
 using Bliss.Component.Sprites.Ui;
+using System;
+using Bliss.Component.Sprites.Office.Documents;
+using System.Linq;
 
 namespace Bliss.Component.Sprites.Office
 {
@@ -95,33 +98,21 @@ namespace Bliss.Component.Sprites.Office
 
             Grid grid = new Grid();
             grid.ColumnsProportions.Add(new Proportion(ProportionType.Pixels, sprite.Size.Width));
-            // 20 Lines for rules
-            grid.RowsProportions.Add(new Proportion(ProportionType.Pixels, sprite.Size.Height * 0.05f));
-            grid.RowsProportions.Add(new Proportion(ProportionType.Pixels, sprite.Size.Height * 0.05f));
-            grid.RowsProportions.Add(new Proportion(ProportionType.Pixels, sprite.Size.Height * 0.05f));
-            grid.RowsProportions.Add(new Proportion(ProportionType.Pixels, sprite.Size.Height * 0.05f));
-            grid.RowsProportions.Add(new Proportion(ProportionType.Pixels, sprite.Size.Height * 0.05f));
-            grid.RowsProportions.Add(new Proportion(ProportionType.Pixels, sprite.Size.Height * 0.05f));
-            grid.RowsProportions.Add(new Proportion(ProportionType.Pixels, sprite.Size.Height * 0.05f));
-            grid.RowsProportions.Add(new Proportion(ProportionType.Pixels, sprite.Size.Height * 0.05f));
-            grid.RowsProportions.Add(new Proportion(ProportionType.Pixels, sprite.Size.Height * 0.05f));
-            grid.RowsProportions.Add(new Proportion(ProportionType.Pixels, sprite.Size.Height * 0.05f));
-            grid.RowsProportions.Add(new Proportion(ProportionType.Pixels, sprite.Size.Height * 0.05f));
-            grid.RowsProportions.Add(new Proportion(ProportionType.Pixels, sprite.Size.Height * 0.05f));
-            grid.RowsProportions.Add(new Proportion(ProportionType.Pixels, sprite.Size.Height * 0.05f));
-            grid.RowsProportions.Add(new Proportion(ProportionType.Pixels, sprite.Size.Height * 0.05f));
-            grid.RowsProportions.Add(new Proportion(ProportionType.Pixels, sprite.Size.Height * 0.05f));
-            grid.RowsProportions.Add(new Proportion(ProportionType.Pixels, sprite.Size.Height * 0.05f));
-            grid.RowsProportions.Add(new Proportion(ProportionType.Pixels, sprite.Size.Height * 0.05f));
-            grid.RowsProportions.Add(new Proportion(ProportionType.Pixels, sprite.Size.Height * 0.05f));
-            grid.RowsProportions.Add(new Proportion(ProportionType.Pixels, sprite.Size.Height * 0.05f));
-            grid.RowsProportions.Add(new Proportion(ProportionType.Pixels, sprite.Size.Height * 0.05f));
+
+            float rows = 30f;
+            for(int i = 0; i < rows; i++)
+            {
+                grid.RowsProportions.Add(new Proportion(ProportionType.Pixels, sprite.Size.Height * 1f / rows));
+            }
 
             int lastIndex = 0;
-            AddOrganizerLables(grid, ref lastIndex, fontSystem, OrganizerIds.Green);
-            AddOrganizerLables(grid, ref lastIndex, fontSystem, OrganizerIds.Red);
-            AddOrganizerLables(grid, ref lastIndex, fontSystem, OrganizerIds.Blue);
-            AddOrganizerLables(grid, ref lastIndex, fontSystem, OrganizerIds.Bin);
+            List<Rule> rules = ActiveRules.ToList().SelectMany(x => x.Value).ToList();
+            AddDocumentLabels(grid, rules.Where(x => x.DocumentType == DocumentType.Application).ToList(), ref lastIndex, fontSystem, DocumentType.Application);
+            AddDocumentLabels(grid, rules.Where(x => x.DocumentType == DocumentType.Contract).ToList(), ref lastIndex, fontSystem, DocumentType.Contract);
+            AddDocumentLabels(grid, rules.Where(x => x.DocumentType == DocumentType.Letter).ToList(), ref lastIndex, fontSystem, DocumentType.Letter);
+            AddDocumentLabels(grid, rules.Where(x => x.DocumentType == DocumentType.Paycheck).ToList(), ref lastIndex, fontSystem, DocumentType.Paycheck);
+            AddDocumentLabels(grid, rules.Where(x => x.DocumentType == DocumentType.Classified).ToList(), ref lastIndex, fontSystem, DocumentType.Classified);
+            AddDocumentLabels(grid, rules.Where(x => x.DocumentType == DocumentType.All).ToList(), ref lastIndex, fontSystem, DocumentType.All);
 
             return new List<Component> { sprite, new UiGridComponent(grid, sprite.Size, sprite.Position) };
         }
@@ -138,34 +129,18 @@ namespace Bliss.Component.Sprites.Office
             };
         }
 
-        private string GetOrganizerName(OrganizerIds organizerId)
+        private void AddDocumentLabels(Grid grid, List<Rule> rules, ref int lastIndex, FontSystem fontSystem, DocumentType documentType)
         {
-            return organizerId switch
+            grid.Widgets.Add(GetLabel("", lastIndex, fontSystem));
+            lastIndex++;
+            grid.Widgets.Add(GetLabel(documentType.ToString() + ":", lastIndex, fontSystem));
+            lastIndex++;
+            for (int i = 0; i < 30; i++)
             {
-                OrganizerIds.Bin => "Trash",
-                OrganizerIds.Blue => "Blue Document Holder",
-                OrganizerIds.Red => "Blue Document Holder",
-                OrganizerIds.Green => "Green Document Holder",
-                _ => ""
-            };
-        }
-
-        private void AddOrganizerLables(Grid grid, ref int lastIndex, FontSystem fontSystem, OrganizerIds organizerId)
-        {
-            if (ActiveRules.ContainsKey(organizerId) && lastIndex < 19)
-            {
-                List<Rule> rules = ActiveRules[organizerId];
-                grid.Widgets.Add(GetLabel("", lastIndex, fontSystem));
+                if (i == rules.Count) break;
+                if (lastIndex >= 19) break;
+                grid.Widgets.Add(GetLabel(" - " + rules[i].Description, lastIndex, fontSystem));
                 lastIndex++;
-                grid.Widgets.Add(GetLabel(GetOrganizerName(organizerId) + ":", lastIndex, fontSystem));
-                lastIndex++;
-                for (int i = 0; i < 20; i++)
-                {
-                    if (i == rules.Count) break;
-                    if (lastIndex >= 19) break;
-                    grid.Widgets.Add(GetLabel(" - " + rules[i].Description, lastIndex, fontSystem));
-                    lastIndex++;
-                }
             }
         }
 

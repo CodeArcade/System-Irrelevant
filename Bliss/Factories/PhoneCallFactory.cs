@@ -76,30 +76,6 @@ namespace Bliss.Factories
             };
         }
 
-        public PhoneCall GetIntro()
-        {
-            return new PhoneCall()
-            {
-                NewValidators = new Dictionary<OrganizerIds, List<Rule>>()
-                {
-                    {
-                        OrganizerIds.Bin,
-                        new List<Rule>()
-                            {
-                            }
-                    }
-                },
-                VoiceLines = new List<VoiceLine>()
-                {
-                    new VoiceLine()
-                    {
-                        Text = "...",
-                        Voice = ContentManager.DocumentSpawnedSoundEffect.CreateInstance()
-                    }
-                }
-            };
-        }
-
         public PhoneCall GetOutro()
         {
             return new PhoneCall()
@@ -773,7 +749,7 @@ namespace Bliss.Factories
                     {
                         OrganizerIds.Bin, new List<Rule>
                         {
-                            new Rule()
+                            new Rule(DocumentType.Application)
                             {
                                 Validate = (document) => { if( document is Application application) { return application.Sex == Sexes.Male; }  return false; },
                                 Description = "Toss all applications sent by men!"
@@ -785,7 +761,7 @@ namespace Bliss.Factories
                 {
                     new VoiceLine()
                     {
-                        Text = "Hey rookie! This is Betty. You know, from acconting.",
+                        Text = "Hey rookie! This is Betty. You know, from HR.",
                         Voice = ContentManager.BettyFuckMen1SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
@@ -821,7 +797,7 @@ namespace Bliss.Factories
                     {
                         OrganizerIds.Bin, new List<Rule>
                         {
-                            new Rule()
+                            new Rule(DocumentType.Application)
                             {
                                 Validate = (document) => { if( document is Application application) { return application.Sex == Sexes.Male; }  return false; },
                                 Description = "Toss all applications sent by men!"
@@ -869,7 +845,7 @@ namespace Bliss.Factories
                     {
                         OrganizerIds.Bin, new List<Rule>
                         {
-                            new Rule()
+                            new Rule(DocumentType.Application)
                             {
                                 Validate = (document) => { if( document is Application application) { return application.Sex == Sexes.Male; }  return false; },
                                 Description = "Toss all applications sent by men!"
@@ -942,8 +918,6 @@ namespace Bliss.Factories
                 }
             };
         }
-
-        
 
         public PhoneCall GetBossTutorial()
         {
