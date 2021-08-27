@@ -89,8 +89,23 @@ namespace Bliss.Factories
                 {
                     new VoiceLine()
                     {
-                        Text = "...",
+                        Text = "Hey, new guy!",
                         Voice = ContentManager.DocumentSpawnedSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "Uhm... I have some news for you.",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "You know how you've been 'New Guy' all this time?",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "Well now you're previous guy. You're fired.",
+                        Voice = ContentManager.SilenceSoundEffect.CreateInstance()
                     }
                 }
             };
