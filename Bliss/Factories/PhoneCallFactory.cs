@@ -497,12 +497,12 @@ namespace Bliss.Factories
                     },
                     new VoiceLine()
                     {
-                        Text = "He skipped 3 days of work already and if keeps up this behaviour,",
+                        Text = "He skipped 3 days of work already",
                         Voice = ContentManager.SilenceSoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
-                        Text = "I have to fire him."
+                        Text = "and if keeps up this behaviour, I have to fire him."
                     }
                 }
             };
