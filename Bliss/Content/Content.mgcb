@@ -449,6 +449,48 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/Textbox.png
 
+#begin VoiceLines/Banana/Banana1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Banana/Banana1.wav
+
+#begin VoiceLines/Banana/Banana2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Banana/Banana2.wav
+
+#begin VoiceLines/Banana/Banana3.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Banana/Banana3.wav
+
+#begin VoiceLines/Banana/Banana4.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Banana/Banana4.wav
+
+#begin VoiceLines/Banana/Banana5.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Banana/Banana5.wav
+
+#begin VoiceLines/Banana/Banana6.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Banana/Banana6.wav
+
+#begin VoiceLines/Banana/Banana7.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Banana/Banana7.wav
+
 #begin VoiceLines/Betty/FuckMen/Betty1.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
@@ -629,6 +671,372 @@
 /processorParam:Quality=Best
 /build:VoiceLines/Betty/Pentagrams/Betty7.wav
 
+#begin VoiceLines/BigSmoke/BigSmokes1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/BigSmoke/BigSmokes1.wav
+
+#begin VoiceLines/BigSmoke/BigSmokes2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/BigSmoke/BigSmokes2.wav
+
+#begin VoiceLines/BigSmoke/BigSmokes3.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/BigSmoke/BigSmokes3.wav
+
+#begin VoiceLines/BigSmoke/BigSmokes4.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/BigSmoke/BigSmokes4.wav
+
+#begin VoiceLines/BigSmoke/BigSmokes5.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/BigSmoke/BigSmokes5.wav
+
+#begin VoiceLines/BigSmoke/BigSmokes6.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/BigSmoke/BigSmokes6.wav
+
+#begin VoiceLines/Boss/Hardcore Racism/Boss1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Boss/Hardcore Racism/Boss1.wav
+
+#begin VoiceLines/Boss/Hardcore Racism/Boss2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Boss/Hardcore Racism/Boss2.wav
+
+#begin VoiceLines/Boss/Hardcore Racism/Boss3.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Boss/Hardcore Racism/Boss3.wav
+
+#begin VoiceLines/Boss/Hardcore Racism/Boss4.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Boss/Hardcore Racism/Boss4.wav
+
+#begin VoiceLines/Boss/Hardcore Racism/Boss5.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Boss/Hardcore Racism/Boss5.wav
+
+#begin VoiceLines/Boss/Hardcore Racism/Boss6.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Boss/Hardcore Racism/Boss6.wav
+
+#begin VoiceLines/Boss/Hardcore Racism/Boss7.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Boss/Hardcore Racism/Boss7.wav
+
+#begin VoiceLines/Boss/Intro/Boss1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Boss/Intro/Boss1.wav
+
+#begin VoiceLines/Boss/Intro/Boss10.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Boss/Intro/Boss10.wav
+
+#begin VoiceLines/Boss/Intro/Boss11.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Boss/Intro/Boss11.wav
+
+#begin VoiceLines/Boss/Intro/Boss12.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Boss/Intro/Boss12.wav
+
+#begin VoiceLines/Boss/Intro/Boss13.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Boss/Intro/Boss13.wav
+
+#begin VoiceLines/Boss/Intro/Boss14.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Boss/Intro/Boss14.wav
+
+#begin VoiceLines/Boss/Intro/Boss15.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Boss/Intro/Boss15.wav
+
+#begin VoiceLines/Boss/Intro/Boss16.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Boss/Intro/Boss16.wav
+
+#begin VoiceLines/Boss/Intro/Boss17.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Boss/Intro/Boss17.wav
+
+#begin VoiceLines/Boss/Intro/Boss18.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Boss/Intro/Boss18.wav
+
+#begin VoiceLines/Boss/Intro/Boss19.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Boss/Intro/Boss19.wav
+
+#begin VoiceLines/Boss/Intro/Boss2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Boss/Intro/Boss2.wav
+
+#begin VoiceLines/Boss/Intro/Boss20.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Boss/Intro/Boss20.wav
+
+#begin VoiceLines/Boss/Intro/Boss21.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Boss/Intro/Boss21.wav
+
+#begin VoiceLines/Boss/Intro/Boss22.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Boss/Intro/Boss22.wav
+
+#begin VoiceLines/Boss/Intro/Boss23.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Boss/Intro/Boss23.wav
+
+#begin VoiceLines/Boss/Intro/Boss3.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Boss/Intro/Boss3.wav
+
+#begin VoiceLines/Boss/Intro/Boss4.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Boss/Intro/Boss4.wav
+
+#begin VoiceLines/Boss/Intro/Boss5.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Boss/Intro/Boss5.wav
+
+#begin VoiceLines/Boss/Intro/Boss6.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Boss/Intro/Boss6.wav
+
+#begin VoiceLines/Boss/Intro/Boss7.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Boss/Intro/Boss7.wav
+
+#begin VoiceLines/Boss/Intro/Boss8.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Boss/Intro/Boss8.wav
+
+#begin VoiceLines/Boss/Intro/Boss9.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Boss/Intro/Boss9.wav
+
+#begin VoiceLines/Boss/Lightcore Racism/Boss1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Boss/Lightcore Racism/Boss1.wav
+
+#begin VoiceLines/Boss/Lightcore Racism/Boss2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Boss/Lightcore Racism/Boss2.wav
+
+#begin VoiceLines/Boss/Lightcore Racism/Boss3.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Boss/Lightcore Racism/Boss3.wav
+
+#begin VoiceLines/Boss/Lightcore Racism/Boss4.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Boss/Lightcore Racism/Boss4.wav
+
+#begin VoiceLines/Boss/Lightcore Racism/Boss5.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Boss/Lightcore Racism/Boss5.wav
+
+#begin VoiceLines/Boss/Lightcore Racism/Boss6.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Boss/Lightcore Racism/Boss6.wav
+
+#begin VoiceLines/Boss/Lightcore Racism/Boss7.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Boss/Lightcore Racism/Boss7.wav
+
+#begin VoiceLines/Boss/Mike/Boss1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Boss/Mike/Boss1.wav
+
+#begin VoiceLines/Boss/Mike/Boss2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Boss/Mike/Boss2.wav
+
+#begin VoiceLines/Boss/Mike/Boss3.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Boss/Mike/Boss3.wav
+
+#begin VoiceLines/Boss/Mike/Boss4.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Boss/Mike/Boss4.wav
+
+#begin VoiceLines/Boss/Outro/Boss1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Boss/Outro/Boss1.wav
+
+#begin VoiceLines/Boss/Outro/Boss2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Boss/Outro/Boss2.wav
+
+#begin VoiceLines/Boss/Outro/Boss3.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Boss/Outro/Boss3.wav
+
+#begin VoiceLines/Boss/Outro/Boss4.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Boss/Outro/Boss4.wav
+
+#begin VoiceLines/Irigatex/Irigatex1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Irigatex/Irigatex1.wav
+
+#begin VoiceLines/Irigatex/Irigatex2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Irigatex/Irigatex2.wav
+
+#begin VoiceLines/Irigatex/Irigatex3.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Irigatex/Irigatex3.wav
+
+#begin VoiceLines/Irigatex/Irigatex4.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Irigatex/Irigatex4.wav
+
+#begin VoiceLines/Irigatex/Irigatex5.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Irigatex/Irigatex5.wav
+
+#begin VoiceLines/Irigatex/Irigatex6.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Irigatex/Irigatex6.wav
+
+#begin VoiceLines/Library/Library1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Library/Library1.wav
+
+#begin VoiceLines/Library/Library2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Library/Library2.wav
+
+#begin VoiceLines/Library/Library3.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Library/Library3.wav
+
+#begin VoiceLines/Library/Library4.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/Library/Library4.wav
+
 #begin VoiceLines/Mike/Contract/Mike1.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
@@ -659,29 +1067,11 @@
 /processorParam:Quality=Best
 /build:VoiceLines/Mike/Dinner/Mike1.wav
 
-#begin VoiceLines/Mike/Dinner/Mike1.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:VoiceLines/Mike/Dinner/Mike1.wav
-
 #begin VoiceLines/Mike/Dinner/Mike2.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:VoiceLines/Mike/Dinner/Mike2.wav
-
-#begin VoiceLines/Mike/Dinner/Mike2.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:VoiceLines/Mike/Dinner/Mike2.wav
-
-#begin VoiceLines/Mike/Dinner/Mike3.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:VoiceLines/Mike/Dinner/Mike3.wav
 
 #begin VoiceLines/Mike/Dinner/Mike3.wav
 /importer:WavImporter
@@ -695,29 +1085,11 @@
 /processorParam:Quality=Best
 /build:VoiceLines/Mike/Dinner/Mike4.wav
 
-#begin VoiceLines/Mike/Dinner/Mike4.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:VoiceLines/Mike/Dinner/Mike4.wav
-
 #begin VoiceLines/Mike/Hotdog/Mike1.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:VoiceLines/Mike/Hotdog/Mike1.wav
-
-#begin VoiceLines/Mike/Hotdog/Mike1.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:VoiceLines/Mike/Hotdog/Mike1.wav
-
-#begin VoiceLines/Mike/Hotdog/Mike2.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:VoiceLines/Mike/Hotdog/Mike2.wav
 
 #begin VoiceLines/Mike/Hotdog/Mike2.wav
 /importer:WavImporter
@@ -731,29 +1103,11 @@
 /processorParam:Quality=Best
 /build:VoiceLines/Mike/Hotdog/Mike3.wav
 
-#begin VoiceLines/Mike/Hotdog/Mike3.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:VoiceLines/Mike/Hotdog/Mike3.wav
-
 #begin VoiceLines/Mike/Hotdog/Mike4.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:VoiceLines/Mike/Hotdog/Mike4.wav
-
-#begin VoiceLines/Mike/Hotdog/Mike4.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:VoiceLines/Mike/Hotdog/Mike4.wav
-
-#begin VoiceLines/Mike/Hotdog/Mike5.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:VoiceLines/Mike/Hotdog/Mike5.wav
 
 #begin VoiceLines/Mike/Hotdog/Mike5.wav
 /importer:WavImporter
@@ -767,29 +1121,11 @@
 /processorParam:Quality=Best
 /build:VoiceLines/Mike/Paycheck/Mike1.wav
 
-#begin VoiceLines/Mike/Paycheck/Mike1.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:VoiceLines/Mike/Paycheck/Mike1.wav
-
 #begin VoiceLines/Mike/Paycheck/Mike2.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:VoiceLines/Mike/Paycheck/Mike2.wav
-
-#begin VoiceLines/Mike/Paycheck/Mike2.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:VoiceLines/Mike/Paycheck/Mike2.wav
-
-#begin VoiceLines/Mike/Paycheck/Mike3.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:VoiceLines/Mike/Paycheck/Mike3.wav
 
 #begin VoiceLines/Mike/Paycheck/Mike3.wav
 /importer:WavImporter
@@ -803,11 +1139,65 @@
 /processorParam:Quality=Best
 /build:VoiceLines/Mike/Paycheck/Mike4.wav
 
-#begin VoiceLines/Mike/Paycheck/Mike4.wav
+#begin VoiceLines/MyMom/Mom1.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:VoiceLines/Mike/Paycheck/Mike4.wav
+/build:VoiceLines/MyMom/Mom1.wav
+
+#begin VoiceLines/MyMom/Mom2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/MyMom/Mom2.wav
+
+#begin VoiceLines/TimeTraveler/TimeTraveler1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/TimeTraveler/TimeTraveler1.wav
+
+#begin VoiceLines/TimeTraveler/TimeTraveler2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/TimeTraveler/TimeTraveler2.wav
+
+#begin VoiceLines/TimeTraveler/TimeTraveler3.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/TimeTraveler/TimeTraveler3.wav
+
+#begin VoiceLines/TimeTraveler/TimeTraveler4.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/TimeTraveler/TimeTraveler4.wav
+
+#begin VoiceLines/TimeTraveler/TimeTraveler5.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/TimeTraveler/TimeTraveler5.wav
+
+#begin VoiceLines/TimeTraveler/TimeTraveler6.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/TimeTraveler/TimeTraveler6.wav
+
+#begin VoiceLines/TimeTraveler/TimeTraveler7.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/TimeTraveler/TimeTraveler7.wav
+
+#begin VoiceLines/TimeTraveler/TimeTraveler8.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:VoiceLines/TimeTraveler/TimeTraveler8.wav
 
 #begin VoiceLines/Tired/Tired1.wav
 /importer:WavImporter
