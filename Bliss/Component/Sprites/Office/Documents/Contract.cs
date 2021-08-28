@@ -1,6 +1,7 @@
 ﻿using Bliss.Component.Sprites.Ui;
 using FontStashSharp;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended.Content;
 using Myra.Graphics2D.UI;
 using System;
@@ -13,18 +14,20 @@ namespace Bliss.Component.Sprites.Office.Documents
     {
         public bool HasSignature { get; set; }
         public DateTime? Date { get; set; }
+        private Texture2D Signature { get; set; }
 
         public Contract(Vector2 spawnPoint, Microsoft.Xna.Framework.Rectangle table) : base(spawnPoint, table)
         {
-            Texture = ContentManager.ContractTexture;
+            Texture = ContentManager.ContractSmallTexture;
             Size = SizeManager.GetSize(150, 200);
+            Signature = ContentManager.Signatures[Random.Next(0, ContentManager.Signatures.Count)];
 
             HasSignature = Random.Next(0, 2) == 0;
-
+          
             if (Random.Next(0, 2) == 0)
                 Date = null;
             else
-                Date = DateTime.Now.AddDays(Random.Next(0, 10));
+                Date = DateTime.Now.AddDays(Random.Next(-365, 1));
 
             Load(spawnPoint, table);
         }
@@ -48,8 +51,8 @@ namespace Bliss.Component.Sprites.Office.Documents
 
             Grid grid = new Grid();
             grid.ColumnsProportions.Add(new Proportion(ProportionType.Pixels, sprite.Size.Width));
-            grid.RowsProportions.Add(new Proportion(ProportionType.Pixels, sprite.Size.Height / 2f));
-            grid.RowsProportions.Add(new Proportion(ProportionType.Pixels, sprite.Size.Height / 2f));
+            grid.RowsProportions.Add(new Proportion(ProportionType.Pixels, sprite.Size.Height / 3.5f));
+            grid.RowsProportions.Add(new Proportion(ProportionType.Pixels, sprite.Size.Height / 6.5f));
 
             if (Date != null)
             {
@@ -57,29 +60,25 @@ namespace Bliss.Component.Sprites.Office.Documents
                 {
                     Text = Date.Value.ToString("dd.MM.yyyy"),
                     GridColumn = 0,
-                    GridRow = 0,
+                    GridRow = 1,
                     HorizontalAlignment = HorizontalAlignment.Stretch,
                     VerticalAlignment = VerticalAlignment.Stretch,
-                    Font = fontSystem.GetFont((int)SizeManager.ScaleForWidth(32)),
+                    Font = fontSystem.GetFont((int)SizeManager.ScaleForWidth(24)),
                     TextColor = Microsoft.Xna.Framework.Color.Black,
+                    Padding = new Myra.Graphics2D.Thickness((int)SizeManager.ScaleForWidth(20),0,0,0)
                 };
                 grid.Widgets.Add(label);
             }
 
-            if (HasSignature)
+            Size signatureSize = SizeManager.GetSize(200, 40);
+            Sprite signature = new Sprite()
             {
-                Label label = new Label()
-                {
-                    Text = "H. Meier",
-                    GridColumn = 0,
-                    GridRow = 1,
-                    HorizontalAlignment = HorizontalAlignment.Stretch,
-                    VerticalAlignment = VerticalAlignment.Stretch,
-                    Font = fontSystem.GetFont((int)SizeManager.ScaleForWidth(32)),
-                    TextColor = Microsoft.Xna.Framework.Color.Black,
-                };
-                grid.Widgets.Add(label);
-            }
+                Size = signatureSize,
+                Position = new Vector2(sprite.Position.X + sprite.Size.Width - (signatureSize.Width * 1.2f), sprite.Position.Y + sprite.Size.Height - (signatureSize.Height * 3.2f)),
+                Texture = Signature
+            };
+
+            if (HasSignature) return new List<Component>() { sprite, signature, new UiGridComponent(grid, sprite.Size, sprite.Position) };
 
             return new List<Component>() { sprite, new UiGridComponent(grid, sprite.Size, sprite.Position) };
         }

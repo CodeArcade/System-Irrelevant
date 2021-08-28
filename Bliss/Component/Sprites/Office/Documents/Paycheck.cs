@@ -33,8 +33,8 @@ namespace Bliss.Component.Sprites.Office.Documents
 
         public Paycheck(Vector2 spawnPoint, Microsoft.Xna.Framework.Rectangle tableArea) : base(spawnPoint, tableArea)
         {
-            Texture = ContentManager.PaycheckTexture;
-            Size = SizeManager.GetSize(200, 100);
+            Texture = ContentManager.PaycheckSmallTexture;
+            Size = SizeManager.GetSize(325 / 2, 174 / 2);
 
             Department = GetDepartment();
 
@@ -60,14 +60,14 @@ namespace Bliss.Component.Sprites.Office.Documents
 
         public override List<Component> GetDetailViewComponents()
         {
-            Size size = SizeManager.GetSize(600, 300);
+            Size size = SizeManager.GetSize(700, 300);
 
             Sprite sprite = new Sprite()
             {
                 Size = size,
                 Position = new Vector2(
                         (int)(SizeManager.ScaleForWidth(SizeManager.JamGame.BaseWidth) - size.Width) / 2,
-                        (int)(SizeManager.ScaleForHeight(SizeManager.JamGame.BaseHeight) - size.Height) / 2
+                        (int)(SizeManager.ScaleForHeight(SizeManager.JamGame.BaseHeight) - size.Height) / 2 - SizeManager.ScaleForHeight(200)
                     ),
                 Texture = ContentManager.PaycheckTexture
             };
@@ -77,21 +77,36 @@ namespace Bliss.Component.Sprites.Office.Documents
 
             Grid grid = new Grid();
             grid.ColumnsProportions.Add(new Proportion(ProportionType.Pixels, sprite.Size.Width));
-            grid.RowsProportions.Add(new Proportion(ProportionType.Pixels, sprite.Size.Height));
-
-            Label departmentLabel = new Label()
+            grid.RowsProportions.Add(new Proportion(ProportionType.Pixels, sprite.Size.Height / 3));
+            grid.RowsProportions.Add(new Proportion(ProportionType.Auto));
+            Label headerLabel = new Label()
             {
-                Text = Department.ToString(),
+                Text = $"NOT IRIGATEX CORP{Environment.NewLine}1600 Pennsylvania{Environment.NewLine}Washington, DC 20500",
                 GridColumn = 0,
                 GridRow = 0,
                 HorizontalAlignment = HorizontalAlignment.Stretch,
                 VerticalAlignment = VerticalAlignment.Stretch,
-                Font = fontSystem.GetFont((int)SizeManager.ScaleForWidth(32)),
+                Font = fontSystem.GetFont((int)SizeManager.ScaleForWidth(20)),
                 TextColor = Microsoft.Xna.Framework.Color.Black,
+                Padding = new Myra.Graphics2D.Thickness((int)SizeManager.ScaleForWidth(25), (int)SizeManager.ScaleForHeight(30), 0, 0)
+            };
+            grid.Widgets.Add(headerLabel);
+
+            Label departmentLabel = new Label()
+            {
+                Text = $"Pay against this check {Environment.NewLine}To: {Department}{Environment.NewLine}{Environment.NewLine}{Random.Next(2000, 5001)} $",
+                GridColumn = 0,
+                GridRow = 1,
+                HorizontalAlignment = HorizontalAlignment.Stretch,
+                VerticalAlignment = VerticalAlignment.Stretch,
+                Font = fontSystem.GetFont((int)SizeManager.ScaleForWidth(24)),
+                TextColor = Microsoft.Xna.Framework.Color.Black,
+                Padding = new Myra.Graphics2D.Thickness((int)SizeManager.ScaleForWidth(40), (int)SizeManager.ScaleForHeight(20), 0, 0)
             };
             grid.Widgets.Add(departmentLabel);
 
             return new List<Component>() { sprite, new UiGridComponent(grid, sprite.Size, sprite.Position) };
         }
+
     }
 }

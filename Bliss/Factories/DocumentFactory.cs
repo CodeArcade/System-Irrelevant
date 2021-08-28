@@ -1,11 +1,8 @@
-﻿using Bliss.Component.Sprites;
-using Bliss.Component.Sprites.Office.Documents;
+﻿using Bliss.Component.Sprites.Office.Documents;
 using Bliss.Manager;
 using Bliss.Models;
 using Microsoft.Xna.Framework;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using Unity;
 
 namespace Bliss.Factories

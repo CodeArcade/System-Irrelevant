@@ -43,19 +43,16 @@ namespace Bliss.Component.Sprites.Office
 
             if (Enabled)
             {
-                Rectangle firstDigitRectangle = new Rectangle(Rectangle.X, Rectangle.Y, Rectangle.Width / 5, Rectangle.Height);
+                Rectangle firstDigitRectangle = new Rectangle(Rectangle.X + (int)SizeManager.ScaleForWidth(10), Rectangle.Y + (int)SizeManager.ScaleForHeight(25), Rectangle.Width / 5, (int)(Rectangle.Height * 0.6f));
                 spriteBatch.Draw(Numbers[Hour < 10 ? 0 : int.Parse(Hour.ToString().Substring(0, 1))], firstDigitRectangle, Color);
 
-                Rectangle secondDigitRectangle = new Rectangle(Rectangle.X + (Rectangle.Width / 5), Rectangle.Y, Rectangle.Width / 5, Rectangle.Height);
+                Rectangle secondDigitRectangle = new Rectangle(Rectangle.X + (Rectangle.Width / 5) + (int)SizeManager.ScaleForWidth(10), Rectangle.Y + (int)SizeManager.ScaleForHeight(21), Rectangle.Width / 5, (int)(Rectangle.Height * 0.6f));
                 spriteBatch.Draw(Numbers[Hour < 10 ? Hour : int.Parse(Hour.ToString().Substring(1, 1))], secondDigitRectangle, Color);
 
-                Rectangle colonDigitRectangle = new Rectangle(Rectangle.X + (Rectangle.Width / 5) * 2, Rectangle.Y, Rectangle.Width / 5, Rectangle.Height);
-                spriteBatch.Draw(Numbers[10], colonDigitRectangle, Color);
-
-                Rectangle thirdDigitRectangle = new Rectangle(Rectangle.X + (Rectangle.Width / 5) * 3, Rectangle.Y, Rectangle.Width / 5, Rectangle.Height);
+                Rectangle thirdDigitRectangle = new Rectangle(Rectangle.X + (Rectangle.Width / 5) * 3, Rectangle.Y + (int)SizeManager.ScaleForHeight(15), Rectangle.Width / 5, (int)(Rectangle.Height * 0.6f));
                 spriteBatch.Draw(Numbers[Minute < 10 ? 0 : int.Parse(Minute.ToString().Substring(0, 1))], thirdDigitRectangle, Color);
 
-                Rectangle fourthDigitRectangle = new Rectangle(Rectangle.X + (Rectangle.Width / 5) * 4, Rectangle.Y, Rectangle.Width / 5, Rectangle.Height);
+                Rectangle fourthDigitRectangle = new Rectangle(Rectangle.X + (Rectangle.Width / 5) * 4, Rectangle.Y+ (int)SizeManager.ScaleForHeight(11), Rectangle.Width / 5, (int)(Rectangle.Height * 0.6f));
                 spriteBatch.Draw(Numbers[Minute < 10 ? Minute : int.Parse(Minute.ToString().Substring(1, 1))], fourthDigitRectangle, Color);
             }
         }

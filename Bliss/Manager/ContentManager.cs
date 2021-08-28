@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Media;
 using MonoGame.Extended.Content;
+using System.Collections.Generic;
 using Unity;
 
 namespace Bliss.Manager
@@ -13,11 +14,28 @@ namespace Bliss.Manager
         
         public Texture2D TableTexture => JamGame.Content.Load<Texture2D>("Sprites/Table");
         public Texture2D ContractTexture => JamGame.Content.Load<Texture2D>("Sprites/Contract");
+        public Texture2D ContractSmallTexture => JamGame.Content.Load<Texture2D>("Sprites/ContractSmall");
         public Texture2D ApplicationTexture => JamGame.Content.Load<Texture2D>("Sprites/Application");
+        public Texture2D ApplicationSmallTexture => JamGame.Content.Load<Texture2D>("Sprites/ApplicationSmall");
         public Texture2D ClassifiedTexture => JamGame.Content.Load<Texture2D>("Sprites/Classified");
         public Texture2D LetterTexture => JamGame.Content.Load<Texture2D>("Sprites/Letter");
+        public Texture2D LetterSmallTexture => JamGame.Content.Load<Texture2D>("Sprites/LetterSmall");
+        public Texture2D LetterStampTexture => JamGame.Content.Load<Texture2D>("Sprites/Stamp");
         public Texture2D PaycheckTexture => JamGame.Content.Load<Texture2D>("Sprites/Paycheck");
+        public Texture2D PaycheckSmallTexture => JamGame.Content.Load<Texture2D>("Sprites/PaycheckSmall");
         public Texture2D ClockTexture => JamGame.Content.Load<Texture2D>("Sprites/Clock");
+
+        public List<Texture2D> Signatures => new List<Texture2D>() 
+        {
+            JamGame.Content.Load<Texture2D>("Sprites/Signature1"),
+            JamGame.Content.Load<Texture2D>("Sprites/Signature2"),
+            JamGame.Content.Load<Texture2D>("Sprites/Signature3"),
+            JamGame.Content.Load<Texture2D>("Sprites/Signature4"),
+            JamGame.Content.Load<Texture2D>("Sprites/Signature5"),
+            JamGame.Content.Load<Texture2D>("Sprites/Signature6"),
+            JamGame.Content.Load<Texture2D>("Sprites/Signature7"),
+            JamGame.Content.Load<Texture2D>("Sprites/Signature8"),
+        };
 
         public Texture2D DocumentOrganizerOneTexture => JamGame.Content.Load<Texture2D>("Sprites/DocumentOrganizerOne");
         public Texture2D DocumentOrganizerTwoTexture => JamGame.Content.Load<Texture2D>("Sprites/DocumentOrganizerTwo");
@@ -243,6 +261,7 @@ namespace Bliss.Manager
         public SoundEffect TimeTraveler8SoundEffect => JamGame.Content.Load<SoundEffect>("VoiceLines/TimeTraveler/TimeTraveler8");
 
         public SpriteFont ArialSpriteFont => JamGame.Content.Load<SpriteFont>("Fonts/Arial");
+        public SpriteFont PatrickHandFont => JamGame.Content.Load<SpriteFont>("Fonts/PatrickHand");
 
         public Song CalmSong => JamGame.Content.Load<Song>("Music/Calm");
         public Song UpbeatSong => JamGame.Content.Load<Song>("Music/Upbeat");

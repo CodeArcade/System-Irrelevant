@@ -1,4 +1,5 @@
 ﻿using Bliss.Component.Sprites.Ui;
+using Bliss.Manager;
 using Bliss.Models;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Input;
@@ -184,6 +185,7 @@ namespace Bliss.Component.Sprites.Office
 
             if (CurrentVoiceLine == PhoneCall.VoiceLines.Count) return;
 
+            PhoneCall.VoiceLines[CurrentVoiceLine].Voice.Volume = AudioManager.GlobalVolume;
             PhoneCall.VoiceLines[CurrentVoiceLine].Voice.Play();
             TextBox.Text = PhoneCall.VoiceLines[CurrentVoiceLine].Text;
             OnVoiceLineStart?.Invoke(PhoneCall.VoiceLines[CurrentVoiceLine], new EventArgs());

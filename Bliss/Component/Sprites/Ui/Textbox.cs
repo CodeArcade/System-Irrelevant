@@ -3,8 +3,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Bliss.Component.Sprites.Ui
 {
@@ -43,7 +41,7 @@ namespace Bliss.Component.Sprites.Ui
 
         private void SetText()
         {
-            Vector2 stringSize = ContentManager.ArialSpriteFont.MeasureString(Text);
+            Vector2 stringSize = ContentManager.PatrickHandFont.MeasureString(Text);
             int xCount = Math.Max(3, (int)stringSize.X / TextBoxPartSize + 1);
             int yCount = Math.Max(3, (int)stringSize.Y / TextBoxPartSize + 1);
 
@@ -125,7 +123,7 @@ namespace Bliss.Component.Sprites.Ui
                 }
             }
 
-            spriteBatch.DrawString(ContentManager.ArialSpriteFont, Text, new Vector2(Position.X + 15, Position.Y + 15), Color.Black);
+            spriteBatch.DrawString(ContentManager.PatrickHandFont, Text, new Vector2(Position.X + 15, Position.Y + 15), Color.Black);
             AnimationManager.Position = new Vector2(Position.X + (TextBoxParts[0].Count * TextBoxPartSize) + 10, Position.Y + (TextBoxParts.Count * TextBoxPartSize) + 10);
             AnimationManager.Draw(spriteBatch);
         }

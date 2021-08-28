@@ -95,7 +95,7 @@ namespace Bliss.Component.Sprites.Office
             };
 
             FontSystem fontSystem = new FontSystem();
-            fontSystem.AddFont(SizeManager.JamGame.Content.OpenStream("Fonts/Arial.ttf"));
+            fontSystem.AddFont(SizeManager.JamGame.Content.OpenStream("Fonts/PatrickHand.ttf"));
 
             Grid grid = new Grid();
             grid.ColumnsProportions.Add(new Proportion(ProportionType.Pixels, sprite.Size.Width));
@@ -123,7 +123,7 @@ namespace Bliss.Component.Sprites.Office
                 GridRow = row,
                 GridColumn = 0,
                 TextColor = Color.Black,
-                Font = fontSystem.GetFont((int)SizeManager.ScaleForWidth(14)),
+                Font = fontSystem.GetFont((int)SizeManager.ScaleForWidth(18)),
                 Text = text,
                 Padding = new Myra.Graphics2D.Thickness((int)SizeManager.ScaleForWidth(10),(int) SizeManager.ScaleForHeight(10), 0, 0)
             };
