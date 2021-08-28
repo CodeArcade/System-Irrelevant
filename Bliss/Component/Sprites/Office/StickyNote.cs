@@ -112,7 +112,6 @@ namespace Bliss.Component.Sprites.Office
             AddDocumentLabels(grid, rules.Where(x => x.DocumentType == DocumentType.Letter).ToList(), ref lastIndex, fontSystem, DocumentType.Letter);
             AddDocumentLabels(grid, rules.Where(x => x.DocumentType == DocumentType.Paycheck).ToList(), ref lastIndex, fontSystem, DocumentType.Paycheck);
             AddDocumentLabels(grid, rules.Where(x => x.DocumentType == DocumentType.Classified).ToList(), ref lastIndex, fontSystem, DocumentType.Classified);
-            AddDocumentLabels(grid, rules.Where(x => x.DocumentType == DocumentType.All).ToList(), ref lastIndex, fontSystem, DocumentType.All);
 
             return new List<Component> { sprite, new UiGridComponent(grid, sprite.Size, sprite.Position) };
         }

@@ -791,234 +791,6 @@ namespace Bliss.Factories
 
         #region Rules
 
-        public PhoneCall GetBettyFuckMen()
-        {
-            return new PhoneCall()
-            {
-                NewValidators = new Dictionary<OrganizerIds, List<Rule>>()
-                {
-                    {
-                        OrganizerIds.Bin, new List<Rule>
-                        {
-                            new Rule(DocumentType.Application)
-                            {
-                                Validate = (document) => { if( document is Application application) { return application.Sex == Sexes.Male; }  return false; },
-                                Description = "Toss all applications sent by men!"
-                            } // TODO: previous validators ?
-                        }
-                    }
-                },
-                VoiceLines = new List<VoiceLine>()
-                {
-                    new VoiceLine()
-                    {
-                        Text = "Hey rookie! This is Betty. You know, from HR.",
-                        Voice = ContentManager.BettyFuckMen1SoundEffect.CreateInstance()
-                    },
-                    new VoiceLine()
-                    {
-                        Text = "Listen, I have some new rules for you.",
-                        Voice = ContentManager.BettyFuckMen2SoundEffect.CreateInstance()
-                    },
-                    new VoiceLine()
-                    {
-                        Text = "Now, we get lot's of applications. But we don't need that many, right?",
-                        Voice = ContentManager.BettyFuckMen3SoundEffect.CreateInstance()
-                    },
-                    new VoiceLine()
-                    {
-                        Text = "So, until further notice, just toss all applications sent by men!",
-                        Voice = ContentManager.BettyFuckMen4SoundEffect.CreateInstance()
-                    },
-                    new VoiceLine()
-                    {
-                        Text = "Don't worry, the Boss approved it. Alright, talk to you later!",
-                        Voice = ContentManager.BettyFuckMen5SoundEffect.CreateInstance()
-                    }
-                }
-            };
-        }
-
-        public PhoneCall GetBettyLetters()
-        {
-            return new PhoneCall()
-            {
-                NewValidators = new Dictionary<OrganizerIds, List<Rule>>()
-                {
-                    {
-                        OrganizerIds.Bin, new List<Rule>
-                        {
-                            new Rule(DocumentType.Application)
-                            {
-                                Validate = (document) => { if( document is Application application) { return application.Sex == Sexes.Male; }  return false; },
-                                Description = "Toss all applications sent by men!"
-                            }
-                        }
-                    }
-                },
-                VoiceLines = new List<VoiceLine>()
-                {
-                    new VoiceLine()
-                    {
-                        Text = "Hey sweetheart.",
-                        Voice = ContentManager.BettyLetter1SoundEffect.CreateInstance()
-                    },
-                    new VoiceLine()
-                    {
-                        Text = "So, about 50 letters in the last week arrived without any stamps and return addresses",
-                        Voice = ContentManager.BettyLetter2SoundEffect.CreateInstance()
-                    },
-                    new VoiceLine()
-                    {
-                        Text = "so we couldn't send them out",
-                        Voice = ContentManager.BettyLetter3SoundEffect.CreateInstance()
-                    },
-                    new VoiceLine()
-                    {
-                        Text = "From now on, please make sure that every letter has a stamp and a return address on it.",
-                        Voice = ContentManager.BettyLetter4SoundEffect.CreateInstance()
-                    },
-                    new VoiceLine()
-                    {
-                        Text = "Thanks dear!",
-                        Voice = ContentManager.BettyLetter5SoundEffect.CreateInstance()
-                    }
-                }
-            };
-        }
-
-        public PhoneCall GetBettyPayment()
-        {
-            return new PhoneCall()
-            {
-                NewValidators = new Dictionary<OrganizerIds, List<Rule>>()
-                {
-                    {
-                        OrganizerIds.Bin, new List<Rule>
-                        {
-                            new Rule(DocumentType.Application)
-                            {
-                                Validate = (document) => { if( document is Application application) { return application.Sex == Sexes.Male; }  return false; },
-                                Description = "Toss all applications sent by men!"
-                            }
-                        }
-                    }
-                },
-                VoiceLines = new List<VoiceLine>()
-                {
-                    new VoiceLine()
-                    {
-                        Text = "If I could I'd kill every single stupid braindead monkey from accounting.",
-                        Voice = ContentManager.BettyPentagram1SoundEffect.CreateInstance()
-                    },
-                    new VoiceLine()
-                    {
-                        Text = "NONE OF THE CHECKS I RECEIVED TODAY hat a department listed on them.",
-                        Voice = ContentManager.BettyPentagram2SoundEffect.CreateInstance()
-                    },
-                    new VoiceLine()
-                    {
-                        Text = "So from now on, when you get a paycheck",
-                        Voice = ContentManager.BettyPentagram3SoundEffect.CreateInstance()
-                    },
-                    new VoiceLine()
-                    {
-                        Text = "please confirm that there is a department on it and that it is a valid one.",
-                        Voice = ContentManager.BettyPentagram4SoundEffect.CreateInstance()
-                    }
-                }
-            };
-        }
-
-        public PhoneCall GetMikeRedChecks()
-        {
-            return new PhoneCall()
-            {
-                NewValidators = new Dictionary<OrganizerIds, List<Rule>>()
-                {
-                    {
-                        OrganizerIds.Red, new List<Rule>()
-                        {
-                            Rules.IsPaycheckForRed,
-                            Rules.IsApplicationForRed
-                        }
-                    },
-                    {
-                        OrganizerIds.Blue,
-                        new List<Rule>()
-                    }
-                },
-                VoiceLines = new List<VoiceLine>()
-                {
-                    new VoiceLine()
-                    {
-                        Text = "Hello, it's Mike!",
-                        Voice = ContentManager.MikePaycheck1SoundEffect.CreateInstance()
-                    },
-                    new VoiceLine()
-                    {
-                        Text = "For one reason or another I don't seem to be getting any paychecks.",
-                        Voice = ContentManager.MikePaycheck2SoundEffect.CreateInstance()
-                    },
-                    new VoiceLine()
-                    {
-                        Text = "You're putting them in the red organizer, right?",
-                        Voice = ContentManager.MikePaycheck3SoundEffect.CreateInstance()
-                    },
-                    new VoiceLine()
-                    {
-                        Text = "Well if you don't, you better start doing it.",
-                        Voice = ContentManager.MikePaycheck4SoundEffect.CreateInstance()
-                    }
-                }
-            };
-        }
-
-        public PhoneCall GetMikeSignedContracts()
-        {
-            return new PhoneCall()
-            {
-                NewValidators = new Dictionary<OrganizerIds, List<Rule>>()
-                {
-                    {
-                        OrganizerIds.Blue, new List<Rule>()
-                        {
-                            Rules.SignedContracts
-                        }
-                    },
-                    {
-                        OrganizerIds.Bin, new List<Rule>()
-                        {
-                            Rules.UnsignedContracts
-                        }
-                    }
-                },
-                VoiceLines = new List<VoiceLine>()
-                {
-                    new VoiceLine()
-                    {
-                        Text = "Hey, it's Mike!",
-                        Voice = ContentManager.MikeContract1SoundEffect.CreateInstance()
-                    },
-                    new VoiceLine()
-                    {
-                        Text = "So I recently got a contract that you sorted...",
-                        Voice = ContentManager.MikeContract2SoundEffect.CreateInstance()
-                    },
-                    new VoiceLine()
-                    {
-                        Text = "but whoever gave it to you didn't sign it.",
-                        Voice = ContentManager.MikeContract3SoundEffect.CreateInstance()
-                    },
-                    new VoiceLine()
-                    {
-                        Text = "So from now on, check if contracts are signed before passing them on.",
-                        Voice = ContentManager.MikeContract4SoundEffect.CreateInstance()
-                    }
-                }
-            };
-        }
-
         public PhoneCall GetBossTutorial()
         {
             return new PhoneCall()
@@ -1179,14 +951,29 @@ namespace Bliss.Factories
                 NewValidators = new Dictionary<OrganizerIds, List<Rule>>()
                 {
                     {
+                        OrganizerIds.Blue, new List<Rule>()
+                        {
+                            Rules.IsContract,
+                            Rules.IsPaycheckForBlue
+                        }
+                    },
+                    {
                         OrganizerIds.Red, new List<Rule>()
                         {
+                            Rules.IsApplicationForRed,
                             Rules.AmericanApplicants
+                        }
+                    },
+                    {
+                        OrganizerIds.Green, new List<Rule>()
+                        {
+                            Rules.IsLetter
                         }
                     },
                     {
                         OrganizerIds.Bin, new List<Rule>()
                         {
+                            Rules.IsClassified,
                             Rules.HardcoreRacism
                         }
                     }
@@ -1232,6 +1019,268 @@ namespace Bliss.Factories
             };
         }
 
+        public PhoneCall GetMikeRedChecks()
+        {
+            return new PhoneCall()
+            {
+                NewValidators = new Dictionary<OrganizerIds, List<Rule>>()
+                {
+                    {
+                        OrganizerIds.Blue, new List<Rule>()
+                        {
+                            Rules.IsContract
+                        }
+                    },
+                    {
+                        OrganizerIds.Red, new List<Rule>()
+                        {
+                            Rules.IsApplicationForRed,
+                            Rules.AmericanApplicants,
+                            Rules.IsPaycheckForRed
+                        }
+                    },
+                    {
+                        OrganizerIds.Green, new List<Rule>()
+                        {
+                            Rules.IsLetter
+                        }
+                    },
+                    {
+                        OrganizerIds.Bin, new List<Rule>()
+                        {
+                            Rules.IsClassified,
+                            Rules.HardcoreRacism
+                        }
+                    }
+                },
+                VoiceLines = new List<VoiceLine>()
+                {
+                    new VoiceLine()
+                    {
+                        Text = "Hello, it's Mike!",
+                        Voice = ContentManager.MikePaycheck1SoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "For one reason or another I don't seem to be getting any paychecks.",
+                        Voice = ContentManager.MikePaycheck2SoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "You're putting them in the red organizer, right?",
+                        Voice = ContentManager.MikePaycheck3SoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "Well if you don't, you better start doing it.",
+                        Voice = ContentManager.MikePaycheck4SoundEffect.CreateInstance()
+                    }
+                }
+            };
+        }
+
+        public PhoneCall GetBettyFuckMen()
+        {
+            return new PhoneCall()
+            {
+                NewValidators = new Dictionary<OrganizerIds, List<Rule>>()
+                {
+                    {
+                        OrganizerIds.Blue, new List<Rule>()
+                        {
+                            Rules.IsContract
+                        }
+                    },
+                    {
+                        OrganizerIds.Red, new List<Rule>()
+                        {
+                            Rules.IsApplicationForRed,
+                            Rules.AmericanApplicants,
+                            Rules.NoMaleApplicants,
+                            Rules.IsPaycheckForRed
+                        }
+                    },
+                    {
+                        OrganizerIds.Green, new List<Rule>()
+                        {
+                            Rules.IsLetter
+                        }
+                    },
+                    {
+                        OrganizerIds.Bin, new List<Rule>()
+                        {
+                            Rules.IsClassified,
+                            Rules.HardcoreRacism,
+                            Rules.MaleApplicants
+                        }
+                    }
+                },
+                VoiceLines = new List<VoiceLine>()
+                {
+                    new VoiceLine()
+                    {
+                        Text = "Hey rookie! This is Betty. You know, from HR.",
+                        Voice = ContentManager.BettyFuckMen1SoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "Listen, I have some new rules for you.",
+                        Voice = ContentManager.BettyFuckMen2SoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "Now, we get lot's of applications. But we don't need that many, right?",
+                        Voice = ContentManager.BettyFuckMen3SoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "So, until further notice, just toss all applications sent by men!",
+                        Voice = ContentManager.BettyFuckMen4SoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "Don't worry, the Boss approved it. Alright, talk to you later!",
+                        Voice = ContentManager.BettyFuckMen5SoundEffect.CreateInstance()
+                    }
+                }
+            };
+        }
+
+        public PhoneCall GetMikeSignedContracts()
+        {
+            return new PhoneCall()
+            {
+                NewValidators = new Dictionary<OrganizerIds, List<Rule>>()
+                {
+                    {
+                        OrganizerIds.Blue, new List<Rule>()
+                        {
+                            Rules.IsContract,
+                            Rules.SignedContracts
+                        }
+                    },
+                    {
+                        OrganizerIds.Red, new List<Rule>()
+                        {
+                            Rules.IsApplicationForRed,
+                            Rules.AmericanApplicants,
+                            Rules.NoMaleApplicants,
+                            Rules.IsPaycheckForRed
+                        }
+                    },
+                    {
+                        OrganizerIds.Green, new List<Rule>()
+                        {
+                            Rules.IsLetter
+                        }
+                    },
+                    {
+                        OrganizerIds.Bin, new List<Rule>()
+                        {
+                            Rules.IsClassified,
+                            Rules.HardcoreRacism,
+                            Rules.MaleApplicants,
+                            Rules.UnsignedContracts
+                        }
+                    }
+                },
+                VoiceLines = new List<VoiceLine>()
+                {
+                    new VoiceLine()
+                    {
+                        Text = "Hey, it's Mike!",
+                        Voice = ContentManager.MikeContract1SoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "So I recently got a contract that you sorted...",
+                        Voice = ContentManager.MikeContract2SoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "but whoever gave it to you didn't sign it.",
+                        Voice = ContentManager.MikeContract3SoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "So from now on, check if contracts are signed before passing them on.",
+                        Voice = ContentManager.MikeContract4SoundEffect.CreateInstance()
+                    }
+                }
+            };
+        }
+
+        public PhoneCall GetBettyLetters()
+        {
+            return new PhoneCall()
+            {
+                NewValidators = new Dictionary<OrganizerIds, List<Rule>>()
+                {
+                    {
+                        OrganizerIds.Blue, new List<Rule>()
+                        {
+                            Rules.IsContract,
+                            Rules.SignedContracts
+                        }
+                    },
+                    {
+                        OrganizerIds.Red, new List<Rule>()
+                        {
+                            Rules.IsApplicationForRed,
+                            Rules.AmericanApplicants,
+                            Rules.NoMaleApplicants,
+                            Rules.IsPaycheckForRed
+                        }
+                    },
+                    {
+                        OrganizerIds.Green, new List<Rule>()
+                        {
+                            Rules.IsLetter,
+                            Rules.ValidLetter
+                        }
+                    },
+                    {
+                        OrganizerIds.Bin, new List<Rule>()
+                        {
+                            Rules.IsClassified,
+                            Rules.HardcoreRacism,
+                            Rules.MaleApplicants,
+                            Rules.UnsignedContracts,
+                            Rules.InvalidLetter
+                        }
+                    }
+                },
+                VoiceLines = new List<VoiceLine>()
+                {
+                    new VoiceLine()
+                    {
+                        Text = "Hey sweetheart.",
+                        Voice = ContentManager.BettyLetter1SoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "So, about 50 letters in the last week arrived without any stamps and return addresses",
+                        Voice = ContentManager.BettyLetter2SoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "so we couldn't send them out",
+                        Voice = ContentManager.BettyLetter3SoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "From now on, please make sure that every letter has a stamp and a return address on it.",
+                        Voice = ContentManager.BettyLetter4SoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "Thanks dear!",
+                        Voice = ContentManager.BettyLetter5SoundEffect.CreateInstance()
+                    }
+                }
+            };
+        }
+
         public PhoneCall GetBossLightRacism()
         {
             return new PhoneCall()
@@ -1239,14 +1288,37 @@ namespace Bliss.Factories
                 NewValidators = new Dictionary<OrganizerIds, List<Rule>>()
                 {
                     {
+                        OrganizerIds.Blue, new List<Rule>()
+                        {
+                            Rules.IsContract,
+                            Rules.SignedContracts
+                        }
+                    },
+                    {
                         OrganizerIds.Red, new List<Rule>()
                         {
+                            Rules.IsApplicationForRed,
+                            Rules.AmericanApplicants,
+                            Rules.NoMaleApplicants,
+                            Rules.IsPaycheckForRed,
                             Rules.FuckNorthernEurope
+                        }
+                    },
+                    {
+                        OrganizerIds.Green, new List<Rule>()
+                        {
+                            Rules.IsLetter,
+                            Rules.ValidLetter,
                         }
                     },
                     {
                         OrganizerIds.Bin, new List<Rule>()
                         {
+                            Rules.IsClassified,
+                            Rules.HardcoreRacism,
+                            Rules.MaleApplicants,
+                            Rules.UnsignedContracts,
+                            Rules.InvalidLetter,
                             Rules.LightcoreRacism
                         }
                     }
@@ -1287,6 +1359,76 @@ namespace Bliss.Factories
                     {
                         Text = "No people from 'This-aint-real-istan'!",
                         Voice = ContentManager.BossLightcoreRacism7SoundEffect.CreateInstance()
+                    }
+                }
+            };
+        }
+
+        public PhoneCall GetBettyPayment()
+        {
+            return new PhoneCall()
+            {
+                NewValidators = new Dictionary<OrganizerIds, List<Rule>>()
+                {
+                    {
+                        OrganizerIds.Blue, new List<Rule>()
+                        {
+                            Rules.IsContract,
+                            Rules.SignedContracts
+                        }
+                    },
+                    {
+                        OrganizerIds.Red, new List<Rule>()
+                        {
+                            Rules.IsApplicationForRed,
+                            Rules.AmericanApplicants,
+                            Rules.NoMaleApplicants,
+                            Rules.IsPaycheckForRed,
+                            Rules.FuckNorthernEurope,
+                            Rules.ValidDepartments
+                        }
+                    },
+                    {
+                        OrganizerIds.Green, new List<Rule>()
+                        {
+                            Rules.IsLetter,
+                            Rules.ValidLetter,
+                        }
+                    },
+                    {
+                        OrganizerIds.Bin, new List<Rule>()
+                        {
+                            Rules.IsClassified,
+                            Rules.HardcoreRacism,
+                            Rules.MaleApplicants,
+                            Rules.UnsignedContracts,
+                            Rules.InvalidLetter,
+                            Rules.LightcoreRacism,
+                            Rules.InvalidDepartments
+                        }
+                    }
+                },
+                VoiceLines = new List<VoiceLine>()
+                {
+                    new VoiceLine()
+                    {
+                        Text = "If I could I'd kill every single stupid braindead monkey from accounting.",
+                        Voice = ContentManager.BettyPentagram1SoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "NONE OF THE CHECKS I RECEIVED TODAY hat a department listed on them.",
+                        Voice = ContentManager.BettyPentagram2SoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "So from now on, when you get a paycheck",
+                        Voice = ContentManager.BettyPentagram3SoundEffect.CreateInstance()
+                    },
+                    new VoiceLine()
+                    {
+                        Text = "please confirm that there is a department on it and that it is a valid one.",
+                        Voice = ContentManager.BettyPentagram4SoundEffect.CreateInstance()
                     }
                 }
             };

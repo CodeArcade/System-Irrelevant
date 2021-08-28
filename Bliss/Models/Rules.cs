@@ -10,7 +10,28 @@ namespace Bliss.Models
         #region BettyRules
 
         #region BinRules
+
         public static Rule NoMaleApplicants
+        {
+            get
+            {
+                return new Rule(DocumentType.Application)
+                {
+                    Validate = (document) =>
+                    {
+                        if (document is Application application)
+                        {
+                            return application.Sex != Sexes.Male;
+                        }
+
+                        return false;
+                    },
+                    Description = "Only applications sent by women",
+                };
+            }
+        }
+
+        public static Rule MaleApplicants
         {
             get
             {
@@ -30,7 +51,6 @@ namespace Bliss.Models
             }
         }
 
-
         public static Rule InvalidDepartments
         {
             get
@@ -46,7 +66,27 @@ namespace Bliss.Models
 
                         return false;
                     },
-                    Description = "Toss the paycheck if its not adressed to one of these departments:\n"
+                    Description = "Toss paychecks if not adressed to valid departments:" + Environment.NewLine + "Human Resources, Public Relations, Research and Development, IT, Accounting"
+                };
+            }
+        }
+
+        public static Rule ValidDepartments
+        {
+            get
+            {
+                return new Rule(DocumentType.Paycheck)
+                {
+                    Validate = (document) =>
+                    {
+                        if (document is Paycheck check)
+                        {
+                            return (int)check.Department < 5;
+                        }
+
+                        return false;
+                    },
+                    Description = "Toss paychecks not adressed to one of these departments:\n"
                         + "Human Resources, Public Relations, Research and Development, IT, Accounting"
                 };
             }
@@ -67,7 +107,27 @@ namespace Bliss.Models
 
                         return false;
                     },
-                    Description = "Toss if they don't have a stamp and a return address"
+                    Description = "Toss letters without stamp and return address"
+                };
+            }
+        }
+
+        public static Rule ValidLetter
+        {
+            get
+            {
+                return new Rule(DocumentType.Letter)
+                {
+                    Validate = (document) =>
+                    {
+                        if (document is Letter letter)
+                        {
+                            return letter.HasStamp && !string.IsNullOrEmpty(letter.ReturnAdress);
+                        }
+
+                        return false;
+                    },
+                    Description = "Toss letters without stamp and return address"
                 };
             }
         }
@@ -157,7 +217,7 @@ namespace Bliss.Models
                         }
                         return false;
                     },
-                    Description = "Toss from Denmark, Sweden, Norway, Finland and UK"
+                    Description = "Toss applications from northern countries"
                 };
             }
         }
@@ -180,7 +240,7 @@ namespace Bliss.Models
                         }
                         return false;
                     },
-                    Description = "Contracts need a valid signature."
+                    Description = "Toss contracts without valid signature"
                 };
             }
         }
@@ -203,7 +263,7 @@ namespace Bliss.Models
                         }
                         return false;
                     },
-                    Description = "Contracts need a valid signature." // TODO: Not a good condition -> what to do when they have no valid signature
+                    Description = "Toss applications not from americans."
                 };
             }
         }
@@ -230,7 +290,8 @@ namespace Bliss.Models
                             return true;
                         }
                         return false;
-                    }
+                    },
+                    Description = "Toss applicationsn from northern countries"
                 };
             }
         }
