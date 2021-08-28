@@ -7,6 +7,7 @@ using Bliss.States;
 using Bliss.States.Game;
 using Myra.Graphics2D.UI;
 using Bliss.States.GameOver;
+using System;
 
 namespace Bliss
 {
@@ -40,6 +41,8 @@ namespace Bliss
 
         protected override void Initialize()
         {
+            Window.Title = "System Irrelevant";
+
             // this should work - but no dynamic resize
 
             Graphics.IsFullScreen = true;

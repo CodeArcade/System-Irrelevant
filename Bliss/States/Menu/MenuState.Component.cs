@@ -43,7 +43,7 @@ namespace Bliss.States.GameOver
 
             Label title = new Label()
             {
-                Text = "GAME TITLE",
+                Text = "System Irrelevant",
                 GridColumn = 1,
                 GridRow = 1,
                 HorizontalAlignment = HorizontalAlignment.Center,
@@ -55,7 +55,7 @@ namespace Bliss.States.GameOver
 
             Label subTitle = new Label()
             {
-                Text = "Game Sub Title",
+                Text = "What Do You Even Work For?",
                 GridColumn = 1,
                 GridRow = 2,
                 HorizontalAlignment = HorizontalAlignment.Center,

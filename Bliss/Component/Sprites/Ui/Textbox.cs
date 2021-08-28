@@ -103,9 +103,6 @@ namespace Bliss.Component.Sprites.Ui
                     }
                 }
             }
-
-            AnimationManager.Play(new Animation(ContentManager.TextboxAdvanceTexture, 4));
-            AnimationManager.Position = new Vector2((Position.X + (TextBoxPartSize * xCount)) * 3, (Position.Y + (TextBoxPartSize * yCount) + 10) * 3);
         }
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
@@ -124,8 +121,6 @@ namespace Bliss.Component.Sprites.Ui
             }
 
             spriteBatch.DrawString(ContentManager.PatrickHandFont, Text, new Vector2(Position.X + 15, Position.Y + 15), Color.Black);
-            AnimationManager.Position = new Vector2(Position.X + (TextBoxParts[0].Count * TextBoxPartSize) + 10, Position.Y + (TextBoxParts.Count * TextBoxPartSize) + 10);
-            AnimationManager.Draw(spriteBatch);
         }
 
     }
