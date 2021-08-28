@@ -9,14 +9,14 @@ namespace Bliss.Component.Sprites.Office.Documents
         public Classified(Vector2 spawnPoint, Microsoft.Xna.Framework.Rectangle tableArea) : base(spawnPoint, tableArea)
         {
             Texture = ContentManager.ClassifiedTexture;
-            Size = SizeManager.GetSize(150, 150);
+            Size = SizeManager.GetSize(300 / 2, 160 / 2);
 
             Load(spawnPoint, tableArea);
         }
 
         public override List<Component> GetDetailViewComponents()
         {
-            Size size = SizeManager.GetSize(450, 450);
+            Size size = SizeManager.GetSize(600, 320);
 
             Sprite sprite = new Sprite()
             {
