@@ -41,6 +41,7 @@ namespace Bliss.Manager
         public Texture2D PhoneIdleAnimation => JamGame.Content.Load<Texture2D>("Animations/PhoneIdle");
         public Texture2D PhoneRingingAnimation => JamGame.Content.Load<Texture2D>("Animations/PhoneRinging");
         public Texture2D PhonePickedUpAnimation => JamGame.Content.Load<Texture2D>("Animations/PhonePickedUp");
+        public Texture2D PhoneCallOverAnimation => JamGame.Content.Load<Texture2D>("Animations/PhoneCallOver");
         public Texture2D PhoneTexture => JamGame.Content.Load<Texture2D>("Sprites/Phone");
 
         public Texture2D TextboxTexture => JamGame.Content.Load<Texture2D>("Sprites/Textbox");

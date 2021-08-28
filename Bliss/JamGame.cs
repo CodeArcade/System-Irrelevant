@@ -54,9 +54,9 @@ namespace Bliss
             //Graphics.PreferredBackBufferWidth = 720;
             //Graphics.PreferredBackBufferHeight = 480;
 
-            //Graphics.IsFullScreen = false;
-            //Graphics.PreferredBackBufferWidth = 1400;
-            //Graphics.PreferredBackBufferHeight = 654;
+            Graphics.IsFullScreen = false;
+            Graphics.PreferredBackBufferWidth = 1400;
+            Graphics.PreferredBackBufferHeight = 654;
 
             Graphics.ApplyChanges();
 

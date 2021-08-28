@@ -31,7 +31,7 @@ namespace Bliss.Component.Sprites.Office
         public bool IsTalking { get; private set; }
         public bool IsCallOver { get; private set; }
 
-        public bool IsInUse  { get; private set; }
+        public bool IsInUse { get; private set; }
 
         public Phone(PlayerStats playerStats)
         {
@@ -40,18 +40,21 @@ namespace Bliss.Component.Sprites.Office
 
             Texture = ContentManager.PhoneTexture;
             AnimationManager.Parent = this;
-            AnimationManager.Scale = SizeManager.JamGame.HeightScaleFactor;
+            AnimationManager.Scale = (SizeManager.JamGame.HeightScaleFactor) / 4;
 
             Animations = new Dictionary<string, Animation>()
             {
                 {
-                    "idle", new Animation(ContentManager.PhoneIdleAnimation, 2) { FrameSpeed = 1f }
+                    "idle", new Animation(ContentManager.PhoneIdleAnimation, 1)
                 },
                 {
                     "ringing", new Animation(ContentManager.PhoneRingingAnimation, 2) { FrameSpeed = 0.5f }
                 },
                 {
                     "talking", new Animation(ContentManager.PhonePickedUpAnimation, 1)
+                },
+                {
+                    "callOver", new Animation(ContentManager.PhoneCallOverAnimation, 1)
                 },
             };
 
@@ -165,7 +168,11 @@ namespace Bliss.Component.Sprites.Office
         {
             if (CurrentVoiceLine == PhoneCall.VoiceLines.Count)
             {
-                if (CallOverSoundEffect.State != SoundState.Playing) CallOverSoundEffect.Play();
+                if (CallOverSoundEffect.State != SoundState.Playing)
+                {
+                    CallOverSoundEffect.Play();
+                    AnimationManager.Play(Animations["callOver"]);
+                }
                 IsCallOver = true;
                 TextBox.Visible = false;
                 return;

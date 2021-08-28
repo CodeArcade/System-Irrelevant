@@ -109,13 +109,13 @@ namespace Bliss.States.Game
 
         private void AddPhone()
         {
-            Size size = SizeManager.GetSize(200, 125);
+            Size size = SizeManager.GetSize(180, 200);
             Phone = new Phone(PlayerStats)
             {
                 Size = size,
                 Position = new Vector2(
                         Table.Position.X + Clock.Size.Width / 8,
-                        Table.Position.Y + size.Height
+                        Table.Position.Y + Clock.Size.Height * 1.5f
                     )
             };
             Phone.OnImportantCallFinished += ImportantPhoneCallFinished;
