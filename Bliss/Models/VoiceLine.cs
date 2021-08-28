@@ -6,5 +6,6 @@ namespace Bliss.Models
     {
         public string Text { get; set; }
         public SoundEffectInstance Voice { get; set; }
+        public DocumentType? DocumentTypeToSpawn { get; set; } = null;
     }
 }

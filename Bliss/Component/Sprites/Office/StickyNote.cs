@@ -100,7 +100,7 @@ namespace Bliss.Component.Sprites.Office
             Grid grid = new Grid();
             grid.ColumnsProportions.Add(new Proportion(ProportionType.Pixels, sprite.Size.Width));
 
-            for(int i = 0; i < Rows; i++)
+            for (int i = 0; i < Rows; i++)
             {
                 grid.RowsProportions.Add(new Proportion(ProportionType.Pixels, sprite.Size.Height * 1f / Rows));
             }
@@ -124,7 +124,8 @@ namespace Bliss.Component.Sprites.Office
                 GridColumn = 0,
                 TextColor = Color.Black,
                 Font = fontSystem.GetFont((int)SizeManager.ScaleForWidth(14)),
-                Text = text
+                Text = text,
+                Padding = new Myra.Graphics2D.Thickness((int)SizeManager.ScaleForWidth(10),(int) SizeManager.ScaleForHeight(10), 0, 0)
             };
         }
 

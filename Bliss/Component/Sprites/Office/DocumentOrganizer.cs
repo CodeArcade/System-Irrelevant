@@ -1,14 +1,10 @@
 ﻿using Bliss.Component.Sprites.Office.Documents;
 using Bliss.Models;
-using System;
 using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
 using MonoGame.Extended.Tweening;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended;
-using System.Diagnostics;
 
 namespace Bliss.Component.Sprites.Office
 {
@@ -52,6 +48,8 @@ namespace Bliss.Component.Sprites.Office
                 if (!docmentRules.ContainsKey(rule.DocumentType)) docmentRules.Add(rule.DocumentType, new List<Rule>());
                 docmentRules[rule.DocumentType].Add(rule);
             }
+
+            if (!docmentRules.ContainsKey(document.GetDocumentType())) return false;
 
             foreach (Rule rule in docmentRules[document.GetDocumentType()])
                 if (!rule.Validate(document)) return false;

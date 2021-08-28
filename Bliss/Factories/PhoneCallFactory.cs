@@ -848,7 +848,8 @@ namespace Bliss.Factories
                     new VoiceLine()
                     {
                         Text = "First: this is a contract.",
-                        Voice = ContentManager.BossIntro5SoundEffect.CreateInstance()
+                        Voice = ContentManager.BossIntro5SoundEffect.CreateInstance(),
+                        DocumentTypeToSpawn = DocumentType.Contract
                     },
                     new VoiceLine()
                     {
@@ -858,7 +859,8 @@ namespace Bliss.Factories
                     new VoiceLine()
                     {
                         Text = "Next, this is a paycheck.",
-                        Voice = ContentManager.BossIntro7SoundEffect.CreateInstance()
+                        Voice = ContentManager.BossIntro7SoundEffect.CreateInstance(),
+                        DocumentTypeToSpawn = DocumentType.Paycheck
                     },
                     new VoiceLine()
                     {
@@ -878,7 +880,8 @@ namespace Bliss.Factories
                     new VoiceLine()
                     {
                         Text = "This is an application.",
-                        Voice = ContentManager.BossIntro11SoundEffect.CreateInstance()
+                        Voice = ContentManager.BossIntro11SoundEffect.CreateInstance(),
+                        DocumentTypeToSpawn = DocumentType.Application
                     },
                     new VoiceLine()
                     {
@@ -893,7 +896,8 @@ namespace Bliss.Factories
                     new VoiceLine()
                     {
                         Text = "This one is just a regular letter.",
-                        Voice = ContentManager.BossIntro14SoundEffect.CreateInstance()
+                        Voice = ContentManager.BossIntro14SoundEffect.CreateInstance(),
+                        DocumentTypeToSpawn = DocumentType.Letter
                     },
                     new VoiceLine()
                     {
@@ -903,7 +907,8 @@ namespace Bliss.Factories
                     new VoiceLine()
                     {
                         Text = "Now this... this is classified.",
-                        Voice = ContentManager.BossIntro16SoundEffect.CreateInstance()
+                        Voice = ContentManager.BossIntro16SoundEffect.CreateInstance(),
+                        DocumentTypeToSpawn = DocumentType.Classified
                     },
                     new VoiceLine()
                     {

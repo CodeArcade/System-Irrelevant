@@ -103,7 +103,7 @@ namespace Bliss.States.Game
             PreviousKeyboard = CurrentKeyboad;
             CurrentKeyboad = Keyboard.GetState();
 
-            if (PlayerStats.Day == 0) Intro();
+            Intro();
 
             if (Clock.Hour >= 17)
             {
@@ -150,16 +150,19 @@ namespace Bliss.States.Game
 
         private void Intro()
         {
+            if (PlayerStats.Day != 0) return;
+
             if (!PlayTutorial)
             {
-                ImportantPhoneCallFinished(PhoneCallFactory.GetBossTutorial(), new EventArgs());
                 PlayerStats.Day = 1;
+                ImportantPhoneCallFinished(PhoneCallFactory.GetBossTutorial(), new EventArgs());
                 return;
             }
 
             if (!Phone.IsRinging && !Phone.IsTalking && !Phone.IsCallOver)
             {
                 Phone.Ring(PhoneCallFactory.GetBossTutorial());
+                ImportantPhoneCallFinished(PhoneCallFactory.GetBossTutorial(), new EventArgs());
                 Phone.SecondsBeforeMissedCall = int.MaxValue;
             }
 
@@ -205,10 +208,16 @@ namespace Bliss.States.Game
             }
         }
 
-        private void SpawnDocument()
+        private void SpawnDocument(DocumentType? documentType = null)
         {
             AudioManager.PlayEffect(ContentManager.DocumentSpawnedSoundEffect);
-            BaseDocument document = DocumentFactory.GetRandomDocument(DocumentSpawnPoints[Random.Next(0, DocumentSpawnPoints.Count)].Position, Table.Rectangle);
+            BaseDocument document = null;
+
+            if (documentType is null)
+                document = DocumentFactory.GetRandomDocument(DocumentSpawnPoints[Random.Next(0, DocumentSpawnPoints.Count)].Position, Table.Rectangle);
+            else
+                document = DocumentFactory.GetDocument(DocumentSpawnPoints[Random.Next(0, DocumentSpawnPoints.Count)].Position, Table.Rectangle, documentType.Value);
+
             document.OnClick += DocumentClicked;
             document.OnDragStopped += DocumentDragStopped;
             document.OnDragUpdate += (sender, e) =>

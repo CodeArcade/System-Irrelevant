@@ -1,6 +1,7 @@
 ﻿using Bliss.Component.Sprites;
 using Bliss.Component.Sprites.Office.Documents;
 using Bliss.Manager;
+using Bliss.Models;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -26,6 +27,19 @@ namespace Bliss.Factories
                 3 => GetLetter(spawnPoint, table),
                 4 => GetClassified(spawnPoint, table),
                 _ => GetContract(spawnPoint, table)
+
+            };
+        }
+
+        public BaseDocument GetDocument(Vector2 spawnPoint, Rectangle table, DocumentType documentType)
+        {
+            return documentType switch
+            {
+                DocumentType.Application => GetApplication(spawnPoint, table),
+                DocumentType.Classified => GetClassified(spawnPoint, table),
+                DocumentType.Contract=> GetContract(spawnPoint, table),
+                DocumentType.Letter => GetLetter(spawnPoint, table),
+                _ => GetPaycheck(spawnPoint, table),
                 
             };
         }

@@ -2,6 +2,7 @@
 using Bliss.Component.Sprites.Office;
 using Bliss.Component.Sprites.Ui;
 using Bliss.Manager;
+using Bliss.Models;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -119,6 +120,14 @@ namespace Bliss.States.Game
                     )
             };
             Phone.OnImportantCallFinished += ImportantPhoneCallFinished;
+            Phone.OnVoiceLineStart += (sender, e) =>
+            {
+                VoiceLine voiceLine = (VoiceLine)sender;
+
+                if (voiceLine.DocumentTypeToSpawn is null) return;
+
+                SpawnDocument(voiceLine.DocumentTypeToSpawn.Value);
+            };
             AddComponent(Phone, States.Layers.PlayingArea);
         }
 
@@ -126,7 +135,7 @@ namespace Bliss.States.Game
         {
             PhoneDialogueTextBox = new TextBox()
             {
-                Position = new Vector2(Phone.Position.X, Phone.Position.Y + Phone.Size.Height),
+                Position = new Vector2(Phone.Position.X, Table.Size.Height),
                 Visible = false
             };
 
@@ -188,10 +197,11 @@ namespace Bliss.States.Game
             StickyNote = new StickyNote()
             {
                 CanBeClicked = true,
-                TweenOffset = (int)SizeManager.ScaleForHeight(69)
+                Size = SizeManager.GetSize(125, 125),
             };
-            StickyNote.Position = SizeManager.GetPosition(-(StickyNote.Texture.Width / 3), y);
-            StickyNote.OriginPosition = SizeManager.GetPosition(-(StickyNote.Texture.Width / 3), y);
+            StickyNote.TweenOffset = (int)SizeManager.ScaleForWidth(StickyNote.Size.Width / 3);
+            StickyNote.Position = SizeManager.GetPosition(-(StickyNote.Size.Width / 3), y);
+            StickyNote.OriginPosition = SizeManager.GetPosition(-(StickyNote.Size.Width / 3), y);
 
             StickyNote.OnClick += StickyNoteClicked;
             AddComponent(StickyNote, States.Layers.PlayingArea);

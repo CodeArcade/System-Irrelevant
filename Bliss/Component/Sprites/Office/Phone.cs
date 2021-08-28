@@ -13,6 +13,7 @@ namespace Bliss.Component.Sprites.Office
     public class Phone : Clickable
     {
         public event EventHandler OnImportantCallFinished;
+        public event EventHandler OnVoiceLineStart;
 
         private Dictionary<string, Animation> Animations { get; set; }
 
@@ -185,6 +186,7 @@ namespace Bliss.Component.Sprites.Office
 
             PhoneCall.VoiceLines[CurrentVoiceLine].Voice.Play();
             TextBox.Text = PhoneCall.VoiceLines[CurrentVoiceLine].Text;
+            OnVoiceLineStart?.Invoke(PhoneCall.VoiceLines[CurrentVoiceLine], new EventArgs());
         }
 
     }
