@@ -102,7 +102,7 @@ namespace Bliss.Models
                     {
                         if (document is Letter letter)
                         {
-                            return !letter.HasStamp && string.IsNullOrEmpty(letter.ReturnAdress);
+                            return !letter.HasStamp && string.IsNullOrEmpty(letter.ReturnAddress);
                         }
 
                         return false;
@@ -122,7 +122,7 @@ namespace Bliss.Models
                     {
                         if (document is Letter letter)
                         {
-                            return letter.HasStamp && !string.IsNullOrEmpty(letter.ReturnAdress);
+                            return letter.HasStamp && !string.IsNullOrEmpty(letter.ReturnAddress);
                         }
 
                         return false;
@@ -183,7 +183,7 @@ namespace Bliss.Models
                     {
                         if (document is Application application)
                         {
-                            return application.Location == Locations.America;
+                            return application.Country != Countries.America;
                         }
                         return false;
                     },
@@ -205,13 +205,13 @@ namespace Bliss.Models
                     {
                         if (document is Application application)
                         {
-                            switch (application.Location)
+                            switch (application.Country)
                             {
-                                case Locations.Denmark:
-                                case Locations.Sweden:
-                                case Locations.Norway:
-                                case Locations.Finland:
-                                case Locations.UnitedKingdom:
+                                case Countries.Denmark:
+                                case Countries.Sweden:
+                                case Countries.Norway:
+                                case Countries.Finland:
+                                case Countries.UnitedKingdom:
                                     return true;
                             }
                         }
@@ -259,7 +259,7 @@ namespace Bliss.Models
                     {
                         if (document is Application application)
                         {
-                            return application.Location == Locations.America;
+                            return application.Country == Countries.America;
                         }
                         return false;
                     },
@@ -278,13 +278,13 @@ namespace Bliss.Models
                     {
                         if (document is Application application)
                         {
-                            switch (application.Location)
+                            switch (application.Country)
                             {
-                                case Locations.Denmark:
-                                case Locations.Sweden:
-                                case Locations.Norway:
-                                case Locations.Finland:
-                                case Locations.UnitedKingdom:
+                                case Countries.Denmark:
+                                case Countries.Sweden:
+                                case Countries.Norway:
+                                case Countries.Finland:
+                                case Countries.UnitedKingdom:
                                     return false;
                             }
                             return true;

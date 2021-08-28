@@ -1,8 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
-using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Text;
 
 namespace Bliss.Component.Sprites.Office.Documents
 {

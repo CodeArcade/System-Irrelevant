@@ -81,9 +81,7 @@ namespace Bliss.Component.Sprites.Office.Documents
                 grid.Widgets.Add(label);
             }
 
-            UiGridComponent uiGridComponent = new UiGridComponent(grid, sprite.Size, sprite.Position);
-
-            return new List<Component>() { sprite, uiGridComponent };
+            return new List<Component>() { sprite, new UiGridComponent(grid, sprite.Size, sprite.Position) };
         }
     }
 }

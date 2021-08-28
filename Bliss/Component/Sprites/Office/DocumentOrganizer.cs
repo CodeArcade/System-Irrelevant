@@ -34,7 +34,7 @@ namespace Bliss.Component.Sprites.Office
         private bool IsRetracting { get; set; } = false;
 
         private MouseState TweenerCurrentMouse { get; set; }
-        
+
         private PlayerStats PlayerStats { get; set; }
 
         public DocumentOrganizer(PlayerStats playerStats)
@@ -45,10 +45,16 @@ namespace Bliss.Component.Sprites.Office
 
         public bool Validate(BaseDocument document)
         {
+            Dictionary<DocumentType, List<Rule>> docmentRules = new Dictionary<DocumentType, List<Rule>>();
+
             foreach (Rule rule in Validators)
             {
-                if (!rule.Validate(document)) return false;
+                if (!docmentRules.ContainsKey(rule.DocumentType)) docmentRules.Add(rule.DocumentType, new List<Rule>());
+                docmentRules[rule.DocumentType].Add(rule);
             }
+
+            foreach (Rule rule in docmentRules[document.GetDocumentType()])
+                if (!rule.Validate(document)) return false;
 
             return true;
         }
@@ -82,7 +88,7 @@ namespace Bliss.Component.Sprites.Office
             return mouseRectangle.Intersects(Rectangle);
         }
 
-        public void Extend() 
+        public void Extend()
         {
             Tweener.TweenTo(target: this, duration: 0.3f, expression: organizer => organizer.Position, toValue: new Vector2(OriginPosition.X - TweenOffset, OriginPosition.Y))
                 .Easing(EasingFunctions.CircleOut);
@@ -101,7 +107,7 @@ namespace Bliss.Component.Sprites.Office
         public override void OnCollision(Sprite sprite, GameTime gameTime)
         {
             if (!IsExtending) return;
-            
+
             if (sprite is BaseDocument document)
             {
                 if (document.IsHeld) return;

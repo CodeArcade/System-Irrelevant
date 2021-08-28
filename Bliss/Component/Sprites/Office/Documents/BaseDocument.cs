@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Bliss.Models;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
@@ -189,5 +190,16 @@ namespace Bliss.Component.Sprites.Office.Documents
         /// This functions returns the components for the detail view of the document
         /// </summary>
         public abstract List<Component> GetDetailViewComponents();
+
+        public DocumentType GetDocumentType()
+        {
+            if (this is Application) return DocumentType.Application;
+            if (this is Classified) return DocumentType.Classified;
+            if (this is Contract) return DocumentType.Contract;
+            if (this is Letter) return DocumentType.Letter;
+            if (this is Paycheck) return DocumentType.Paycheck;
+
+            return DocumentType.All;
+        }
     }
 }
