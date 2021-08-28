@@ -79,7 +79,7 @@ namespace Bliss
         protected override void Update(GameTime gameTime)
         {
             StateManager.Update(gameTime);
-
+            
             base.Update(gameTime);
         }
 

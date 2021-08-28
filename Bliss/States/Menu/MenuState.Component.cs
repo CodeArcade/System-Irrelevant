@@ -38,8 +38,10 @@ namespace Bliss.States.GameOver
             grid.RowsProportions.Add(new Proportion(ProportionType.Pixels, SizeManager.ScaleForHeight((int)(JamGame.BaseHeight * 0.1))));
             // Button
             grid.RowsProportions.Add(new Proportion(ProportionType.Pixels, SizeManager.ScaleForHeight((int)(JamGame.BaseHeight * 0.05))));
+            // Button
+            grid.RowsProportions.Add(new Proportion(ProportionType.Pixels, SizeManager.ScaleForHeight((int)(JamGame.BaseHeight * 0.05))));
             // Spacer
-            grid.RowsProportions.Add(new Proportion(ProportionType.Pixels, SizeManager.ScaleForHeight((int)(JamGame.BaseHeight * 0.3))));
+            grid.RowsProportions.Add(new Proportion(ProportionType.Pixels, SizeManager.ScaleForHeight((int)(JamGame.BaseHeight * 0.25))));
 
             Label title = new Label()
             {
@@ -138,6 +140,19 @@ namespace Bliss.States.GameOver
             };
             button.Click += (sender, e) => { AudioManager.StopMusic(); StateManager.ChangeTo<GameState>(GameState.Name, checkBox.IsChecked); };
             grid.Widgets.Add(button);
+
+            TextButton quitButton = new TextButton
+            {
+                Text = "Exit",
+                GridColumn = 1,
+                GridRow = 8,
+                Font = fontSystem.GetFont((int)SizeManager.ScaleForWidth(20)),
+                HorizontalAlignment = HorizontalAlignment.Center,
+                Width = (int)SizeManager.ScaleForWidth(JamGame.BaseWidth / 8),
+                VerticalAlignment = VerticalAlignment.Stretch,
+            };
+            quitButton.Click += (sender, e) => { JamGame.Exit(); };
+            grid.Widgets.Add(quitButton);
 
             JamGame.Dekstop.Root = grid;
         }
