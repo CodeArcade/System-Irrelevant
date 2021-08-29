@@ -71,11 +71,16 @@ namespace Bliss.States.Game
             }
 
             Calls = new List<PhoneCall>();
-            int callCount = Random.Next(1, 4);
-            for (int i = 0; i < callCount - 1; i++)
+            int callCount = Random.Next(0, 2);
+            for (int i = 0; i < callCount; i++)
                 Calls.Add(PhoneCallFactory.GetRandom());
 
             Calls.Add(PhoneCallFactory.GetImportant());
+
+            callCount = Random.Next(0, 2);
+            for (int i = 0; i < callCount; i++)
+                Calls.Add(PhoneCallFactory.GetRandom());
+
             SecondsToNextPhoneCall = new Random().Next(25, 45);
 
             AudioManager.ChangeSong(ContentManager.CalmSong, true, -(Manager.AudioManager.GlobalVolume * 0.75f));
