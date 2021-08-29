@@ -15,9 +15,9 @@ namespace Bliss.Component.Sprites.Office.Documents
     /// </summary>
     public enum Departments
     {
-        HumanResources,
-        PublicRelations,
-        ResearchDevelopment,
+        HR,
+        PR,
+        Research,
         IT,
         Accounting,
         Design,
@@ -48,13 +48,13 @@ namespace Bliss.Component.Sprites.Office.Documents
                 0 => Departments.Accounting,
                 1 => Departments.Design,
                 2 => Departments.Export,
-                3 => Departments.HumanResources,
+                3 => Departments.HR,
                 4 => Departments.IT,
                 5 => Departments.Logistics,
                 6 => Departments.Marketing,
-                7 => Departments.PublicRelations,
+                7 => Departments.PR,
                 8 => Departments.Purchasing,
-                _ => Departments.ResearchDevelopment
+                _ => Departments.Research
             };
         }
 

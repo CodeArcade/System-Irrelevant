@@ -1,8 +1,11 @@
-﻿using Bliss.States.Game;
+﻿using Bliss.Component.Sprites;
+using Bliss.States.Game;
 using FontStashSharp;
 using Microsoft.Xna.Framework;
 using MonoGame.Extended.Content;
 using Myra.Graphics2D.UI;
+using System.Drawing;
+using Color = Microsoft.Xna.Framework.Color;
 
 namespace Bliss.States.GameOver
 {
@@ -34,6 +37,15 @@ namespace Bliss.States.GameOver
             grid.RowsProportions.Add(new Proportion(ProportionType.Pixels, SizeManager.ScaleForHeight((int)(JamGame.BaseHeight * 0.05))));
             // Spacer
             grid.RowsProportions.Add(new Proportion(ProportionType.Pixels, SizeManager.ScaleForHeight((int)(JamGame.BaseHeight * 0.3))));
+
+            Size backgroundSize = SizeManager.GetSize(JamGame.BaseWidth, JamGame.BaseHeight);
+            Sprite backgroundSprite = new Sprite()
+            {
+                Position = SizeManager.GetPosition(0, 0),
+                Texture = ContentManager.BackgroundTexture,
+                Size = SizeManager.GetSize(JamGame.ActualWidth, JamGame.ActualHeight)
+            };
+            AddComponent(backgroundSprite, States.Layers.Background);
 
             Label title = new Label()
             {

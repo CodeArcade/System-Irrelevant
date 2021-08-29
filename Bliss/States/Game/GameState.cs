@@ -209,7 +209,7 @@ namespace Bliss.States.Game
                 if (!DidSpawnDocuments)
                 {
                     DidSpawnDocuments = true;
-                    SpawnDocument(null, 10);
+                    SpawnDocument(null, Math.Min((PlayerStats.Day * 2) + 4, 15));
                 }
             }
             else DidSpawnDocuments = false;
@@ -284,7 +284,7 @@ namespace Bliss.States.Game
 
             if (Clock.Hour < 16 && Clock.Minute < 30 && Clock.Hour != 9 && Clock.Minute != 0)
                 if (PlayerStats.Day > 0)
-                    SpawnDocument(null, 10);
+                    SpawnDocument(null, Math.Min(PlayerStats.Day + 4, 15));
         }
 
         private void SetStickyNoteValidators()

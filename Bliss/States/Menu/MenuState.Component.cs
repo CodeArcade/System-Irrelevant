@@ -1,8 +1,11 @@
-﻿using Bliss.States.Game;
+﻿using Bliss.Component.Sprites;
+using Bliss.States.Game;
 using FontStashSharp;
 using Microsoft.Xna.Framework;
 using MonoGame.Extended.Content;
 using Myra.Graphics2D.UI;
+using System.Drawing;
+using Color = Microsoft.Xna.Framework.Color;
 
 namespace Bliss.States.GameOver
 {
@@ -43,30 +46,23 @@ namespace Bliss.States.GameOver
             // Spacer
             grid.RowsProportions.Add(new Proportion(ProportionType.Pixels, SizeManager.ScaleForHeight((int)(JamGame.BaseHeight * 0.25))));
 
-            Label title = new Label()
+            Size titleSize = SizeManager.GetSize(1501 / 3, 746 / 3);
+            Sprite titleSprite = new Sprite()
             {
-                Text = "System Irrelevant",
-                GridColumn = 1,
-                GridRow = 1,
-                HorizontalAlignment = HorizontalAlignment.Center,
-                VerticalAlignment = VerticalAlignment.Center,
-                Font = fontSystem.GetFont((int)SizeManager.ScaleForWidth(64)),
-                TextColor = Color.Black
+                Position = SizeManager.GetPosition((JamGame.BaseWidth - 1501 / 3) / 2, 50),
+                Texture = ContentManager.TitleTexture,
+                Size = titleSize
             };
-            grid.Widgets.Add(title);
+            AddComponent(titleSprite, States.Layers.UI);
 
-            Label subTitle = new Label()
+            Size backgroundSize = SizeManager.GetSize(JamGame.BaseWidth, JamGame.BaseHeight);
+            Sprite backgroundSprite = new Sprite()
             {
-                Text = "What Do You Even Work For?",
-                GridColumn = 1,
-                GridRow = 2,
-                HorizontalAlignment = HorizontalAlignment.Center,
-                VerticalAlignment = VerticalAlignment.Center,
-                Font = fontSystem.GetFont((int)SizeManager.ScaleForWidth(32)),
-                TextColor = Color.Black,
-                Padding = new Myra.Graphics2D.Thickness(0, (int)SizeManager.ScaleForHeight(30), 0, 0)
+                Position = SizeManager.GetPosition(0, 0),
+                Texture = ContentManager.BackgroundTexture,
+                Size = SizeManager.GetSize(JamGame.ActualWidth, JamGame.ActualHeight)
             };
-            grid.Widgets.Add(subTitle);
+            AddComponent(backgroundSprite, States.Layers.Background);
 
             Grid soundGrid = new Grid()
             {
@@ -98,7 +94,6 @@ namespace Bliss.States.GameOver
                 AudioManager.PlayEffect(ContentManager.PhoneRingingSoundEffect);
             };
 
-
             Label soundLabel = new Label()
             {
                 Text = "Volume",
@@ -109,8 +104,6 @@ namespace Bliss.States.GameOver
                 Font = fontSystem.GetFont((int)SizeManager.ScaleForWidth(24)),
                 TextColor = Color.Black
             };
-            grid.Widgets.Add(subTitle);
-
             grid.Widgets.Add(soundGrid);
             soundGrid.Widgets.Add(soundCombobox);
             soundGrid.Widgets.Add(soundLabel);

@@ -24,6 +24,8 @@ namespace Bliss.Manager
         public Texture2D PaycheckTexture => JamGame.Content.Load<Texture2D>("Sprites/Paycheck");
         public Texture2D PaycheckSmallTexture => JamGame.Content.Load<Texture2D>("Sprites/PaycheckSmall");
         public Texture2D ClockTexture => JamGame.Content.Load<Texture2D>("Sprites/Clock");
+        public Texture2D TitleTexture => JamGame.Content.Load<Texture2D>("Sprites/Title");
+        public Texture2D BackgroundTexture => JamGame.Content.Load<Texture2D>("Sprites/Background");
 
         public List<Texture2D> Signatures => new List<Texture2D>() 
         {

@@ -1,8 +1,11 @@
-﻿using Bliss.States.Game;
+﻿using Bliss.Component.Sprites;
+using Bliss.States.Game;
 using FontStashSharp;
 using Microsoft.Xna.Framework;
 using MonoGame.Extended.Content;
 using Myra.Graphics2D.UI;
+using System.Drawing;
+using Color = Microsoft.Xna.Framework.Color;
 
 namespace Bliss.States.Summary
 {
@@ -56,6 +59,15 @@ namespace Bliss.States.Summary
 
             FontSystem.AddFont(JamGame.Content.OpenStream("Fonts/Arial.ttf"));
 
+            Size backgroundSize = SizeManager.GetSize(JamGame.BaseWidth, JamGame.BaseHeight);
+            Sprite backgroundSprite = new Sprite()
+            {
+                Position = SizeManager.GetPosition(0, 0),
+                Texture = ContentManager.BackgroundTexture,
+                Size = SizeManager.GetSize(JamGame.ActualWidth, JamGame.ActualHeight)
+            };
+            AddComponent(backgroundSprite, States.Layers.Background);
+
             Label title = new Label()
             {
                 Text = "Day Summary",
@@ -73,7 +85,7 @@ namespace Bliss.States.Summary
             innerGrid.Widgets.Add(GetStatGrid("Missed Calls:", PlayerStats.MissedCalls.ToString(), 5, PlayerStats.MissedCalls >= 1 ? Color.Red : Color.Black));
             innerGrid.Widgets.Add(GetStatGrid("Prematurely Ended Calls:", PlayerStats.WronglyEndedCalls.ToString(), 6, PlayerStats.WronglyEndedCalls >= 1 ? Color.Red : Color.Black));
             innerGrid.Widgets.Add(GetStatGrid("Warning Notices:", PlayerStats.Warnings.ToString(), 7,
-                PlayerStats.Warnings == 0 ? Color.Green : PlayerStats.Warnings >= 1 && PlayerStats.Warnings < 3 ? Color.Yellow : Color.Red));
+                PlayerStats.Warnings == 0 ? Color.LightGreen : PlayerStats.Warnings >= 1 && PlayerStats.Warnings < 3 ? Color.Yellow : Color.Red));
 
             TextButton button = new TextButton
             {
