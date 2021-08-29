@@ -44,6 +44,7 @@ namespace Bliss.States.Game
         private List<PhoneCall> Calls { get; set; }
 
         private bool PlayTutorial { get; set; }
+        private bool DidSpawnDocuments { get; set; } = false;
 
         private Random Random { get; set; } = new Random();
 
@@ -203,8 +204,15 @@ namespace Bliss.States.Game
         {
             if (Clock.Hour >= 16 && Clock.Minute >= 30) return;
 
-            if (Clock.Hour == 9 && Clock.Minute == 0 || Clock.Hour == 13 && Clock.Minute == 0)
-                SpawnDocument();
+            if ((Clock.Hour == 9 && Clock.Minute == 0 || Clock.Hour == 13 && Clock.Minute == 0))
+            {
+                if (!DidSpawnDocuments)
+                {
+                    DidSpawnDocuments = true;
+                    SpawnDocument(null, 10);
+                }
+            }
+            else DidSpawnDocuments = false;
 
             DocumentSpawnTimer += gameTime.ElapsedGameTime.TotalSeconds;
 
@@ -216,30 +224,33 @@ namespace Bliss.States.Game
             }
         }
 
-        private void SpawnDocument(DocumentType? documentType = null)
+        private void SpawnDocument(DocumentType? documentType = null, int count = 1)
         {
-            AudioManager.PlayEffect(ContentManager.DocumentSpawnedSoundEffect);
-            BaseDocument document = null;
-
-            if (documentType is null)
-                document = DocumentFactory.GetRandomDocument(DocumentSpawnPoints[Random.Next(0, DocumentSpawnPoints.Count)].Position, Table.Rectangle);
-            else
-                document = DocumentFactory.GetDocument(DocumentSpawnPoints[Random.Next(0, DocumentSpawnPoints.Count)].Position, Table.Rectangle, documentType.Value);
-
-            document.OnClick += DocumentClicked;
-            document.OnDragStopped += DocumentDragStopped;
-            document.OnDragUpdate += (sender, e) =>
+            for (int i = 0; i < count; i++)
             {
-                if (!Table.Rectangle.Contains(Mouse.GetState().Position))
-                {
-                    document.Color = Color.OrangeRed;
-                }
+                AudioManager.PlayEffect(ContentManager.DocumentSpawnedSoundEffect);
+                BaseDocument document = null;
+
+                if (documentType is null)
+                    document = DocumentFactory.GetRandomDocument(DocumentSpawnPoints[Random.Next(0, DocumentSpawnPoints.Count)].Position, Table.Rectangle);
                 else
+                    document = DocumentFactory.GetDocument(DocumentSpawnPoints[Random.Next(0, DocumentSpawnPoints.Count)].Position, Table.Rectangle, documentType.Value);
+
+                document.OnClick += DocumentClicked;
+                document.OnDragStopped += DocumentDragStopped;
+                document.OnDragUpdate += (sender, e) =>
                 {
-                    document.Color = Color.White;
-                }
-            };
-            AddComponent(document, States.Layers.PlayingArea);
+                    if (!Table.Rectangle.Contains(Mouse.GetState().Position))
+                    {
+                        document.Color = Color.OrangeRed;
+                    }
+                    else
+                    {
+                        document.Color = Color.White;
+                    }
+                };
+                AddComponent(document, States.Layers.PlayingArea);
+            }
         }
 
         private void HandlePhoneCall(GameTime gameTime)
@@ -271,9 +282,9 @@ namespace Bliss.States.Game
             SetStickyNoteValidators();
             StickyNote.Extend(true);
 
-            for (int i = 0; i < 10; i++)
-                if (Clock.Hour < 16 && Clock.Minute < 30)
-                    SpawnDocument();
+            if (Clock.Hour < 16 && Clock.Minute < 30 && Clock.Hour != 9 && Clock.Minute != 0)
+                if (PlayerStats.Day > 0)
+                    SpawnDocument(null, 10);
         }
 
         private void SetStickyNoteValidators()
