@@ -1414,22 +1414,22 @@ namespace Bliss.Factories
                     new VoiceLine()
                     {
                         Text = "If I could I'd kill every single stupid braindead monkey from accounting.",
-                        Voice = ContentManager.BettyPentagram1SoundEffect.CreateInstance()
+                        Voice = ContentManager.BettyPaycheck1SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "NONE OF THE CHECKS I RECEIVED TODAY hat a department listed on them.",
-                        Voice = ContentManager.BettyPentagram2SoundEffect.CreateInstance()
+                        Voice = ContentManager.BettyPaycheck2SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "So from now on, when you get a paycheck",
-                        Voice = ContentManager.BettyPentagram3SoundEffect.CreateInstance()
+                        Voice = ContentManager.BettyPaycheck3SoundEffect.CreateInstance()
                     },
                     new VoiceLine()
                     {
                         Text = "please confirm that there is a department on it and that it is a valid one.",
-                        Voice = ContentManager.BettyPentagram4SoundEffect.CreateInstance()
+                        Voice = ContentManager.BettyPaycheck4SoundEffect.CreateInstance()
                     }
                 }
             };
