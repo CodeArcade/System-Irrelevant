@@ -26,7 +26,7 @@ namespace Bliss.Models
 
                         return false;
                     },
-                    Description = "Only applications sent by women",
+                    Description = "Toss applications sent by men"
                 };
             }
         }
@@ -47,6 +47,7 @@ namespace Bliss.Models
                         return false;
                     },
                     Description = "Toss all applications sent by men",
+                    ShowOnStickyNote = false
                 };
             }
         }
@@ -66,7 +67,8 @@ namespace Bliss.Models
 
                         return false;
                     },
-                    Description = "Toss paychecks if not adressed to valid departments:" + Environment.NewLine + "Human Resources, Public Relations, Research and Development, IT, Accounting"
+                    Description = "Toss paychecks if not adressed to valid departments:" + Environment.NewLine + "Human Resources, Public Relations, Research and Development, IT, Accounting",
+                    ShowOnStickyNote = false
                 };
             }
         }
@@ -107,7 +109,8 @@ namespace Bliss.Models
 
                         return false;
                     },
-                    Description = "Toss letters without stamp and return address"
+                    Description = "Toss letters without stamp and return address",
+                    ShowOnStickyNote = false
                 };
             }
         }
@@ -157,7 +160,8 @@ namespace Bliss.Models
                         }
                         return false;
                     },
-                    Description = "Toss without signature"
+                    Description = "Toss without signature",
+                    ShowOnStickyNote = false
                 };
             }
         }
@@ -187,7 +191,8 @@ namespace Bliss.Models
                         }
                         return false;
                     },
-                    Description = "Toss from non-american applicants"
+                    Description = "Toss from non-american applicants",
+                    ShowOnStickyNote = false
                 };
             }
         }
@@ -217,7 +222,8 @@ namespace Bliss.Models
                         }
                         return false;
                     },
-                    Description = "Toss applications from northern countries"
+                    Description = "Toss applications from northern countries",
+                    ShowOnStickyNote = false
                 };
             }
         }
@@ -291,7 +297,8 @@ namespace Bliss.Models
                         }
                         return false;
                     },
-                    Description = "Toss applicationsn from northern countries"
+                    Description = "Toss applicationsn from northern countries",
+                    ShowOnStickyNote = false
                 };
             }
         }
@@ -357,7 +364,8 @@ namespace Bliss.Models
                 return new Rule(DocumentType.Classified)
                 {
                     Description = "Toss in trash",
-                    Validate = document => document is Classified
+                    Validate = document => document is Classified,
+                    ShowOnStickyNote = true
                 };
             }
         }

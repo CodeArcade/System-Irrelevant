@@ -18,6 +18,7 @@ namespace Bliss.Models
         public string Description { get; set; }
         public DocumentType DocumentType { get; set; }
         public Func<BaseDocument, bool> Validate { get; set; }
+        public bool  ShowOnStickyNote { get; set; } = true;
 
         public Rule(DocumentType documentType)
         {

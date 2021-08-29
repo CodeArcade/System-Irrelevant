@@ -106,7 +106,7 @@ namespace Bliss.Component.Sprites.Office
             }
 
             int lastIndex = 0;
-            List<Rule> rules = ActiveRules.ToList().SelectMany(x => x.Value).ToList();
+            List<Rule> rules = ActiveRules.ToList().SelectMany(x => x.Value).Where(x => x.ShowOnStickyNote).ToList();
             AddDocumentLabels(grid, rules.Where(x => x.DocumentType == DocumentType.Application).ToList(), ref lastIndex, fontSystem, DocumentType.Application);
             AddDocumentLabels(grid, rules.Where(x => x.DocumentType == DocumentType.Contract).ToList(), ref lastIndex, fontSystem, DocumentType.Contract);
             AddDocumentLabels(grid, rules.Where(x => x.DocumentType == DocumentType.Letter).ToList(), ref lastIndex, fontSystem, DocumentType.Letter);

@@ -1303,7 +1303,6 @@ namespace Bliss.Factories
                         OrganizerIds.Red, new List<Rule>()
                         {
                             Rules.IsApplicationForRed,
-                            Rules.AmericanApplicants,
                             Rules.NoMaleApplicants,
                             Rules.IsPaycheckForRed,
                             Rules.FuckNorthernEurope
@@ -1320,7 +1319,6 @@ namespace Bliss.Factories
                         OrganizerIds.Bin, new List<Rule>()
                         {
                             Rules.IsClassified,
-                            Rules.HardcoreRacism,
                             Rules.MaleApplicants,
                             Rules.UnsignedContracts,
                             Rules.InvalidLetter,
@@ -1386,7 +1384,6 @@ namespace Bliss.Factories
                         OrganizerIds.Red, new List<Rule>()
                         {
                             Rules.IsApplicationForRed,
-                            Rules.AmericanApplicants,
                             Rules.NoMaleApplicants,
                             Rules.IsPaycheckForRed,
                             Rules.FuckNorthernEurope,
@@ -1404,7 +1401,6 @@ namespace Bliss.Factories
                         OrganizerIds.Bin, new List<Rule>()
                         {
                             Rules.IsClassified,
-                            Rules.HardcoreRacism,
                             Rules.MaleApplicants,
                             Rules.UnsignedContracts,
                             Rules.InvalidLetter,

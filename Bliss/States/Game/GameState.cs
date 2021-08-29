@@ -196,14 +196,17 @@ namespace Bliss.States.Game
 
         private void HandleDocumentSpawn(GameTime gameTime)
         {
-            if (Clock.Hour >= 16) return;
+            if (Clock.Hour >= 16 && Clock.Minute >= 30) return;
+
+            if (Clock.Hour == 9 && Clock.Minute == 0 || Clock.Hour == 13 && Clock.Minute == 0)
+                SpawnDocument();
 
             DocumentSpawnTimer += gameTime.ElapsedGameTime.TotalSeconds;
 
             if (DocumentSpawnTimer >= SecondsToNextDocument)
             {
                 SpawnDocument();
-                SecondsToNextDocument = Random.Next(5, 16);
+                SecondsToNextDocument = Random.Next(3, 8);
                 DocumentSpawnTimer = 0;
             }
         }
@@ -262,6 +265,10 @@ namespace Bliss.States.Game
             AudioManager.PlayEffect(ContentManager.NewRuleSoundEffect);
             SetStickyNoteValidators();
             StickyNote.Extend(true);
+
+            for (int i = 0; i < 10; i++)
+                if (Clock.Hour < 16 && Clock.Minute < 30)
+                    SpawnDocument();
         }
 
         private void SetStickyNoteValidators()
