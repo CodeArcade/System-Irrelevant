@@ -20,4 +20,4 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build --no-restore -r linux-x64 -c Release
+      run: dotnet build --no-restore -c Release
